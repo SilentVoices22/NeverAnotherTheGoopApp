@@ -122,7 +122,6 @@ fun FalloutMailBox() {
             modifier = Modifier.fillMaxWidth()
         )
 
-
         Button(
             onClick = { },
             modifier = Modifier
@@ -139,7 +138,6 @@ fun FalloutMailBox() {
         }
     }
 }
-
 
 @Composable //Oliver
 fun MeantineText() {
@@ -200,8 +198,6 @@ fun MeantineText() {
     }
 }
 
-
-
     @Composable //Oliver
     fun FalloutPageBody(){
         Column(modifier = Modifier.fillMaxSize()) {
@@ -217,5 +213,3 @@ fun MeantineText() {
 fun FalloutPreview() {
     FalloutPageBody()
 }
-
-
