@@ -87,7 +87,7 @@ fun FalloutText() {
         )
         Spacer(modifier = Modifier.height(10.dp) )
         Text(
-            text = "You're just outside our current range, but we’d love to fit you in soon."
+            text = "You're just outside our current range, \nbut we’d love to fit you in soon."
         )
     }
 }
