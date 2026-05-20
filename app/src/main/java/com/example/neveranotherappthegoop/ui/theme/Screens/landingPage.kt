@@ -125,7 +125,7 @@ fun LandingPageBody() {
             modifier = Modifier.padding(start = 24.dp, end = 24.dp, bottom = 40.dp, top = 40.dp),
             textAlign = TextAlign.Center,
             )
-        NaButton()
+        NaButton("Create my bra")
     }
 }
 

@@ -1,5 +1,6 @@
 package com.example.neveranotherappthegoop.data
 
+import android.R
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -18,7 +19,7 @@ import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 @Composable
-fun NaButton(){
+fun NaButton(textButton: String){
     Button(onClick = { },
         modifier = Modifier
             .padding(top = 10.dp)
@@ -29,7 +30,7 @@ fun NaButton(){
             containerColor = Orangevibrant,
             contentColor = Color.White)
     ){
-        Text( text = "Create my Bra",
+        Text( text = textButton,
             fontSize = 20.sp)
     }
 }
