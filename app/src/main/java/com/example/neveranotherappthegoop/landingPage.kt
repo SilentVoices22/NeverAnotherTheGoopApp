@@ -59,7 +59,7 @@ fun LandingPageText(){
 
  }
 }
-<!--- Kevin --->
+
 @Composable
 fun LandingPageBody(){
     Column(modifier = Modifier.fillMaxSize()) {
