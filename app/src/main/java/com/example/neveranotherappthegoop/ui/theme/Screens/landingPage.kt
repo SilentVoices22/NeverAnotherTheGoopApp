@@ -1,9 +1,9 @@
-package com.example.neveranotherappthegoop
+package com.example.neveranotherappthegoop.ui.theme.Screens
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.focusGroup
+import android.R.attr.onClick
+import android.widget.Button
+import androidx.compose.foundation.gestures.snapping.SnapPosition
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,18 +11,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,13 +24,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.data.IcMenu
 import com.example.neveranotherappthegoop.data.IcShoppingCart
-import com.example.neveranotherappthegoop.data.IcTapeMeasure
 import com.example.neveranotherappthegoop.data.NALogoName
 import com.example.neveranotherappthegoop.data.NaAbout1
+import com.example.neveranotherappthegoop.data.NaButton
 import com.example.neveranotherappthegoop.data.PoseAnklePic
 import com.example.neveranotherappthegoop.data.ThreeStepList
 import com.example.neveranotherappthegoop.ui.theme.CharcoalGrey
-import org.w3c.dom.Text
 
 @Composable
 fun Topbar() {
@@ -110,8 +103,9 @@ fun LandingPagePicture() {
 @Composable
 fun LandingPageBody() {
     Column(modifier = Modifier
-        .fillMaxWidth()
-        .padding(top = 24.dp)
+        .fillMaxSize()
+        .padding(top = 24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Topbar()
         LandingPageText()
@@ -128,8 +122,10 @@ fun LandingPageBody() {
             fontWeight = FontWeight.Normal,
             style = MaterialTheme.typography.bodyMedium,
             color = CharcoalGrey,
-            modifier = Modifier.padding(start = 24.dp, end = 24.dp),
-            textAlign = TextAlign.Center)
+            modifier = Modifier.padding(start = 24.dp, end = 24.dp, bottom = 40.dp, top = 40.dp),
+            textAlign = TextAlign.Center,
+            )
+        NaButton()
     }
 }
 
