@@ -1,7 +1,9 @@
 package com.example.neveranotherappthegoop
 
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -13,6 +15,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -37,14 +42,26 @@ fun ResultsPageBody() {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(Color.White)
             .padding(36.dp)
     ) {
 
-        // "Here are your results" + underoverskrift
+        // "Here are your results" + tekst
         ResultsHeader()
 
         // bra image + measurements
         MeasurementCard()
+
+        //
+        ListOfBenefits()
+
+        //
+        ActionButtons()
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // "Made for you - Made-to-order - Free size guarantee"
+        BottomDetails()
 
     }
 }
@@ -53,11 +70,12 @@ fun ResultsPageBody() {
 @Composable
 fun ResultsHeader() {
 
-    Text(
-        text = "Here are your \nresults",
-        fontSize = 32.sp,
-        fontWeight = FontWeight.Medium,
-        color = Color(0xFF393838)
+    // "Here are your results" (screenshot pga håndtegnet streg)
+    Image(
+        painter = painterResource(id = R.drawable.resultsheader),
+        contentDescription = null,
+        modifier = Modifier.fillMaxWidth(),
+        alignment = Alignment.Companion.TopStart
     )
 
     Spacer(modifier = Modifier.height(12.dp))
@@ -95,7 +113,7 @@ fun MeasurementCard() {
                 // lys ramme omkring measurements
                 .border(
                     width = 1.5.dp,
-                    color = Color(0xFFE7E3DA),
+                    color = Color(0xFFF9F6EE),
 
                     // only bottom corners rounded
                     shape = RoundedCornerShape(
@@ -164,6 +182,92 @@ fun MeasurementItem(
             color = Color(0xFF393838),
         )
     }
+}
+
+
+@Composable
+fun ListOfBenefits() {
+
+    Column(
+        modifier = Modifier.padding(30.dp))
+    {
+
+        Text(
+            text = "Why this fit is made for you",
+            fontSize = 14.sp,
+            fontWeight = FontWeight.SemiBold,
+            color = Color(0xFFFF5F00),
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text("✓   Designed for your natural shape",
+            fontSize = 14.sp,
+            color = Color(0xFF393838),)
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text("✓   Provides support without wires",
+            fontSize = 14.sp,
+            color = Color(0xFF393838),)
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text("✓   Seamless for maximum comfort",
+            fontSize = 14.sp,
+            color = Color(0xFF393838),)
+    }
+}
+
+
+@Composable
+fun ActionButtons() {
+
+    Column {
+
+        // View product button
+        Button(
+            onClick = {},
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp),
+            colors = ButtonDefaults.buttonColors(Color(0xFFFF5F00)),
+            shape = RoundedCornerShape(10.dp)
+        ) {
+            Text("View Product",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Normal)
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Retake measurements button
+        OutlinedButton(
+            onClick = {},
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp),
+            border = BorderStroke(1.dp, Color(0xFFFF5F00)),
+            shape = RoundedCornerShape(10.dp)
+        ) {
+            Text("Retake measurements",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Normal,
+                color = Color(0xFFFF5F00))
+        }
+    }
+}
+
+
+@Composable
+fun BottomDetails() {
+
+    Image(
+        painter = painterResource(id = R.drawable.guaranteebottomtext),
+        contentDescription = null,
+        modifier = Modifier.fillMaxWidth(),
+        contentScale = ContentScale.FillWidth
+    )
 }
 
 
