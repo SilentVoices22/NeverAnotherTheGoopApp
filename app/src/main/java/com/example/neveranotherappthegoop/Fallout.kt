@@ -63,7 +63,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 
 
-@Composable
+@Composable //Kevin
     fun FalloutTopbar(){
         Row(modifier = Modifier
             .fillMaxWidth()
@@ -76,7 +76,7 @@ import androidx.compose.ui.text.withStyle
         }
     }
 
-@Composable
+@Composable //Oliver
 fun FalloutText() {
     Column(modifier = Modifier.padding(vertical = 10.dp, horizontal = 50.dp)) {
         Text(
@@ -92,7 +92,7 @@ fun FalloutText() {
     }
 }
 
-@Composable
+@Composable //Oliver
 fun FalloutMailBox() {
 
     var email by remember { mutableStateOf("") }
@@ -141,7 +141,7 @@ fun FalloutMailBox() {
 }
 
 
-@Composable
+@Composable //Oliver
 fun MeantineText() {
 
     Column(modifier = Modifier.padding(horizontal = 50.dp)) {
@@ -202,7 +202,7 @@ fun MeantineText() {
 
 
 
-    @Composable
+    @Composable //Oliver
     fun FalloutPageBody(){
         Column(modifier = Modifier.fillMaxSize()) {
             FalloutTopbar()
