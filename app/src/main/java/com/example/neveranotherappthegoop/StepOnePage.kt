@@ -32,7 +32,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import com.example.neveranotherappthegoop.ui.theme.Orange1
+import com.example.neveranotherappthegoop.ui.theme.Orange2
 import com.example.neveranotherappthegoop.ui.theme.color
 
 
@@ -69,15 +69,15 @@ fun TopBar() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 36.dp)
+
 
     ) {
 
         Image(
-            painter = painterResource(id = R.drawable.stepone),
+            painter = painterResource(id = R.drawable.topbar1),
             contentDescription = "Step One",
 
-            modifier = Modifier.align(Alignment.TopCenter)
+            modifier = Modifier.align(Alignment.TopCenter).width(220.dp)
 
         )
     }
@@ -222,7 +222,7 @@ fun ContinueButton() {
             shape = RoundedCornerShape(10.dp),
             colors = ButtonDefaults.buttonColors(
 
-                containerColor = Orange1
+                containerColor = Orange2
 
             )
 
