@@ -93,7 +93,7 @@ fun ExpectationsText() {
     }
 }
 
-@Composable
+@Composable //Oliver
 fun NeedText() {
 
     Column(modifier = Modifier
@@ -142,7 +142,7 @@ fun NeedText() {
     }
 }
 
-@Composable
+@Composable //Oliver
 fun ExplainText() {
     Column(
         modifier = Modifier.padding(horizontal = 50.dp)
@@ -155,7 +155,7 @@ fun ExplainText() {
     }
 }
 
-@Composable
+@Composable //Oliver
 fun pressureBox() {
     Column(modifier = Modifier
         .fillMaxWidth()
@@ -181,7 +181,7 @@ fun pressureBox() {
     }
 }
 
-@Composable
+@Composable //Oliver
 fun BeginButton() {
     Column(modifier = Modifier.padding(vertical = 10.dp, horizontal = 50.dp)) {
 
