@@ -37,3 +37,32 @@ fun IcShoppingCart(){
         modifier = Modifier.size(24.dp)
     )
 }
+
+@Composable
+fun BackArrow(){
+    Image(
+
+        painter = painterResource(id = R.drawable.arrow_back_24px),
+        contentDescription = "Arrow Back",
+        modifier = Modifier.size(24.dp)
+
+    )
+
+
+}
+
+@Composable
+fun OrangeLine (){
+    Image(  painter = painterResource(id = R.drawable.v2),
+        contentDescription = "Orange Line",
+        modifier = Modifier.size(24.dp)
+    )
+}
+
+@Composable
+fun Brather (){
+    Image( painter = painterResource(id = R.drawable.brather),
+        contentDescription = "Bra Icon",
+        modifier = Modifier.size(12.dp)
+    )
+}
