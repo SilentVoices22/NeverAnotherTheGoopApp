@@ -56,4 +56,5 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.ui.text.google.fonts)
+    implementation("androidx.compose.material:material-icons-extended")
 }
