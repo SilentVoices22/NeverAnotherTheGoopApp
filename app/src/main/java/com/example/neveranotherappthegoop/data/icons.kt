@@ -1,22 +1,61 @@
 package com.example.neveranotherappthegoop.data
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.neveranotherappthegoop.R
 
+// Icons
+
+@Composable
+fun IcTapeMeasure(){
+    Image(
+        painter = painterResource(id = R.drawable.tapemeassure),
+        contentDescription = "Never Another Logo",
+        modifier = Modifier.size(145.dp)
+    )
+}
+@Composable
+fun OrangeStrej(){
+    Image(
+        painter = painterResource(id = R.drawable.orangestreg),
+        contentDescription = "Never Another Logo",
+        modifier = Modifier.size(145.dp)
+    )
+}
+@Composable
+fun IcHeart(){
+    Image(
+        painter = painterResource(id = R.drawable.hearticon),
+        contentDescription = "Never Another Logo",
+        modifier = Modifier.size(145.dp)
+    )
+}
+
+@Composable
+fun IcBra(){
+    Image(
+        painter = painterResource(id = R.drawable.bra),
+        contentDescription = "Never Another Logo",
+        modifier = Modifier.size(145.dp)
+    )
+}
 
     @Composable
     fun NALogoName(){
         Image(
             painter = painterResource(id = R.drawable.na_logo_black700),
             contentDescription = "Never Another Logo",
-            modifier = Modifier.size(145.dp)
+            modifier = Modifier
+                .width(145.dp)
+                .height(40.dp)
         )
     }
 
@@ -35,5 +74,36 @@ fun IcShoppingCart(){
         painter = painterResource(id = R.drawable.shopping_bag_24px),
         contentDescription = "Shopping Cart",
         modifier = Modifier.size(24.dp)
+    )
+}
+
+// Pictures
+@Composable
+fun NaAbout1(modifier: Modifier = Modifier){
+ Image(
+     painter = painterResource(id = R.drawable.naabout1web),
+     contentDescription = "Never Another Group picture",
+     modifier = modifier,
+     contentScale = ContentScale.Crop
+ )
+}
+
+@Composable
+fun PoseAnklePic(modifier: Modifier = Modifier){
+    Image(
+        painter = painterResource(id = R.drawable.prodw1),
+        contentDescription = "Never Another ankle picture",
+        modifier = modifier,
+        contentScale = ContentScale.Crop
+    )
+}
+
+@Composable
+fun ThreeStepList(modifier: Modifier = Modifier){
+    Image(
+        painter = painterResource(id = R.drawable.bulletlist),
+        contentDescription = "Never Another ankle picture",
+        modifier = modifier,
+        contentScale = ContentScale.Crop
     )
 }

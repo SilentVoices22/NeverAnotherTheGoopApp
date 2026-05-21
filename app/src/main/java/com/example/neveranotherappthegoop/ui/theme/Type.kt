@@ -4,31 +4,40 @@ import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.googlefonts.Font
+import androidx.compose.ui.text.googlefonts.GoogleFont
 import androidx.compose.ui.unit.sp
+// Replace with your actual project package name to reference the auto-generated certs
+import com.example.neveranotherappthegoop.R
 
-// Set of Material typography styles to start with
+
+// used Ai to write line of code, to find out how to use fonts in the newest android studio. - Kevin 26/05/20
+val provider = GoogleFont.Provider(
+    providerAuthority = "com.google.android.gms.fonts",
+    providerPackage = "com.google.android.gms",
+    certificates = R.array.com_google_android_gms_fonts_certs // Points to the file Android Studio made!
+)
+
+// 2. Choose your Google Font
+val InterFont = GoogleFont("Inter")
+
+// 3. Combine them into a Compose FontFamily
+val InterFontFamily = FontFamily(
+    Font(googleFont = InterFont, fontProvider = provider, weight = FontWeight.Normal),
+    Font(googleFont = InterFont, fontProvider = provider, weight = FontWeight.Medium),
+    Font(googleFont = InterFont, fontProvider = provider, weight = FontWeight.Bold)
+)
+
+// 4. Map it to your Theme's default styles
 val Typography = Typography(
     bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = InterFontFamily,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
-    )
-    /* Other default text styles to override
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
+        fontSize = 16.sp
     ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
+    titleLarge = TextStyle(
+        fontFamily = InterFontFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = 22.sp
     )
-    */
 )
