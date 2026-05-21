@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop
+package com.example.neveranotherappthegoop.ui.theme.Screens
 
 
 import androidx.compose.foundation.BorderStroke
@@ -29,6 +29,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.neveranotherappthegoop.R
+import com.example.neveranotherappthegoop.data.IcMenu
+import com.example.neveranotherappthegoop.data.IcShoppingCart
+import com.example.neveranotherappthegoop.data.NALogoName
 
 
 // ====================
@@ -43,8 +47,13 @@ fun ResultsPageBody() {
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White)
-            .padding(36.dp)
+            .padding(top = 30.dp, start = 30.dp, end = 30.dp)
     ) {
+
+        // top bar by kevin
+        ResultsTopBar()
+
+        Spacer(modifier = Modifier.height(10.dp))
 
         // "Here are your results" + tekst
         ResultsHeader()
@@ -52,17 +61,40 @@ fun ResultsPageBody() {
         // bra image + measurements
         MeasurementCard()
 
-        //
+        // "Why this fit is made for you" points
         ListOfBenefits()
 
-        //
-        ActionButtons()
+        // orange knap
+        ViewButton()
 
+        // space mellem knapperne
         Spacer(modifier = Modifier.height(16.dp))
+
+        // hvid knap
+        RetakeButton()
+
+        // space mellem knap og bottom details
+        Spacer(modifier = Modifier.height(20.dp))
 
         // "Made for you - Made-to-order - Free size guarantee"
         BottomDetails()
 
+    }
+}
+
+
+@Composable
+fun ResultsTopBar() {
+
+    // top bar by kevin
+    Row(
+        modifier = Modifier
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        IcMenu()
+        NALogoName()
+        IcShoppingCart()
     }
 }
 
@@ -75,7 +107,7 @@ fun ResultsHeader() {
         painter = painterResource(id = R.drawable.resultsheader),
         contentDescription = null,
         modifier = Modifier.fillMaxWidth(),
-        alignment = Alignment.Companion.TopStart
+        alignment = Alignment.TopStart
     )
 
     Spacer(modifier = Modifier.height(12.dp))
@@ -216,14 +248,14 @@ fun ListOfBenefits() {
         Text("✓   Seamless for maximum comfort",
             fontSize = 14.sp,
             color = Color(0xFF393838),)
+
+        Spacer(modifier = Modifier.height(10.dp))
     }
 }
 
 
 @Composable
-fun ActionButtons() {
-
-    Column {
+fun ViewButton() {
 
         // View product button
         Button(
@@ -234,27 +266,29 @@ fun ActionButtons() {
             colors = ButtonDefaults.buttonColors(Color(0xFFFF5F00)),
             shape = RoundedCornerShape(10.dp)
         ) {
-            Text("View Product",
+            Text("View product",
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Normal)
         }
+}
 
-        Spacer(modifier = Modifier.height(16.dp))
 
-        // Retake measurements button
-        OutlinedButton(
-            onClick = {},
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(50.dp),
-            border = BorderStroke(1.dp, Color(0xFFFF5F00)),
-            shape = RoundedCornerShape(10.dp)
-        ) {
-            Text("Retake measurements",
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Normal,
-                color = Color(0xFFFF5F00))
-        }
+@Composable
+fun RetakeButton() {
+
+    // Retake measurements button
+    OutlinedButton(
+        onClick = {},
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(50.dp),
+        border = BorderStroke(1.dp, Color(0xFFFF5F00)),
+        shape = RoundedCornerShape(10.dp)
+    ) {
+        Text("Retake measurements",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Normal,
+            color = Color(0xFFFF5F00))
     }
 }
 
@@ -262,6 +296,7 @@ fun ActionButtons() {
 @Composable
 fun BottomDetails() {
 
+    // "Made for you - Made-to-order - Free size guarantee"
     Image(
         painter = painterResource(id = R.drawable.guaranteebottomtext),
         contentDescription = null,
