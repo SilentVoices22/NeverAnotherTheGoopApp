@@ -2,7 +2,6 @@ package com.example.neveranotherappthegoop.data
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
@@ -46,7 +45,7 @@ fun IcHeart(modifier: Modifier = Modifier, color: Color){
 @Composable
 fun IcBra(){
     Image(
-        painter = painterResource(id = R.drawable.bra),
+        painter = painterResource(id = R.drawable.brahuman),
         contentDescription = "Never Another Logo",
         modifier = Modifier.size(145.dp)
     )

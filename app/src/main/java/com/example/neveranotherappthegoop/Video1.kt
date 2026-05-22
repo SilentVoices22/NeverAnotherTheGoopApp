@@ -16,16 +16,12 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.media3.common.MediaItem
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
-import com.example.neveranotherappthegoop.data.NALogoName
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
-import androidx.media3.exoplayer.upstream.Allocation
 
 
 @Composable
