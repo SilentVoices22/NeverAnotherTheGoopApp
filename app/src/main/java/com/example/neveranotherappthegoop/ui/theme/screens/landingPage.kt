@@ -1,17 +1,12 @@
-package com.example.neveranotherappthegoop.ui.theme.Screens
+package com.example.neveranotherappthegoop.ui.theme.screens
 
-import android.R.attr.onClick
-import android.widget.Button
-import androidx.compose.foundation.gestures.snapping.SnapPosition
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -68,11 +63,9 @@ fun LandingPageText() {
                 fontWeight = FontWeight.Medium,
                 style = MaterialTheme.typography.titleLarge.copy(),
                 lineHeight = 40.sp,
-                color = CharcoalGrey
+                color = CharcoalGrey,
+                modifier = Modifier.padding(bottom = 12.dp)
             )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
             Text(
                 text = "Finally. Comfort that fits your body and your life",
                 fontSize = 16.sp,

@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.neveranotherappthegoop.ui.theme.Screens.LandingPageBody
-import com.example.neveranotherappthegoop.ui.theme.Screens.Topbar
+import com.example.neveranotherappthegoop.ui.theme.screens.LandingPageBody
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,9 +16,5 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun MainScreenPreviewer() {
-    Topbar()
-}
+
 

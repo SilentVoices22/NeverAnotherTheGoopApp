@@ -7,23 +7,26 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.BlendMode
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.neveranotherappthegoop.R
 
-// Icons
+// Icons Kevin 26/05/18
 
 @Composable
 fun IcTapeMeasure(){
     Image(
         painter = painterResource(id = R.drawable.tapemeassure),
         contentDescription = "Never Another Logo",
-        modifier = Modifier.size(145.dp)
+        modifier = Modifier.size(120.dp)
     )
 }
 @Composable
-fun OrangeStrej(){
+fun IcOrangeLine(){
     Image(
         painter = painterResource(id = R.drawable.orangestreg),
         contentDescription = "Never Another Logo",
@@ -31,11 +34,12 @@ fun OrangeStrej(){
     )
 }
 @Composable
-fun IcHeart(){
+fun IcHeart(modifier: Modifier = Modifier, color: Color){
     Image(
         painter = painterResource(id = R.drawable.hearticon),
         contentDescription = "Never Another Logo",
-        modifier = Modifier.size(145.dp)
+        modifier = Modifier,
+        colorFilter = ColorFilter.tint(color, blendMode = BlendMode.SrcIn)
     )
 }
 

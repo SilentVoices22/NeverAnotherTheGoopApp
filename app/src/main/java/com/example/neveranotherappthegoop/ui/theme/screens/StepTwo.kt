@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop
+package com.example.neveranotherappthegoop.ui.theme.screens
 
 
 import androidx.compose.foundation.BorderStroke
@@ -33,21 +33,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import com.example.neveranotherappthegoop.ui.theme.Orange1
-import com.example.neveranotherappthegoop.ui.theme.color
+import com.example.neveranotherappthegoop.R
+import com.example.neveranotherappthegoop.ui.theme.BoneWhite
+import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
 @Composable
 
 fun StepTwoPage() {
-
     Box(
-
-        modifier = Modifier.background(Color.White)
-
+        modifier = Modifier.background(White)
     ) {
-
-
         TopBar2()
         HeaderText2()
         PictureGuide2()
@@ -55,10 +51,7 @@ fun StepTwoPage() {
         ContinueButton2()
         ImageText2()
         TextField2()
-
     }
-
-
 }
 
 
@@ -70,32 +63,24 @@ fun TopBar2() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-
     ) {
-
         Image(
             painter = painterResource(id = R.drawable.topbar2),
             contentDescription = "Step Two",
-
             modifier = Modifier.align(Alignment.TopCenter).width(220.dp)
-
         )
     }
-
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-
         IconButton(
             onClick = {
                 println("Back clicked")
             },
-
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .padding(24.dp)
         ) {
-
             Icon(
                 imageVector = Icons.Default.ArrowBack,
                 contentDescription = "Back"
@@ -112,52 +97,40 @@ fun TopBar2() {
 
 @Composable
 fun HeaderText2() {
-
     Column(
         modifier = Modifier
             .padding(vertical = 90.dp, horizontal = 50.dp)
     ) {
-
         Text(
             text = "Lower circumference",
             fontSize = 25.sp,
             fontWeight = Bold,
             fontFamily = Monospace
         )
-
         Spacer(modifier = Modifier.height(20.dp))
-
         Text(
             text = "Place the tape measure around the body, " +
                     "right under the bust, where the underwire " +
                     "of a bra would sit. If you’re wearing a " +
                     "wired bra, place the tape underneath the wire."
         )
-
     }
 }
 
 
 @Composable
 fun PictureGuide2() {
-
     Box(
-
         modifier = Modifier.fillMaxSize()
-
     ) {
-
         Image(
-
             painter = painterResource(id = R.drawable.guide2),
             contentDescription = null,
-
             modifier = Modifier
                 .align(alignment = Alignment.Center)
                 .padding(bottom = 105.dp)
                 .width(377.dp)
                 .height(288.dp)
-
         )
     }
 }
@@ -165,20 +138,13 @@ fun PictureGuide2() {
 
 @Composable
 fun VideoGuide2() {
-
     Column(
-
-
         modifier = Modifier
             .fillMaxSize()
             .padding(bottom = 90.dp),
-
-
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
-
     ) {
-
         // View video guide button
         OutlinedButton(
             onClick = {},
@@ -198,22 +164,15 @@ fun VideoGuide2() {
     }
 }
 
-
 @Composable
 fun ContinueButton2() {
-
     Column(
-
-
         modifier = Modifier
             .fillMaxSize()
             .padding(bottom = 20.dp),
-
-
-        verticalArrangement = Arrangement.Bottom, horizontalAlignment = Alignment.CenterHorizontally
-
+        verticalArrangement = Arrangement.Bottom,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         // View video guide button
         OutlinedButton(
             onClick = {},
@@ -223,12 +182,8 @@ fun ContinueButton2() {
             border = BorderStroke(1.dp, Color(0xFFFF5F00)),
             shape = RoundedCornerShape(10.dp),
             colors = ButtonDefaults.buttonColors(
-
-                containerColor = Orange1
-
+                containerColor = Orangevibrant
             )
-
-
         ) {
             Text(
                 "Continue", fontSize = 20.sp, fontWeight = FontWeight.Normal, color = White
@@ -240,88 +195,57 @@ fun ContinueButton2() {
 
 @Composable
 fun ImageText2() {
-
     Column(
-
         modifier = Modifier
             .fillMaxSize()
             .padding(bottom = 170.dp),
-
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
-
-
         ) {
-
         Text(
-
-            text = "Looks good!"
-
-
+            text = "Looks good!",
+            modifier = Modifier.padding(bottom = 5.dp)
         )
-
-        Spacer(modifier = Modifier.height(5.dp))
-
-
         Text(
-
             text = "Make sure the tape is level all around."
-
         )
-
-
     }
 }
 
-
 @Composable
 fun TextField2() {
-
     Column(
-
         modifier = Modifier.fillMaxSize().padding(bottom = 260.dp),
-
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
-
     ) {
-
-
         Text(
-
-            text = "Enter your measurements"
-
+            text = "Enter your measurements",
+            modifier = Modifier.padding(bottom = 10.dp)
         )
-
-        Spacer(modifier = Modifier.height(10.dp))
-
         Box(
-
             modifier = Modifier
                 .width(180.dp)
                 .height(50.dp)
                 .background(
-                    color = color,
-
+                    color = BoneWhite,
                     shape = RoundedCornerShape(12.dp)
                 ),
-
             contentAlignment = Alignment.Center
-
-
         ) {
-
             Text(
-
                 text = "0.00 cm",
                 fontSize = 20.sp
-
             )
-
         }
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun StepTwoPreview(){
+StepTwoPage()
+}
 
 
 

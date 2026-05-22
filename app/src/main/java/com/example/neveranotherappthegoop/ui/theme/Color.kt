@@ -14,6 +14,4 @@ val CharcoalGrey = Color(0xFF393838)
 
 val Orangevibrant = Color(0xFFFF5F00)
 
-val Orange1 = Color(0xFFFF5F00)
-
-val color = Color(0xFFF9F6EE)
+val BoneWhite = Color(0xFFF9F6EE)

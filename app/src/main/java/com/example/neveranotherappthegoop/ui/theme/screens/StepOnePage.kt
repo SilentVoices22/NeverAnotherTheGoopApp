@@ -1,5 +1,4 @@
-package com.example.neveranotherappthegoop
-
+package com.example.neveranotherappthegoop.ui.theme.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -33,73 +32,55 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import com.example.neveranotherappthegoop.ui.theme.Orange1
-import com.example.neveranotherappthegoop.ui.theme.color
+import com.example.neveranotherappthegoop.R
+import com.example.neveranotherappthegoop.ui.theme.BoneWhite
+import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
 @Composable
-
-fun StepThreePage() {
-
+fun StepOnePage() {
     Box(
-
-        modifier = Modifier.background(Color.White)
-
+        modifier = Modifier.background(White)
     ) {
-
-
-        TopBar3()
-        HeaderText3()
-        PictureGuide3()
-        VideoGuide3()
-        ContinueButton3()
-        ImageText3()
-        TextField3()
-
+        StepOneTopBar()
+        HeaderText()
+        PictureGuide()
+        VideoGuide()
+        ContinueButton()
+        ImageText()
+        TextField()
     }
-
 
 }
 
 
 /*-----------------------------------------------Top-Bar--------------------------------------------- */
 
-
 @Composable
-fun TopBar3() {
+fun StepOneTopBar() {
     Box(
-        modifier = Modifier
-            .fillMaxWidth()
-
-
+        modifier = Modifier.fillMaxWidth()
     ) {
-
         Image(
-            painter = painterResource(id = R.drawable.topbar3),
-            contentDescription = "Step Two",
-
-            modifier = Modifier.align(Alignment.TopCenter).width(220.dp)
-
+            painter = painterResource(id = R.drawable.topbar1),
+            contentDescription = "Step One",
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .width(220.dp)
         )
     }
-
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-
         IconButton(
             onClick = {
-                println("Back clicked")
-            },
-
+                println("Back clicked")},
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .padding(24.dp)
         ) {
-
             Icon(
-                imageVector = Icons.Default.ArrowBack,
-                contentDescription = "Back"
+                imageVector = Icons.Default.ArrowBack, contentDescription = "Back"
             )
         }
     }
@@ -109,78 +90,49 @@ fun TopBar3() {
 /*-------------------------------------------HeaderText---------------------------------------------- */
 
 
-
-
 @Composable
-fun HeaderText3() {
-
+fun HeaderText() {
     Column(
-        modifier = Modifier
-            .padding(vertical = 90.dp, horizontal = 50.dp), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
+        modifier = Modifier.padding(vertical = 90.dp, horizontal = 50.dp)
     ) {
-
         Text(
-            text = "Breast span",
+            text = "Upper circumference",
             fontSize = 25.sp,
             fontWeight = Bold,
-            fontFamily = Monospace,
-
-
+            fontFamily = Monospace
         )
-
         Spacer(modifier = Modifier.height(20.dp))
-
         Text(
-            text = "Place the tape measure in a straight " +
-                    "horizontal line across the curve of your bust."
-
+            text = "Place your tape measure around your upper body, " + "and over the fullest part of your chest."
         )
-
     }
 }
 
-
 @Composable
-fun PictureGuide3() {
-
+fun PictureGuide() {
     Box(
-
         modifier = Modifier.fillMaxSize()
-
     ) {
-
         Image(
-
-            painter = painterResource(id = R.drawable.guide3),
-            contentDescription = null,
-
+            painter = painterResource(id = R.drawable.guide), contentDescription = null,
             modifier = Modifier
                 .align(alignment = Alignment.Center)
-                .padding(bottom = 140.dp)
+                .padding(bottom = 105.dp)
                 .width(377.dp)
                 .height(288.dp)
-
         )
     }
 }
 
-
 @Composable
-fun VideoGuide3() {
-
+fun VideoGuide() {
     Column(
-
-
         modifier = Modifier
             .fillMaxSize()
             .padding(bottom = 90.dp),
-
-
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
-
     ) {
-
         // View video guide button
         OutlinedButton(
             onClick = {},
@@ -202,20 +154,14 @@ fun VideoGuide3() {
 
 
 @Composable
-fun ContinueButton3() {
-
+fun ContinueButton() {
     Column(
-
-
         modifier = Modifier
             .fillMaxSize()
             .padding(bottom = 20.dp),
-
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
-
     ) {
-
         // View video guide button
         OutlinedButton(
             onClick = {},
@@ -225,12 +171,8 @@ fun ContinueButton3() {
             border = BorderStroke(1.dp, Color(0xFFFF5F00)),
             shape = RoundedCornerShape(10.dp),
             colors = ButtonDefaults.buttonColors(
-
-                containerColor = Orange1
-
+                containerColor = Orangevibrant
             )
-
-
         ) {
             Text(
                 "Continue", fontSize = 20.sp, fontWeight = FontWeight.Normal, color = White
@@ -239,78 +181,50 @@ fun ContinueButton3() {
     }
 }
 
-
 @Composable
-fun ImageText3() {
-
+fun ImageText() {
     Column(
-
         modifier = Modifier
             .fillMaxSize()
-            .padding(bottom = 180.dp),
-
+            .padding(bottom = 170.dp, start = 30.dp),
         verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-
-
-    ) {
-
+        ) {
         Text(
-
-            text = "Don't tighten the measurement tape, but \n" +
-                    "keep it snug over your bust."
-
-
+            text = "Stand up straight, " + "relax your body, and breathe out.",
+            modifier = Modifier.padding(10.dp)
         )
-
+        Text(
+            text = "The measurement tape should run parallel to the floor, all the way around the body."
+        )
     }
 }
 
-
 @Composable
-fun TextField3() {
-
+fun TextField() {
     Column(
-
-        modifier = Modifier.fillMaxSize().padding(bottom = 260.dp),
-
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(bottom = 260.dp),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
-
     ) {
-
-
         Text(
-
-            text = "Enter your measurements"
-
+            text = "Enter your measurements",
+            modifier = Modifier.padding(10.dp)
         )
-
-        Spacer(modifier = Modifier.height(10.dp))
-
         Box(
-
             modifier = Modifier
                 .width(180.dp)
                 .height(50.dp)
                 .background(
-                    color = color,
-
+                    color = BoneWhite,
                     shape = RoundedCornerShape(12.dp)
                 ),
-
             contentAlignment = Alignment.Center
-
-
         ) {
-
             Text(
-
-                text = "0.00 cm",
-                fontSize = 20.sp
-
+                text = "0.00 cm", fontSize = 20.sp
             )
-
         }
     }
 }
@@ -318,8 +232,8 @@ fun TextField3() {
 
 @Preview(showBackground = true)
 @Composable
-fun MainScreenPreviewer() {
-    StepTwoPage()
+fun StepONePagePreviewer() {
+    StepOnePage()
 }
 
 
