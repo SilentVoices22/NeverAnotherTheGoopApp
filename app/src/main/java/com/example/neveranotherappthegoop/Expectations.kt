@@ -76,11 +76,11 @@ fun ExpectationsTopbar(){
         horizontalArrangement = Arrangement.SpaceBetween // Plads mellem elementerne
     ){
 
-        IcMenu() // Menu ikon
+        IcMenu()
 
-        NALogoName() // Logo/Titel
+        NALogoName()
 
-        IcShoppingCart() // Kurv ikon
+        IcShoppingCart()
     }
 }
 
@@ -91,10 +91,10 @@ fun ExpectationsText() {
     Column(modifier = Modifier.padding(vertical = 10.dp, horizontal = 50.dp)) {
 
         Text(
-            text = "Let´s get\nready", // \n laver linjeskift
-            fontSize = 32.sp, // Tekst størrelse
-            fontWeight = Bold, // Fed tekst
-            fontFamily = Monospace // Skrifttype
+            text = "Let´s get\nready",
+            fontSize = 32.sp,
+            fontWeight = Bold,
+            fontFamily = Monospace
         )
 
         // Spacer laver afstand mellem elementer
@@ -132,7 +132,7 @@ fun NeedText() {
 
         Text(
             text = "You'll need",
-            fontWeight = FontWeight.SemiBold // Halvfed tekst
+            fontWeight = FontWeight.SemiBold
         )
 
         Spacer(modifier = Modifier.height(10.dp))
@@ -177,7 +177,7 @@ fun ExplainText() {
 
         Text(
 
-            // Lang tekst med linjeskift
+
             "Your bra should have a well-fitting underwire, no thick padding, and give you the lift and shape that you like.\n" +
                     "\n" +
                     "You can also wear a wire-free bra, but make sure that it gives you the lift that you want."
@@ -234,7 +234,7 @@ fun BeginButton() {
         modifier = Modifier.padding(vertical = 10.dp, horizontal = 50.dp)
     ) {
 
-        // Button komponent
+
         Button(
 
             onClick = { }, // Hvad der sker ved klik

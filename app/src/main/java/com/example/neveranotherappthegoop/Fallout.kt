@@ -80,10 +80,10 @@ fun FalloutText() {
     Column(modifier = Modifier.padding(vertical = 10.dp, horizontal = 50.dp)) {
 
         Text(
-            text = "We're expanding\nour fit range ♡", // \n laver linjeskift
-            fontSize = 32.sp, // Tekst størrelse
-            fontWeight = Bold, // Gør teksten fed
-            fontFamily = Monospace // Skrifttype
+            text = "We're expanding\nour fit range ♡",
+            fontSize = 32.sp,
+            fontWeight = Bold,
+            fontFamily = Monospace
         )
 
         // Spacer laver afstand mellem elementer
@@ -120,7 +120,7 @@ fun FalloutMailBox() {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        // Input felt til email
+
         OutlinedTextField(
             value = email, // Viser værdien fra variablen
             onValueChange = { email = it }, // Opdaterer email når brugeren skriver
@@ -129,7 +129,7 @@ fun FalloutMailBox() {
             modifier = Modifier.fillMaxWidth()
         )
 
-        // Knap
+
         Button(
             onClick = { }, // Hvad der skal ske når man klikker
             modifier = Modifier
@@ -161,7 +161,7 @@ fun MeantineText() {
 
         Row() {
 
-            // Icon fra drawable mappe
+
             Icon(
                 painter = painterResource(R.drawable.measuringtape),
                 contentDescription = "measuringtape",
