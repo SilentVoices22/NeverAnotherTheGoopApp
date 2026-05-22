@@ -23,6 +23,7 @@ import com.example.neveranotherappthegoop.data.IcHeart
 import com.example.neveranotherappthegoop.data.IcTapeMeasure
 import com.example.neveranotherappthegoop.data.NALogoName
 import com.example.neveranotherappthegoop.data.NaButton
+import com.example.neveranotherappthegoop.data.TopbarErrorRecovery
 import com.example.neveranotherappthegoop.ui.theme.CharcoalGrey
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
@@ -55,17 +56,8 @@ fun ErrorRecovery() {
     }
 }
 
-@Composable
 
-fun TopbarErrorRecovery() {
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(40.dp, Alignment.CenterHorizontally),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        BackArrow()
-        NALogoName()
-    }
-}
+
 
 @Composable
 fun BulletpointErrorRecovery() {

@@ -1,6 +1,8 @@
 package com.example.neveranotherappthegoop.data
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -66,5 +68,17 @@ fun BackArrow() {
                 contentDescription = "Back"
             )
         }
+    }
+}
+
+
+@Composable
+fun TopbarErrorRecovery() {
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(40.dp, Alignment.CenterHorizontally),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        BackArrow()
+        NALogoName()
     }
 }
