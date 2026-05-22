@@ -59,6 +59,7 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
+import com.example.neveranotherappthegoop.data.BackArrow
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
@@ -75,51 +76,40 @@ fun TopbarErrorRecovery() {
 
 @Composable //Oliver
 fun FalloutText() {
-
     // Column placerer elementer lodret
     Column(modifier = Modifier.padding(vertical = 10.dp, horizontal = 50.dp)) {
-
         Text(
-            text = "We're expanding\nour fit range ♡", // \n laver linjeskift
-            fontSize = 32.sp, // Tekst størrelse
-            fontWeight = Bold, // Gør teksten fed
-            fontFamily = Monospace // Skrifttype
+            text = "We're expanding\n" +
+                    "our fit range ♡", // \n laver linjeskift
+            fontSize = 32.sp,
+            fontWeight = Bold,
+            fontFamily = Monospace,
+            modifier = Modifier.padding(bottom = 10.dp)
         )
-
-        // Spacer laver afstand mellem elementer
-        Spacer(modifier = Modifier.height(10.dp) )
-
         Text(
-            text = "You're just outside our current range, \nbut we’d love to fit you in soon."
+            text = "You're just outside our current range, " +
+                    "\nbut we’d love to fit you in soon."
         )
     }
 }
 
 @Composable //Oliver
 fun FalloutMailBox() {
-
-    // State variabel som gemmer email teksten
+    // State variable som gemmer email teksten
     var email by remember { mutableStateOf("") }
-
     Column(
-
         modifier = Modifier
             .padding(vertical = 75.dp, horizontal = 50.dp) // Ydre afstand
             .background(Color(0xFFF9F6EE)) // Baggrundsfarve
             .padding(16.dp), // Indre afstand
-
         verticalArrangement = Arrangement.Center, // Centrerer lodret
         horizontalAlignment = Alignment.CenterHorizontally // Centrerer vandret
-
     )
-
     {
         Text(
             text = "Join the waiting list and be the first to know when we’ve got your size."
         )
-
         Spacer(modifier = Modifier.height(10.dp))
-
         // Input felt til email
         OutlinedTextField(
             value = email, // Viser værdien fra variablen
@@ -128,7 +118,6 @@ fun FalloutMailBox() {
             singleLine = true, // Kun én linje tekst
             modifier = Modifier.fillMaxWidth()
         )
-
         // Knap
         Button(
             onClick = { }, // Hvad der skal ske når man klikker
@@ -136,15 +125,12 @@ fun FalloutMailBox() {
                 .fillMaxWidth()
                 .height(48.dp)
                 .padding(top = 10.dp),
-
             shape = RoundedCornerShape(5.dp), // Runde hjørner
-
             colors = ButtonDefaults.buttonColors(
                 containerColor = Orangevibrant, // Baggrundsfarve på knappen
                 contentColor = Color.White // Tekstfarve
             )
         ) {
-
             Text("Join waiting list")
         }
     }
@@ -152,62 +138,43 @@ fun FalloutMailBox() {
 
 @Composable //Oliver
 fun MeantineText() {
-
     Column(modifier = Modifier.padding(horizontal = 50.dp)) {
-
         Text("In the meantine...")
-
         Spacer(modifier = Modifier.height(10.dp))
-
         Row() {
-
             // Icon fra drawable mappe
             Icon(
                 painter = painterResource(R.drawable.measuringtape),
                 contentDescription = "measuringtape",
                 Modifier.size(40.dp)
             )
-
             Text(
-
                 // buildAnnotatedString gør det muligt at style dele af teksten
                 text = buildAnnotatedString {
-
                     withStyle(
                         style = SpanStyle(fontWeight = FontWeight.SemiBold)
-                    ){
-
+                    ) {
                         append(" Book an online fitting")
                     }
-
                     append("\n We´ll help you find the best option.")
-
                 }
             )
         }
-
         Spacer(modifier = Modifier.height(10.dp))
-
         Row() {
-
             Icon(
                 painter = painterResource(R.drawable.bra),
                 contentDescription = "measuringtape",
                 Modifier.size(40.dp)
             )
-
             Text(
                 text = buildAnnotatedString {
-
                     withStyle(
                         style = SpanStyle(fontWeight = FontWeight.SemiBold)
-                    ){
-
+                    ) {
                         append(" Follow our journey")
                     }
-
                     append("\n See how we're growing our range.")
-
                 }
             )
         }
@@ -215,25 +182,20 @@ fun MeantineText() {
 }
 
 @Composable //Oliver
-fun FalloutPageBody(){
-
+fun FalloutPageBody() {
     // Hoved layout til hele siden
     Column(modifier = Modifier.fillMaxSize()) {
-
-        FalloutTopbar() // Topbar øverst
-
+        TopbarErrorRecovery()
         FalloutText() // Overskrift og tekst
-
         FalloutMailBox() // Email felt + knap
-
         MeantineText() // Nederste informationssektion
     }
 }
 
-@Preview(showBackground = true) // Preview i Android Studio
+
+// Preview
+@Preview(showBackground = true)
 @Composable
 fun FalloutPreview() {
-
-    // Viser hele siden i preview
     FalloutPageBody()
 }
