@@ -45,7 +45,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily.Companion.Monospace
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.unit.dp
-import com.example.neveranotherappthegoop.ui.theme.OrangeMain
 import java.lang.Compiler.enable
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -57,36 +56,50 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Icon
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.painterResource
-import com.example.neveranotherappthegoop.ui.theme.EggWhite
 import androidx.compose.material3.Text
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
+import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
 @Composable //Kevin
-    fun ExpectationsTopbar(){
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 10.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween){
-            IcMenu()
-            NALogoName()
-            IcShoppingCart()
-        }
+fun ExpectationsTopbar(){
+
+    // Row placerer elementer vandret
+    Row(
+        modifier = Modifier
+            .fillMaxWidth() // Fylder hele bredden
+            .padding(horizontal = 10.dp), // Afstand i siderne
+
+        verticalAlignment = Alignment.CenterVertically, // Centrerer lodret
+        horizontalArrangement = Arrangement.SpaceBetween // Plads mellem elementerne
+    ){
+
+        IcMenu() // Menu ikon
+
+        NALogoName() // Logo/Titel
+
+        IcShoppingCart() // Kurv ikon
     }
+}
 
 @Composable //Oliver
 fun ExpectationsText() {
+
+    // Column placerer elementer lodret
     Column(modifier = Modifier.padding(vertical = 10.dp, horizontal = 50.dp)) {
+
         Text(
-            text = "Let´s get\nready",
-            fontSize = 32.sp,
-            fontWeight = Bold,
-            fontFamily = Monospace
+            text = "Let´s get\nready", // \n laver linjeskift
+            fontSize = 32.sp, // Tekst størrelse
+            fontWeight = Bold, // Fed tekst
+            fontFamily = Monospace // Skrifttype
         )
+
+        // Spacer laver afstand mellem elementer
         Spacer(modifier = Modifier.height(10.dp) )
+
         Text(
             text = "You're just outside our current range, \nbut we’d love to fit you in soon."
         )
@@ -96,25 +109,39 @@ fun ExpectationsText() {
 @Composable //Oliver
 fun NeedText() {
 
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .padding(top = (75.dp), bottom = (25.dp), start = (50.dp), end = (50.dp))
-        .background(
-            Color(0xFFF9F6EE),
-            shape = RoundedCornerShape(10.dp))
-        .padding(16.dp),
+    Column(
 
-        ){
-        Text(text = "You'll need",
-            fontWeight = FontWeight.SemiBold)
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(
+                top = (75.dp),
+                bottom = (25.dp),
+                start = (50.dp),
+                end = (50.dp)
+            )
+
+            // Background med afrundede hjørner
+            .background(
+                Color(0xFFF9F6EE),
+                shape = RoundedCornerShape(10.dp)
+            )
+
+            .padding(16.dp) // Indre afstand
+
+    ){
+
+        Text(
+            text = "You'll need",
+            fontWeight = FontWeight.SemiBold // Halvfed tekst
+        )
 
         Spacer(modifier = Modifier.height(10.dp))
 
         Row(
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically // Centrerer ikon og tekst
         ) {
 
-
+            // Ikon fra drawable mappe
             Icon(
                 painter = painterResource(R.drawable.measuringtape),
                 contentDescription = "measuringtape",
@@ -131,93 +158,130 @@ fun NeedText() {
         ) {
 
             Icon(
-                painter = painterResource(R.drawable.bra),
+                painter = painterResource(R.drawable.bra1),
                 contentDescription = "measuringtape",
                 Modifier.size(60.dp)
             )
 
             Text("   A bra you feel good in")
-
         }
     }
 }
 
 @Composable //Oliver
 fun ExplainText() {
+
     Column(
         modifier = Modifier.padding(horizontal = 50.dp)
     ) {
+
         Text(
+
+            // Lang tekst med linjeskift
             "Your bra should have a well-fitting underwire, no thick padding, and give you the lift and shape that you like.\n" +
-            "\n" +
-            "You can also wear a wire-free bra, but make sure that it gives you the lift that you want."
+                    "\n" +
+                    "You can also wear a wire-free bra, but make sure that it gives you the lift that you want."
         )
     }
 }
 
 @Composable //Oliver
 fun pressureBox() {
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .padding(top = (55.dp), bottom = (5.dp), start = (50.dp), end = (50.dp))
-        .background(
-            Color(0xFFF9F6EE),
-            shape = RoundedCornerShape(10.dp))
-        .padding(16.dp),) {
+
+    Column(
+
+        modifier = Modifier
+            .fillMaxWidth()
+
+            .padding(
+                top = (55.dp),
+                bottom = (5.dp),
+                start = (50.dp),
+                end = (50.dp)
+            )
+
+            // Lys baggrund med runde hjørner
+            .background(
+                Color(0xFFF9F6EE),
+                shape = RoundedCornerShape(10.dp)
+            )
+
+            .padding(16.dp)
+
+    ) {
 
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
+
             Icon(
                 painter = painterResource(R.drawable.heart),
                 contentDescription = "heart icon",
                 Modifier.size(60.dp)
             )
 
-            Text("No pressure, No GuessWork\n Just you, you've got this.")
-
-
+            Text(
+                "No pressure, No GuessWork\n Just you, you've got this."
+            )
         }
     }
 }
 
 @Composable //Oliver
 fun BeginButton() {
-    Column(modifier = Modifier.padding(vertical = 10.dp, horizontal = 50.dp)) {
 
+    Column(
+        modifier = Modifier.padding(vertical = 10.dp, horizontal = 50.dp)
+    ) {
+
+        // Button komponent
         Button(
-            onClick = { },
+
+            onClick = { }, // Hvad der sker ved klik
+
             modifier = Modifier
                 .fillMaxWidth()
                 .height(48.dp)
                 .padding(top = 10.dp),
-            shape = RoundedCornerShape(5.dp),
+
+            shape = RoundedCornerShape(5.dp), // Runde hjørner
+
             colors = ButtonDefaults.buttonColors(
-                containerColor = OrangeMain,
-                contentColor = Color.White
+                containerColor = Orangevibrant, // Baggrundsfarve
+                contentColor = Color.White // Tekstfarve
             )
+
         ) {
+
             Text("Let's begin")
         }
     }
 }
 
-
-
 @Composable //Oliver
-    fun ExpectationsPageBody(){
-        Column(modifier = Modifier.fillMaxSize()) {
-            ExpectationsTopbar()
-            ExpectationsText()
-            NeedText()
-            ExplainText()
-            pressureBox()
-            BeginButton()
-        }
-    }
+fun ExpectationsPageBody(){
 
-@Preview(showBackground = true)
+    // Hoved layout til hele siden
+    Column(modifier = Modifier.fillMaxSize()) {
+
+        ExpectationsTopbar()
+
+        ExpectationsText()
+
+        NeedText()
+
+        ExplainText()
+
+        pressureBox()
+
+        BeginButton()
+    }
+}
+
+@Preview(showBackground = true) // Preview i Android Studio
 @Composable
 fun ExpectationsPreview() {
+
+    // Viser hele siden i preview
     ExpectationsPageBody()
 }
