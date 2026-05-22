@@ -24,6 +24,7 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -38,10 +39,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.data.BackArrow
-import com.example.neveranotherappthegoop.data.Brather
 import com.example.neveranotherappthegoop.data.IcShoppingCart
 import com.example.neveranotherappthegoop.data.NALogoName
-import com.example.neveranotherappthegoop.data.OrangeLine
 
 
 val OrangeColor = Color(0xFFFF5F00)
@@ -50,7 +49,7 @@ val DarkText    = Color(0xFF393838)
 
 @Composable
 fun CheckoutPage() {
-    var quantity      by remember { mutableStateOf(1) }
+    var quantity      by remember { mutableIntStateOf(1) }
     var selectedColor by remember { mutableStateOf("White") }
 
 
@@ -60,6 +59,7 @@ fun CheckoutPage() {
             .background(Color.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
         TopRow()
 
 
@@ -317,7 +317,9 @@ fun BottomDetails() {
     Image(
         painter = painterResource(id = R.drawable.guaranteebottomtext2),
         contentDescription = null,
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .size(350.dp)
+            .padding(bottom = 15.dp),
         contentScale = ContentScale.FillWidth
     )
 }
