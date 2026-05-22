@@ -39,15 +39,19 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 @Composable
 
-fun StepThreePage() {
+fun StepThreePage(
+    onBackClick: () -> Unit,
+    onContinueClick: () -> Unit,
+    onVideoGuideClick: () -> Unit
+) {
     Box(
         modifier = Modifier.background(White)
     ) {
-        TopBar3()
+        TopBar3(onBackClick = onBackClick)
         HeaderText3()
         PictureGuide3()
-        VideoGuide3()
-        ContinueButton3()
+        VideoGuide3(onClick = onVideoGuideClick)
+        ContinueButton3(onClick = onContinueClick)
         ImageText3()
         TextField3()
     }
@@ -58,7 +62,9 @@ fun StepThreePage() {
 
 
 @Composable
-fun TopBar3() {
+fun TopBar3(
+    onBackClick: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -75,9 +81,7 @@ fun TopBar3() {
         modifier = Modifier.fillMaxSize()
     ) {
         IconButton(
-            onClick = {
-                println("Back clicked")
-            },
+            onClick = onBackClick,
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .padding(24.dp)
@@ -138,7 +142,9 @@ fun PictureGuide3() {
 
 
 @Composable
-fun VideoGuide3() {
+fun VideoGuide3(
+    onClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -148,7 +154,7 @@ fun VideoGuide3() {
     ) {
         // View video guide button
         OutlinedButton(
-            onClick = {},
+            onClick = onClick,
             modifier = Modifier
                 .width(330.dp)
                 .height(50.dp),
@@ -166,7 +172,9 @@ fun VideoGuide3() {
 }
 
 @Composable
-fun ContinueButton3() {
+fun ContinueButton3(
+    onClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -176,7 +184,7 @@ fun ContinueButton3() {
     ) {
         // View video guide button
         OutlinedButton(
-            onClick = {},
+            onClick = onClick,
             modifier = Modifier
                 .width(330.dp)
                 .height(50.dp),
@@ -248,7 +256,11 @@ fun TextField3() {
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreviewer() {
-    StepThreePage()
+    StepThreePage(
+        onBackClick = {},
+        onContinueClick = {},
+        onVideoGuideClick = {}
+    )
 }
 
 

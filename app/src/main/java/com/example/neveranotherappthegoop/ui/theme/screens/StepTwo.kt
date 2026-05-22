@@ -4,6 +4,7 @@ package com.example.neveranotherappthegoop.ui.theme.screens
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -40,17 +41,22 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 @Composable
 
-fun StepTwoPage() {
+fun StepTwoPage(
+    onBackClick: () -> Unit,
+    onContinueClick: () -> Unit,
+    onVideoGuideClick: () -> Unit,
+    onTextFieldClick: () -> Unit
+) {
     Box(
         modifier = Modifier.background(White)
     ) {
-        TopBar2()
+        TopBar2(onBackClick = onBackClick)
         HeaderText2()
         PictureGuide2()
-        VideoGuide2()
-        ContinueButton2()
+        VideoGuide2(onVideoGuideClick)
+        ContinueButton2(onClick = onContinueClick)
         ImageText2()
-        TextField2()
+        TextField2(onClick = onTextFieldClick)
     }
 }
 
@@ -59,7 +65,9 @@ fun StepTwoPage() {
 
 
 @Composable
-fun TopBar2() {
+fun TopBar2(
+    onBackClick: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -74,9 +82,7 @@ fun TopBar2() {
         modifier = Modifier.fillMaxSize()
     ) {
         IconButton(
-            onClick = {
-                println("Back clicked")
-            },
+            onClick = onBackClick,
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .padding(24.dp)
@@ -137,7 +143,9 @@ fun PictureGuide2() {
 
 
 @Composable
-fun VideoGuide2() {
+fun VideoGuide2(
+    onClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -147,7 +155,7 @@ fun VideoGuide2() {
     ) {
         // View video guide button
         OutlinedButton(
-            onClick = {},
+            onClick = onClick,
             modifier = Modifier
                 .width(330.dp)
                 .height(50.dp),
@@ -165,7 +173,9 @@ fun VideoGuide2() {
 }
 
 @Composable
-fun ContinueButton2() {
+fun ContinueButton2(
+    onClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -175,7 +185,7 @@ fun ContinueButton2() {
     ) {
         // View video guide button
         OutlinedButton(
-            onClick = {},
+            onClick = onClick,
             modifier = Modifier
                 .width(330.dp)
                 .height(50.dp),
@@ -213,7 +223,9 @@ fun ImageText2() {
 }
 
 @Composable
-fun TextField2() {
+fun TextField2(
+    onClick: () -> Unit
+) {
     Column(
         modifier = Modifier.fillMaxSize().padding(bottom = 260.dp),
         verticalArrangement = Arrangement.Bottom,
@@ -227,6 +239,9 @@ fun TextField2() {
             modifier = Modifier
                 .width(180.dp)
                 .height(50.dp)
+                .clickable {
+                    onClick()
+                }
                 .background(
                     color = BoneWhite,
                     shape = RoundedCornerShape(12.dp)
@@ -244,7 +259,12 @@ fun TextField2() {
 @Preview(showBackground = true)
 @Composable
 fun StepTwoPreview(){
-StepTwoPage()
+StepTwoPage(
+    onBackClick = {},
+    onContinueClick = {},
+    onVideoGuideClick = {},
+    onTextFieldClick = {}
+)
 }
 
 

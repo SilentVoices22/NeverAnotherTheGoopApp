@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop.ui.theme.Screens
+package com.example.neveranotherappthegoop.ui.theme.screens
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -38,7 +38,9 @@ import com.example.neveranotherappthegoop.data.NALogoName
 // ====================
 
 @Composable
-fun ResultsPageBody() {
+fun ResultsPageBody(
+    onViewButtonClick: () -> Unit
+) {
 
     // page layout
     Column(
@@ -63,7 +65,7 @@ fun ResultsPageBody() {
         ListOfBenefits()
 
         // orange knap
-        ViewButton()
+        ViewButton(onClick = onViewButtonClick)
 
         // space mellem knapperne
         Spacer(modifier = Modifier.height(16.dp))
@@ -252,10 +254,12 @@ fun ListOfBenefits() {
 
 
 @Composable
-fun ViewButton() {
+fun ViewButton(
+    onClick: () -> Unit
+) {
         // View product button
         Button(
-            onClick = {},
+            onClick = onClick,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp),
@@ -304,5 +308,7 @@ fun BottomDetails() {
 @Preview(showBackground = true)
 @Composable
 fun ResultsPagePreview() {
-    ResultsPageBody()
+    ResultsPageBody(
+        onViewButtonClick = {}
+    )
 }

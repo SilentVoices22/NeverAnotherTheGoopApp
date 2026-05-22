@@ -53,7 +53,7 @@ fun TopbarInfoPage() {
         horizontalArrangement = Arrangement.spacedBy(40.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        BackArrow()
+        BackArrow( onClick = {})
         NALogoName()
     }
 }

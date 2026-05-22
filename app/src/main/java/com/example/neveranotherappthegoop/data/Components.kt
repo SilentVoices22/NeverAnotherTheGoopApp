@@ -27,8 +27,13 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 // Kevin
 @Composable
-fun NaButton(textButton: String, modifier: Modifier = Modifier){
-    Button(onClick = { },
+fun NaButton(
+    textButton: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+){
+    Button(
+        onClick = onClick,
         modifier = Modifier
             .padding(top = 10.dp)
             .height(60.dp)
@@ -51,14 +56,14 @@ fun NaButtonPreview(){
 
 // Hjalte
 @Composable
-fun BackArrow() {
+fun BackArrow(
+    onClick: () -> Unit
+) {
     Box(
         modifier = Modifier
     ) {
         IconButton(
-            onClick = {
-                println("Back clicked")
-            },
+            onClick = onClick,
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .padding(16.dp)
@@ -73,12 +78,12 @@ fun BackArrow() {
 
 
 @Composable
-fun TopbarErrorRecovery() {
+fun TopbarErrorRecovery(onBackClick: () -> Unit) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(40.dp, Alignment.CenterHorizontally),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        BackArrow()
+        BackArrow(onClick = onBackClick)
         NALogoName()
     }
 }

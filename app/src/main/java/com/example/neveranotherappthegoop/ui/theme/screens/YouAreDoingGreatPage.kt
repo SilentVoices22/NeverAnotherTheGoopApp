@@ -36,7 +36,7 @@ fun YouAreDoingGreatPage() {
     ) {
         PageText()
         PageButton()
-        BackArrow()
+        BackArrow( onClick = {})
     }
 }
 

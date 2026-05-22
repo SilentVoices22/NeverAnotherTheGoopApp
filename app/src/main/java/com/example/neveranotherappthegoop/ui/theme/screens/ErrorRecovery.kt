@@ -31,13 +31,17 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 @Preview(showBackground = true)
 @Composable
 fun ErrorRecoveryPreview(){
-    ErrorRecovery()
+    ErrorRecovery(
+        onBackClick = {}
+    )
 }
 
 @Composable
-fun ErrorRecovery() {
+fun ErrorRecovery(
+    onBackClick: () -> Unit
+) {
     Column(modifier = Modifier.fillMaxSize().padding(start = 15.dp, end = 15.dp, top = 20.dp)){
-        TopbarErrorRecovery()
+        TopbarErrorRecovery(onBackClick = onBackClick)
         Column(modifier = Modifier
             .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally) {
@@ -50,7 +54,11 @@ fun ErrorRecovery() {
                 modifier = Modifier.padding(start = 40.dp, top = 10.dp, end = 40.dp))
             IcTapeMeasure()
             BulletpointErrorRecovery()
-            NaButton("Try Again")
+            NaButton(textButton = "Try Again",
+                onClick = {
+
+
+                })
             HeartOkayQoute()
         }
     }

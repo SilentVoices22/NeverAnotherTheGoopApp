@@ -3,6 +3,7 @@ package com.example.neveranotherappthegoop.ui.theme.screens
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,6 +25,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
@@ -38,17 +40,22 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
 @Composable
-fun StepOnePage() {
+fun StepOnePage(
+    onBackClick: () -> Unit,
+    onContinueClick: () -> Unit,
+    onVideoGuideClick: () -> Unit,
+    onTextFieldClick: () -> Unit
+) {
     Box(
         modifier = Modifier.background(White)
     ) {
-        StepOneTopBar()
+        StepOneTopBar(onBackClick = onBackClick)
         HeaderText()
         PictureGuide()
-        VideoGuide()
-        ContinueButton()
+        VideoGuide(onClick = onVideoGuideClick)
+        ContinueButton(onClick = onContinueClick)
         ImageText()
-        TextField()
+        TextField(onClick = onTextFieldClick)
     }
 
 }
@@ -57,7 +64,9 @@ fun StepOnePage() {
 /*-----------------------------------------------Top-Bar--------------------------------------------- */
 
 @Composable
-fun StepOneTopBar() {
+fun StepOneTopBar(
+    onBackClick: () -> Unit
+) {
     Box(
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -73,8 +82,7 @@ fun StepOneTopBar() {
         modifier = Modifier.fillMaxSize()
     ) {
         IconButton(
-            onClick = {
-                println("Back clicked")},
+            onClick = onBackClick,
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .padding(24.dp)
@@ -125,7 +133,9 @@ fun PictureGuide() {
 }
 
 @Composable
-fun VideoGuide() {
+fun VideoGuide(
+    onClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -135,7 +145,7 @@ fun VideoGuide() {
     ) {
         // View video guide button
         OutlinedButton(
-            onClick = {},
+            onClick = onClick,
             modifier = Modifier
                 .width(330.dp)
                 .height(50.dp),
@@ -154,7 +164,9 @@ fun VideoGuide() {
 
 
 @Composable
-fun ContinueButton() {
+fun ContinueButton(
+    onClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -164,7 +176,7 @@ fun ContinueButton() {
     ) {
         // View video guide button
         OutlinedButton(
-            onClick = {},
+            onClick = onClick,
             modifier = Modifier
                 .width(330.dp)
                 .height(50.dp),
@@ -200,7 +212,9 @@ fun ImageText() {
 }
 
 @Composable
-fun TextField() {
+fun TextField(
+    onClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -216,6 +230,9 @@ fun TextField() {
             modifier = Modifier
                 .width(180.dp)
                 .height(50.dp)
+                .clickable {
+                    onClick()
+                }
                 .background(
                     color = BoneWhite,
                     shape = RoundedCornerShape(12.dp)
@@ -233,7 +250,12 @@ fun TextField() {
 @Preview(showBackground = true)
 @Composable
 fun StepONePagePreviewer() {
-    StepOnePage()
+    StepOnePage(
+        onBackClick = {},
+        onContinueClick = {},
+        onVideoGuideClick = {},
+        onTextFieldClick = {}
+    )
 }
 
 

@@ -41,12 +41,14 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
 @Composable //Kevin
-fun TopbarErrorRecovery() {
+fun TopbarErrorRecovery(
+    onBackClick: () -> Unit,
+    ) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(40.dp, Alignment.CenterHorizontally),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        BackArrow()
+        BackArrow(onClick = onBackClick)
         NALogoName()
     }
 }
@@ -159,10 +161,12 @@ fun MeantineText() {
 }
 
 @Composable //Oliver
-fun FalloutPageBody() {
+fun FalloutPageBody(
+    onBackClick: () -> Unit
+) {
     // Hoved layout til hele siden
     Column(modifier = Modifier.fillMaxSize()) {
-        TopbarErrorRecovery()
+        TopbarErrorRecovery(onBackClick = onBackClick)
         FalloutText() // Overskrift og tekst
         FalloutMailBox() // Email felt + knap
         MeantineText() // Nederste informationssektion
@@ -174,5 +178,7 @@ fun FalloutPageBody() {
 @Preview(showBackground = true)
 @Composable
 fun FalloutPreview() {
-    FalloutPageBody()
+    FalloutPageBody(
+        onBackClick = {}
+    )
 }

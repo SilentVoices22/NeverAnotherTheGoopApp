@@ -1,5 +1,6 @@
 package com.example.neveranotherappthegoop.ui.theme.screens
 
+import android.R.attr.onClick
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -44,7 +45,9 @@ fun Topbar() {
 @Preview(showBackground = true)
 @Composable
 fun LandingPageBodyPreview() {
-    LandingPageBody()
+    LandingPageBody(
+        onExpectationsPageBodyButtonClick = {}
+    )
 
 }
 
@@ -94,7 +97,7 @@ fun LandingPagePicture() {
 }
 
 @Composable
-fun LandingPageBody() {
+fun LandingPageBody(onExpectationsPageBodyButtonClick: () -> Unit) {
     Column(modifier = Modifier
         .fillMaxSize()
         .padding(top = 24.dp),
@@ -118,7 +121,10 @@ fun LandingPageBody() {
             modifier = Modifier.padding(start = 24.dp, end = 24.dp, bottom = 40.dp, top = 40.dp),
             textAlign = TextAlign.Center,
             )
-        NaButton("Create my bra")
+        NaButton(
+            textButton = "Create my bra",
+            onClick = onExpectationsPageBodyButtonClick
+        )
     }
 }
 

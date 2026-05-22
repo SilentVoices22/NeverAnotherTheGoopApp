@@ -31,6 +31,7 @@ import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.material3.Icon
 import com.example.neveranotherappthegoop.R
 import com.example.neveranotherappthegoop.data.BackArrow
+import com.example.neveranotherappthegoop.data.TopbarErrorRecovery
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
@@ -137,13 +138,13 @@ fun pressureBox() {
 }
 
 @Composable //Oliver
-fun BeginButton() {
+fun BeginButton( onClick: () -> Unit) {
     Column(
         modifier = Modifier.padding(vertical = 10.dp, horizontal = 50.dp)
     ) {
         // Button komponent
         Button(
-            onClick = { }, // Hvad der sker ved klik
+            onClick = onClick, // Hvad der sker ved klik
             modifier = Modifier
                 .fillMaxWidth()
                 .height(48.dp)
@@ -160,21 +161,26 @@ fun BeginButton() {
 }
 
 @Composable //Oliver
-fun ExpectationsPageBody() {
+fun ExpectationsPageBody(
+    onBackClick: () -> Unit,
+    onBeginClick: () -> Unit
+) {
 
     // Hoved layout til hele siden
     Column(modifier = Modifier.fillMaxSize()) {
-        TopbarErrorRecovery()
+        TopbarErrorRecovery(onBackClick = onBackClick)
         ExpectationsText()
         NeedText()
         ExplainText()
         pressureBox()
-        BeginButton()
+        BeginButton(onClick = onBeginClick)
     }
 }
 
 @Preview(showBackground = true) // Preview i Android Studio
 @Composable
 fun ExpectationsPreview() {
-    ExpectationsPageBody()
+    ExpectationsPageBody(
+        onBackClick = {},
+        onBeginClick = {})
 }

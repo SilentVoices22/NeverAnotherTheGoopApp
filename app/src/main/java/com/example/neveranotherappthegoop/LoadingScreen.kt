@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -22,20 +23,25 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.neveranotherappthegoop.data.BackArrow
-import com.example.neveranotherappthegoop.data.IcShoppingCart
 import com.example.neveranotherappthegoop.data.NALogoName
-
 import coil.ImageLoader
 import coil.compose.AsyncImage
 import coil.decode.GifDecoder
-
+import kotlinx.coroutines.delay
 
 
 @Composable
-fun LoadingScreen(){
+fun LoadingScreen(
+    onFinishedLoading: () -> Unit
 
+) {
 
+    LaunchedEffect(Unit) {
+
+        delay(3000)
+
+        onFinishedLoading()
+    }
 
     Column(
         modifier = Modifier
@@ -43,15 +49,9 @@ fun LoadingScreen(){
             .background(Color.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         LogoNA()
-
-
         Spacer(Modifier.height(40.dp))
-
         BraGif()
-
-
     }
 }
 
@@ -66,14 +66,12 @@ fun LogoNA() {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
-
         NALogoName()
     }
 }
 
 @Composable
 fun BraGif (){
-
     val context = LocalContext.current
     val gifLoader = ImageLoader.Builder(context)
         .components { add(GifDecoder.Factory()) }
@@ -104,5 +102,7 @@ fun BraGif (){
 @Preview(showBackground = true)
 @Composable
 fun LoadingScreenPreview() {
-    LoadingScreen()
+    LoadingScreen(
+        onFinishedLoading = {}
+    )
 }

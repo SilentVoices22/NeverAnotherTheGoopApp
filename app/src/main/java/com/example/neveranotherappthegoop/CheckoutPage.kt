@@ -41,6 +41,7 @@ import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.data.BackArrow
 import com.example.neveranotherappthegoop.data.IcShoppingCart
 import com.example.neveranotherappthegoop.data.NALogoName
+import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
 val OrangeColor = Color(0xFFFF5F00)
@@ -48,7 +49,10 @@ val CreamColor = Color(0xFFF9F6EE)
 val DarkText = Color(0xFF393838)
 
 @Composable
-fun CheckoutPage() {
+fun CheckoutPage(
+    onBackClick: () -> Unit,
+    onPlaceOrderBClick: () -> Unit
+) {
     var quantity by remember { mutableIntStateOf(1) }
     var selectedColor by remember { mutableStateOf("White") }
 
@@ -60,7 +64,7 @@ fun CheckoutPage() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        TopRow()
+        TopRow(onBackClick = onBackClick)
 
         BraBox(
             selectedColor = selectedColor,
@@ -70,16 +74,19 @@ fun CheckoutPage() {
             quantity = quantity
         )
         Spacer(Modifier.height(32.dp))
+        JoinLinkText()
         TotalPrice()
         Spacer(Modifier.height(16.dp))
-        PlaceOrderB()
+        PlaceOrderB(onClick = onPlaceOrderBClick)
         Spacer(modifier = Modifier.height(20.dp))
         BottomDetails()
     }
 }
 
 @Composable
-fun TopRow() {
+fun TopRow(
+    onBackClick: () -> Unit
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -87,7 +94,7 @@ fun TopRow() {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        BackArrow()
+        BackArrow(onClick = onBackClick)
         NALogoName()
         IcShoppingCart()
     }
@@ -300,14 +307,29 @@ fun Quantity(
 }
 
 @Composable
+fun JoinLinkText() {
+    Text(
+        text = "Production, shipping, and size guarantee",
+        color = Orangevibrant,
+        fontSize = 16.sp,
+        fontWeight = FontWeight.Bold,
+        modifier = Modifier.padding(bottom = 20.dp).clickable {
+            // det der skal ske, når man trykker
+        }
+    )
+}
+
+@Composable
 fun TotalPrice() {
     Text("Total                                                      799 kr.")
 }
 
 @Composable
-fun PlaceOrderB() {
+fun PlaceOrderB(
+    onClick: () -> Unit
+) {
     Button(
-        onClick = { /* TODO: send ordre */ },
+        onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 45.dp)
@@ -336,5 +358,8 @@ fun BottomDetails() {
 @Preview(showBackground = true)
 @Composable
 fun CheckoutPagePreview() {
-    CheckoutPage()
+    CheckoutPage(
+        onBackClick = {},
+        onPlaceOrderBClick = {}
+    )
 }

@@ -40,15 +40,19 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 @Preview(showBackground = true)
 @Composable
 fun OOCPreview() {
-    OrderConfirmationScreen()
+    OrderConfirmationScreen(
+        onLogoButtonClick = {}
+    )
 }
 
 @Composable
-fun OrderConfirmationScreen() {
+fun OrderConfirmationScreen(
+    onLogoButtonClick: () -> Unit
+) {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        LogoButton()
+        LogoButton(onClick = onLogoButtonClick)
         BurgerMenu()
         IconAndText()
         OrderInfo()
@@ -63,7 +67,9 @@ fun OrderConfirmationScreen() {
 /*------------------------------Interactive-Logo------------------------------ */
 
 @Composable
-fun LogoButton() {
+fun LogoButton(
+    onClick: () -> Unit
+) {
     Box(
         modifier = Modifier.fillMaxSize(),
     ) {
@@ -76,7 +82,7 @@ fun LogoButton() {
                 .width(250.dp)
                 .height(60.dp)
                 .clickable {
-                    println("Go to landing-page")
+                    onClick()
                 }
         )
     }
