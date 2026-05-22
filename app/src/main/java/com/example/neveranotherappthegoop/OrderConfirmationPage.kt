@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -56,6 +57,8 @@ fun OrderConfirmationScreen () {
         StatusBar()
 
         InfoBox()
+
+        BottomInfoBar()
 
     }
 }
@@ -165,7 +168,7 @@ fun IconAndText () {
 
             modifier = Modifier
                 .align(Alignment.TopCenter)
-                .padding(top = 135.dp)
+                .padding(top = 110.dp)
                 .width(250.dp)
                 .height(50.dp)
 
@@ -189,7 +192,7 @@ fun IconAndText () {
 
             modifier = Modifier
                 .align(Alignment.TopCenter)
-                .padding(top = 210.dp)
+                .padding(top = 180.dp)
                 .width(250.dp)
 
         )
@@ -211,7 +214,7 @@ fun IconAndText () {
 
             modifier = Modifier
                 .align(Alignment.TopCenter)
-                .padding(top = 290.dp)
+                .padding(top = 260.dp)
                 .width(250.dp)
 
         )
@@ -246,7 +249,7 @@ fun OrderInfo () {
         Her er den også designet med farve, højerner osv*/
         Card(
             modifier = Modifier
-                .padding(bottom = 50.dp)
+                .padding(bottom = 100.dp)
 
                 /* sætter cardet i midten af skærmen */
                 .align(Alignment.Center)
@@ -410,7 +413,7 @@ fun DeliveryInfo () {
             fontSize = 20.sp,
 
             modifier = Modifier
-                .padding(bottom = 335.dp)
+                .padding(bottom = 360.dp)
                 .align(Alignment.BottomCenter)
 
         )
@@ -422,7 +425,7 @@ fun DeliveryInfo () {
             fontSize = 14.sp,
 
             modifier = Modifier
-                .padding(bottom = 310.dp)
+                .padding(bottom = 340.dp)
                 .align(Alignment.BottomCenter)
 
         )
@@ -448,7 +451,7 @@ fun StatusBar() {
     Row(
         modifier = Modifier
             .fillMaxSize()
-            .padding(start = 21.dp, bottom = 80.dp),
+            .padding(start = 21.dp, bottom = 108.dp),
 
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.Bottom
@@ -524,8 +527,8 @@ fun InfoBox () {
 
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .padding(bottom = 12.dp)
-                .width(340.dp)
+                .padding(bottom = 40.dp)
+                .width(410.dp)
                 .height(60.dp)
                 .background(
                     color = Beige,
@@ -539,13 +542,15 @@ fun InfoBox () {
 
             Text(
 
-                text = "Questions?",
+                text = "Questions? \n" +
+                        "We’re only an email away.",
                 fontFamily = InterFont,
 
-                modifier = Modifier,
-                color = Color.Black,
-                fontSize = 20.sp
-
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+                    .padding(start = 60.dp, bottom = 15.dp),
+                    color = Color.Black,
+                    fontSize = 15.sp
                 )
 
         }
@@ -553,7 +558,26 @@ fun InfoBox () {
 }
 
 
+@Composable
 
+fun BottomInfoBar () {
+
+    Box(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Image(
+            painter = painterResource(R.drawable.guaranteebottomtext3),
+            contentDescription = "Bottom information-bar",
+
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 7.dp)
+                .align(Alignment.BottomCenter)
+                .width(10.dp)
+                .height(22.dp)
+        )
+    }
+}
 
 
 
