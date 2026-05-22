@@ -1,6 +1,4 @@
 package com.example.neveranotherappthegoop.ui.theme.Screens
-
-
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -308,6 +306,6 @@ fun BottomDetails() {
 
 @Preview(showBackground = true)
 @Composable
-fun ResultsPreview() {
+fun ResultsPagePreview() {
     ResultsPageBody()
 }
