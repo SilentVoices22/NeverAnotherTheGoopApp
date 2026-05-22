@@ -62,27 +62,14 @@ import androidx.compose.ui.text.withStyle
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
-@Composable //Kevin / Oliver
-fun FalloutTopbar(
-    modifier: Modifier = Modifier // Gør det muligt at tilføje styling/modifiers udefra
-) {
-    Row( // Row placerer elementer vandret
-        modifier = modifier
-            .fillMaxWidth() // Fylder hele skærmens bredde
-            .padding( // Padding rundt om topbaren
-                top = 20.dp,
-                start = 10.dp,
-                end = 10.dp
-            ),
-        verticalAlignment = Alignment.CenterVertically, // Centrerer indhold lodret
-        horizontalArrangement = Arrangement.SpaceBetween // Fordeler elementer med plads imellem
+@Composable //Kevin
+fun TopbarErrorRecovery() {
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(40.dp, Alignment.CenterHorizontally),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
-
-        IcMenu() // Menu ikon
-
-        NALogoName() // Logo/Tekst i midten
-
-        IcShoppingCart() // Kurv ikon
+        BackArrow()
+        NALogoName()
     }
 }
 
