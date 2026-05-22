@@ -30,24 +30,11 @@ import androidx.compose.ui.text.font.FontFamily.Companion.Monospace
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.material3.Icon
 import com.example.neveranotherappthegoop.R
+import com.example.neveranotherappthegoop.data.BackArrow
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
-@Composable //Kevin
-fun ExpectationsTopbar() {
-    // Row placerer elementer vandret
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 10.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
-        IcMenu()
-        NALogoName()
-        IcShoppingCart()
-    }
-}
+
 
 @Composable //Oliver
 fun ExpectationsText() {
@@ -177,7 +164,7 @@ fun ExpectationsPageBody() {
 
     // Hoved layout til hele siden
     Column(modifier = Modifier.fillMaxSize()) {
-        ExpectationsTopbar()
+        TopbarErrorRecovery()
         ExpectationsText()
         NeedText()
         ExplainText()

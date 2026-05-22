@@ -140,7 +140,7 @@ fun MeantineText() {
         Spacer(modifier = Modifier.height(10.dp))
         Row() {
             Icon(
-                painter = painterResource(R.drawable.brahuman),
+                painter = painterResource(R.drawable.bra1),
                 contentDescription = "measuringtape",
                 Modifier.size(40.dp)
             )

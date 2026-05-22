@@ -108,5 +108,6 @@ fun ThreeStepList(modifier: Modifier = Modifier){
         contentDescription = "Never Another ankle picture",
         modifier = modifier,
         contentScale = ContentScale.Crop
+
     )
 }
