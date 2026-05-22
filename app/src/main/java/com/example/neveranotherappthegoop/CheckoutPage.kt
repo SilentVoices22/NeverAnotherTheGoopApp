@@ -74,8 +74,13 @@ fun CheckoutPage() {
         Spacer(Modifier.height(32.dp))
 
         TotalPrice()
+
         Spacer(Modifier.height(16.dp))
+
         PlaceOrderB()
+
+        Spacer(modifier = Modifier.height(20.dp))
+
         BottomDetails()
 
     }
