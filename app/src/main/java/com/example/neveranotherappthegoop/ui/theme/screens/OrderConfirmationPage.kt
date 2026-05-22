@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop
+package com.example.neveranotherappthegoop.ui.theme.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -29,9 +28,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.neveranotherappthegoop.data.IcHeart
+import com.example.neveranotherappthegoop.R
 import com.example.neveranotherappthegoop.ui.theme.BoneWhite
-import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
 /*------------------------------------Screen---------------------------------- */

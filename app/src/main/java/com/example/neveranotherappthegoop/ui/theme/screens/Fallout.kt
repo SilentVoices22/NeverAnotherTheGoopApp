@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop
+package com.example.neveranotherappthegoop.ui.theme.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -35,6 +35,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
+import com.example.neveranotherappthegoop.R
 import com.example.neveranotherappthegoop.data.BackArrow
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 

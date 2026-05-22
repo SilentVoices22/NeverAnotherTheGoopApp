@@ -44,12 +44,12 @@ import com.example.neveranotherappthegoop.data.NALogoName
 
 
 val OrangeColor = Color(0xFFFF5F00)
-val CreamColor  = Color(0xFFF9F6EE)
-val DarkText    = Color(0xFF393838)
+val CreamColor = Color(0xFFF9F6EE)
+val DarkText = Color(0xFF393838)
 
 @Composable
 fun CheckoutPage() {
-    var quantity      by remember { mutableIntStateOf(1) }
+    var quantity by remember { mutableIntStateOf(1) }
     var selectedColor by remember { mutableStateOf("White") }
 
 
@@ -62,29 +62,20 @@ fun CheckoutPage() {
 
         TopRow()
 
-
         BraBox(
-
             selectedColor = selectedColor,
             onColorSelect = { selectedColor = it },
-            onDecrease    = { if (quantity > 1) quantity-- },
-            onIncrease    = { quantity++ },
-            quantity      = quantity
+            onDecrease = { if (quantity > 1) quantity-- },
+            onIncrease = { quantity++ },
+            quantity = quantity
         )
         Spacer(Modifier.height(32.dp))
-
         TotalPrice()
-
         Spacer(Modifier.height(16.dp))
-
         PlaceOrderB()
-
         Spacer(modifier = Modifier.height(20.dp))
-
         BottomDetails()
-
     }
-
 }
 
 @Composable
@@ -96,32 +87,29 @@ fun TopRow() {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-
         BackArrow()
-
         NALogoName()
-
         IcShoppingCart()
-
-
     }
 }
 
 @Composable
 fun BraBox(
-    selectedColor : String,
-    quantity      : Int,
-    onColorSelect : (String) -> Unit,
-    onDecrease    : () -> Unit,
-    onIncrease    : () -> Unit
+    selectedColor: String,
+    quantity: Int,
+    onColorSelect: (String) -> Unit,
+    onDecrease: () -> Unit,
+    onIncrease: () -> Unit
 ) {
     Column(
         modifier = Modifier
             .padding(horizontal = 38.dp)
             .background(Color.White)
-            .border(3.dp,
+            .border(
+                3.dp,
                 color = Color(0xFFF9F6EE),
-                RoundedCornerShape(10.dp))
+                RoundedCornerShape(10.dp)
+            )
             .padding(16.dp)
             .height(500.dp)
             .width(335.dp),
@@ -134,53 +122,60 @@ fun BraBox(
                 .background(Color.White)
 
         )
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .background(Color.White),
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.White),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             BraText()
         }
-            BraBoxPics()
+        BraBoxPics()
 
         Spacer(Modifier.height(16.dp))
 
         ColorChoose(
             selectedColor = selectedColor,
-            onColorSelect = onColorSelect )
-
+            onColorSelect = onColorSelect
+        )
 
         Spacer(Modifier.height(32.dp))
-
-        Quantity(quantity = quantity,
-                 onDecrease = onDecrease,
-                 onIncrease = onIncrease)
-
-
-        }
+        Quantity(
+            quantity = quantity,
+            onDecrease = onDecrease,
+            onIncrease = onIncrease
+        )
     }
+}
 
 @Composable
 fun BraText() {
     Column(modifier = Modifier) {
-        Text("Your custom-fit bra",
-                lineHeight = 35.sp)
-        Text("Seamless. Made for your shape.",
-            lineHeight = 35.sp)
-
+        Text(
+            "Your custom-fit bra",
+            lineHeight = 35.sp
+        )
+        Text(
+            "Seamless. Made for your shape.",
+            lineHeight = 35.sp
+        )
         Row(horizontalArrangement = Arrangement.spacedBy(99.dp)) {
-            Text("Size: Your personal fit",
-                    lineHeight = 35.sp)
-            Text (" 799 kr.",
-                lineHeight = 35.sp)
-
-
+            Text(
+                "Size: Your personal fit",
+                lineHeight = 35.sp
+            )
+            Text(
+                " 799 kr.",
+                lineHeight = 35.sp
+            )
         }
 
 
         Spacer(Modifier.height(65.dp))
-        Text ("1.Choose your color",
-            lineHeight = 35.sp)
+        Text(
+            "1.Choose your color",
+            lineHeight = 35.sp
+        )
     }
 }
 
@@ -205,61 +200,70 @@ fun BraBoxPics() {
                 .size(150.dp)
 
 
-                )
+        )
         Image(
             painter = painterResource(id = R.drawable.approdb1),
             contentDescription = "Bra product black",
             modifier = Modifier
                 .size(150.dp)
-                )
+        )
 
 
     }
 }
-
 
 
 @Composable
 fun ColorDots(
-        color      : Color,
-        isSelected : Boolean,
-        onClick    : () -> Unit
-    ) {
-        val borderColor = if (isSelected) OrangeColor else CreamColor
+    color: Color,
+    isSelected: Boolean,
+    onClick: () -> Unit
+) {
+    val borderColor = if (isSelected) OrangeColor else CreamColor
 
-        Box(
-            modifier = Modifier
-                .size(24.dp)
-                .clip(CircleShape)
-                .background(color)
-                .border(2.dp, borderColor, CircleShape)
-                .clickable { onClick() }
-        )
-    }
+    Box(
+        modifier = Modifier
+            .size(24.dp)
+            .clip(CircleShape)
+            .background(color)
+            .border(2.dp, borderColor, CircleShape)
+            .clickable { onClick() }
+    )
+}
 
 
 @Composable
-fun ColorChoose( selectedColor : String,
-                 onColorSelect : (String) -> Unit,
-                 )
-{
+fun ColorChoose(
+    selectedColor: String,
+    onColorSelect: (String) -> Unit,
+) {
     // Farveprikker
     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-        ColorDots(color = Color.White, isSelected = selectedColor == "White", onClick = { onColorSelect("White") })
-        ColorDots(color = Color.Black, isSelected = selectedColor == "Black", onClick = { onColorSelect("Black") })
+        ColorDots(
+            color = Color.White,
+            isSelected = selectedColor == "White",
+            onClick = { onColorSelect("White") })
+        ColorDots(
+            color = Color.Black,
+            isSelected = selectedColor == "Black",
+            onClick = { onColorSelect("Black") })
     }
 }
 
 
 @Composable
-fun Quantity(quantity      : Int,
-             onDecrease    : () -> Unit,
-             onIncrease    : () -> Unit) {
+fun Quantity(
+    quantity: Int,
+    onDecrease: () -> Unit,
+    onIncrease: () -> Unit
+) {
 
-    Text("2. Quantity",
+    Text(
+        "2. Quantity",
         fontWeight = FontWeight.SemiBold,
         fontSize = 14.sp,
-        color = DarkText)
+        color = DarkText
+    )
 
     Spacer(Modifier.height(8.dp))
 
@@ -277,13 +281,18 @@ fun Quantity(quantity      : Int,
             Text("-", fontSize = 18.sp)
         }
 
-        Text(quantity.toString(), fontSize = 16.sp, fontWeight = FontWeight.Medium, color = DarkText)
+        Text(
+            quantity.toString(),
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Medium,
+            color = DarkText
+        )
 
         OutlinedButton(
-            onClick        = onIncrease,
-            modifier       = Modifier.size(36.dp),
+            onClick = onIncrease,
+            modifier = Modifier.size(36.dp),
             contentPadding = PaddingValues(0.dp),
-            shape          = RoundedCornerShape(8.dp)
+            shape = RoundedCornerShape(8.dp)
         ) {
             Text("+", fontSize = 18.sp)
         }
@@ -291,19 +300,19 @@ fun Quantity(quantity      : Int,
 }
 
 @Composable
-fun TotalPrice(){
+fun TotalPrice() {
     Text("Total                                                      799 kr.")
 }
 
 @Composable
-fun PlaceOrderB (){
+fun PlaceOrderB() {
     Button(
-        onClick  = { /* TODO: send ordre */ },
+        onClick = { /* TODO: send ordre */ },
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 45.dp)
             .height(50.dp),
-        shape  = RoundedCornerShape(10.dp),
+        shape = RoundedCornerShape(10.dp),
         colors = ButtonDefaults.buttonColors(containerColor = OrangeColor)
     ) {
         Text("Place order", color = Color.White, fontSize = 20.sp)

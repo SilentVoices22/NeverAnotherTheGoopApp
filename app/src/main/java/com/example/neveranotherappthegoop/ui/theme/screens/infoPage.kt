@@ -39,15 +39,10 @@ fun InfoPageBody() {
             .background(Color.White)
             .verticalScroll(scrollState)
     ) {
-
         TopbarInfoPage() // top bar by kevin
-
         ProductionInfo()
-
         ShippingInfo()
-
         SizeGuarantee()
-
     }
 }
 

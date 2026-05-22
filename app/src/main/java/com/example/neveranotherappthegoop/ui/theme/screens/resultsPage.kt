@@ -221,7 +221,6 @@ fun ListOfBenefits() {
     Column(
         modifier = Modifier.padding(30.dp))
     {
-
         Text(
             text = "Why this fit is made for you",
             fontSize = 14.sp,
@@ -254,7 +253,6 @@ fun ListOfBenefits() {
 
 @Composable
 fun ViewButton() {
-
         // View product button
         Button(
             onClick = {},
@@ -293,7 +291,6 @@ fun RetakeButton() {
 
 @Composable
 fun BottomDetails() {
-
     // "Made for you - Made-to-order - Free size guarantee"
     Image(
         painter = painterResource(id = R.drawable.guaranteebottomtext),
