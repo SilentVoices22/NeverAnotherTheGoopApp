@@ -31,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -75,7 +76,7 @@ fun CheckoutPage() {
         TotalPrice()
         Spacer(Modifier.height(16.dp))
         PlaceOrderB()
-        BottomInfo()
+        BottomDetails()
 
     }
 
@@ -305,15 +306,15 @@ fun PlaceOrderB (){
 }
 
 @Composable
-fun BottomInfo (){
-    Row(verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,
-        modifier = Modifier
-        ) {
-        Text("♡ Made for you",     fontSize = 10.sp, color = DarkText)
-        Brather()
-        Text( "Made-to-order",       fontSize = 10.sp, color = DarkText)
-        Text("Free size guarantee", fontSize = 10.sp, color = DarkText)}
+fun BottomDetails() {
+
+    // "Made for you - Made-to-order - Free size guarantee"
+    Image(
+        painter = painterResource(id = R.drawable.guaranteebottomtext2),
+        contentDescription = null,
+        modifier = Modifier.fillMaxWidth(),
+        contentScale = ContentScale.FillWidth
+    )
 }
 
 @Preview(showBackground = true)
