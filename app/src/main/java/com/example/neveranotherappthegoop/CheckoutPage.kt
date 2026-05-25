@@ -61,6 +61,7 @@ fun CheckoutPage(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .padding(top = 15.dp)
             .background(Color.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
