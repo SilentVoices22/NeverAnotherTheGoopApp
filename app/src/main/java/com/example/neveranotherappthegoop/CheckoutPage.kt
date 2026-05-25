@@ -51,7 +51,8 @@ val DarkText = Color(0xFF393838)
 @Composable
 fun CheckoutPage(
     onBackClick: () -> Unit,
-    onPlaceOrderBClick: () -> Unit
+    onPlaceOrderBClick: () -> Unit,
+    onJoinLinkTextClick: () -> Unit
 ) {
     var quantity by remember { mutableIntStateOf(1) }
     var selectedColor by remember { mutableStateOf("White") }
@@ -74,7 +75,7 @@ fun CheckoutPage(
             quantity = quantity
         )
         Spacer(Modifier.height(32.dp))
-        JoinLinkText()
+        JoinLinkText(onClick = onJoinLinkTextClick)
         TotalPrice()
         Spacer(Modifier.height(16.dp))
         PlaceOrderB(onClick = onPlaceOrderBClick)
@@ -307,14 +308,16 @@ fun Quantity(
 }
 
 @Composable
-fun JoinLinkText() {
+fun JoinLinkText(
+    onClick: () -> Unit
+) {
     Text(
         text = "Production, shipping, and size guarantee",
         color = Orangevibrant,
         fontSize = 16.sp,
         fontWeight = FontWeight.Bold,
         modifier = Modifier.padding(bottom = 20.dp).clickable {
-            // det der skal ske, når man trykker
+            onClick()
         }
     )
 }
@@ -360,6 +363,7 @@ fun BottomDetails() {
 fun CheckoutPagePreview() {
     CheckoutPage(
         onBackClick = {},
-        onPlaceOrderBClick = {}
+        onPlaceOrderBClick = {},
+        onJoinLinkTextClick = {}
     )
 }

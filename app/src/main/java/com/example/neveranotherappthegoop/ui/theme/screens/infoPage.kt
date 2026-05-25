@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop.ui.theme.Screens
+package com.example.neveranotherappthegoop.ui.theme.screens
 
 
 import android.R.attr.top
@@ -28,7 +28,9 @@ import com.example.neveranotherappthegoop.data.NALogoName
 // ====================
 
 @Composable
-fun InfoPageBody() {
+fun InfoPageBody(
+    onBackClick: () -> Unit
+) {
 
     val scrollState = rememberScrollState()
 
@@ -39,7 +41,7 @@ fun InfoPageBody() {
             .background(Color.White)
             .verticalScroll(scrollState)
     ) {
-        TopbarInfoPage() // top bar by kevin
+        TopbarInfoPage(onBackClick = onBackClick) // top bar by kevin
         ProductionInfo()
         ShippingInfo()
         SizeGuarantee()
@@ -48,12 +50,14 @@ fun InfoPageBody() {
 
 
 @Composable
-fun TopbarInfoPage() {
+fun TopbarInfoPage(
+    onBackClick: () -> Unit
+) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(40.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        BackArrow( onClick = {})
+        BackArrow(onClick = onBackClick)
         NALogoName()
     }
 }
@@ -142,5 +146,8 @@ fun SizeGuarantee() {
 @Preview(showBackground = true)
 @Composable
 fun InfoPreview() {
-    InfoPageBody()
+    InfoPageBody(
+        onBackClick = {}
+    )
+
 }

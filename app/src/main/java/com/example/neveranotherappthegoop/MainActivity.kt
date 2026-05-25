@@ -14,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.compose.material3.Text
+import com.example.neveranotherappthegoop.ui.theme.screens.InfoPageBody
 import com.example.neveranotherappthegoop.ui.theme.screens.ErrorRecovery
 import com.example.neveranotherappthegoop.ui.theme.screens.FalloutPageBody
 import com.example.neveranotherappthegoop.ui.theme.screens.OrderConfirmationScreen
@@ -21,6 +22,7 @@ import com.example.neveranotherappthegoop.ui.theme.screens.ResultsPageBody
 import com.example.neveranotherappthegoop.ui.theme.screens.VideoFourPage
 import com.example.neveranotherappthegoop.ui.theme.screens.VideoThreePage
 import com.example.neveranotherappthegoop.ui.theme.screens.VideoTwoPage
+import com.example.neveranotherappthegoop.ui.theme.screens.YouAreDoingGreatPage
 
 
 class MainActivity : ComponentActivity() {
@@ -29,6 +31,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
+
             val navController = rememberNavController()
 
             NavHost(
@@ -91,7 +94,7 @@ class MainActivity : ComponentActivity() {
                             navController.popBackStack()
                         },
                         onContinueClick = {
-                            navController.navigate("StepThreePage")
+                            navController.navigate("YouAreDoingGreatPage")
                         },
                         onVideoGuideClick = {
                             navController.navigate("VideoTwoPage")
@@ -179,6 +182,9 @@ class MainActivity : ComponentActivity() {
                         },
                         onPlaceOrderBClick = {
                             navController.navigate("OrderConfirmationScreen")
+                        },
+                        onJoinLinkTextClick = {
+                            navController.navigate("InfoPageBody")
                         }
                     )
                 }
@@ -186,6 +192,23 @@ class MainActivity : ComponentActivity() {
                     OrderConfirmationScreen(
                         onLogoButtonClick = {
                             navController.navigate("LandingPageBody")
+                        }
+                    )
+                }
+                composable("InfoPageBody") {
+                    InfoPageBody(
+                        onBackClick = {
+                            navController.popBackStack()
+                        },
+                    )
+                }
+                composable("YouAreDoingGreatPage") {
+                    YouAreDoingGreatPage(
+                        onBackClick = {
+                            navController.popBackStack()
+                        },
+                        onPageButtonClick = {
+                                navController.navigate("StepThreePage")
                         }
                     )
                 }

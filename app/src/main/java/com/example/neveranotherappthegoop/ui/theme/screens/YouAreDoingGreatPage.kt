@@ -24,19 +24,26 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 @Preview(showBackground = true)
 @Composable
-fun YouaredoinggreatPreview(){
-    YouAreDoingGreatPage()
+fun YouaredoinggreatPreview(
+){
+    YouAreDoingGreatPage(
+        onBackClick = {},
+        onPageButtonClick = {}
+    )
 }
 
 @Composable
-fun YouAreDoingGreatPage() {
+fun YouAreDoingGreatPage(
+    onBackClick: () -> Unit,
+    onPageButtonClick: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
     ) {
         PageText()
-        PageButton()
-        BackArrow( onClick = {})
+        PageButton( onPageButtonClick = onPageButtonClick)
+        BackArrow( onClick = onBackClick)
     }
 }
 
@@ -72,7 +79,9 @@ fun PageText () {
 }
 
 @Composable
-fun PageButton () {
+fun PageButton (
+    onPageButtonClick: () -> Unit
+) {
    Box(
         modifier = Modifier
             .padding(bottom = 20.dp)
@@ -80,7 +89,7 @@ fun PageButton () {
             contentAlignment = Alignment.BottomCenter
    ) {
        Button(
-           onClick = {},
+           onClick = onPageButtonClick,
            modifier = Modifier
                .width(310.dp)
                .height(40.dp),
