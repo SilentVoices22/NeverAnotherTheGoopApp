@@ -57,7 +57,8 @@ fun NaButtonPreview(){
 // Hjalte
 @Composable
 fun BackArrow(
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Box(
         modifier = Modifier

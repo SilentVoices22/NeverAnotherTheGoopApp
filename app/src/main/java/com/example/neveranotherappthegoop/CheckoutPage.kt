@@ -88,16 +88,25 @@ fun CheckoutPage(
 fun TopRow(
     onBackClick: () -> Unit
 ) {
-    Row(
+    Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 10.dp, top = 24.dp, end = 10.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
+            .height(70.dp)
+
     ) {
-        BackArrow(onClick = onBackClick)
-        NALogoName()
-        IcShoppingCart()
+        BackArrow(onClick = onBackClick,
+            modifier = Modifier
+                .align(Alignment.CenterStart)
+                .padding(start = 10.dp)
+        )
+        NALogoName(
+            modifier = Modifier.align(Alignment.Center)
+        )
+        IcShoppingCart(
+            modifier = Modifier
+            .align(Alignment.CenterEnd)
+            .padding(end = 20.dp)
+        )
     }
 }
 

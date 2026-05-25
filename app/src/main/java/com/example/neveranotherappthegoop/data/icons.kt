@@ -52,11 +52,11 @@ fun IcBra(){
 }
 
     @Composable
-    fun NALogoName(){
+    fun NALogoName(modifier: Modifier = Modifier){
         Image(
             painter = painterResource(id = R.drawable.na_logo_black700),
             contentDescription = "Never Another Logo",
-            modifier = Modifier
+            modifier = modifier
                 .width(145.dp)
                 .height(40.dp)
         )
@@ -72,11 +72,11 @@ fun IcBra(){
     }
 
 @Composable
-fun IcShoppingCart(){
+fun IcShoppingCart(modifier: Modifier = Modifier){
     Image(
         painter = painterResource(id = R.drawable.shopping_bag_24px),
         contentDescription = "Shopping Cart",
-        modifier = Modifier.size(24.dp)
+        modifier = modifier.size(24.dp)
     )
 }
 
