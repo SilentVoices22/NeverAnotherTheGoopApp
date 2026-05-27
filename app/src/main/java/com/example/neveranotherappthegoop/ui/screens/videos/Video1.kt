@@ -1,5 +1,4 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
-
+package com.example.neveranotherappthegoop.ui.screens.videos
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,21 +18,29 @@ import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 import androidx.compose.runtime.remember
 import com.example.neveranotherappthegoop.R
-import com.example.neveranotherappthegoop.ui.theme.screens.TopbarErrorRecovery
+import com.example.neveranotherappthegoop.ui.screens.error.TopbarErrorRecovery
 
 
 @Composable
-fun VideoThreePage (
-    onBackClick: () -> Unit,
+fun VideoOnePage(
+    onBackClick: () -> Unit
 ) {
-    Column(modifier = Modifier.fillMaxSize().padding(15.dp),
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(15.dp)
     ) {
+
         TopbarErrorRecovery(
             onBackClick = onBackClick
         )
-        Column(horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center) {
-            Video3()
+
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            _root_ide_package_.com.example.neveranotherappthegoop.ui.screens.videos.Video1()
         }
     }
 }
@@ -41,14 +48,14 @@ fun VideoThreePage (
 
 
 @Composable
-fun Video3(){ // Made using AI Gemini - Kevin 26/05/22
+fun Video1(){ // Made using AI Gemini - Kevin 26/05/22
     val context = LocalContext.current
 
     // 1. Initialize ExoPlayer safely so it doesn't reset on every recomposition
     val exoPlayer = remember {
         ExoPlayer.Builder(context).build().apply {
             val mediaItem = MediaItem.fromUri(
-                "android.resource://${context.packageName}/${R.raw.tutorial3}"
+                "android.resource://${context.packageName}/${R.raw.video1}"
             )
             setMediaItem(mediaItem)
             prepare()
@@ -75,5 +82,7 @@ fun Video3(){ // Made using AI Gemini - Kevin 26/05/22
             .height(250.dp)
     )
 }
+
+
 
 

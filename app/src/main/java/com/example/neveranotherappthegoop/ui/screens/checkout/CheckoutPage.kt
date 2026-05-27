@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop
+package com.example.neveranotherappthegoop.ui.screens.checkout
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -38,7 +38,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.neveranotherappthegoop.R
 import com.example.neveranotherappthegoop.data.BackArrow
+import com.example.neveranotherappthegoop.data.BottomDetailscheckout
 import com.example.neveranotherappthegoop.data.IcShoppingCart
 import com.example.neveranotherappthegoop.data.NALogoName
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
@@ -81,7 +83,7 @@ fun CheckoutPage(
         Spacer(Modifier.height(16.dp))
         PlaceOrderB(onClick = onPlaceOrderBClick)
         Spacer(modifier = Modifier.height(20.dp))
-        BottomDetails()
+        BottomDetailscheckout()
     }
 }
 
@@ -354,19 +356,6 @@ fun PlaceOrderB(
     }
 }
 
-@Composable
-fun BottomDetails() {
-
-    // "Made for you - Made-to-order - Free size guarantee"
-    Image(
-        painter = painterResource(id = R.drawable.guaranteebottomtext2),
-        contentDescription = null,
-        modifier = Modifier
-            .size(350.dp)
-            .padding(bottom = 15.dp),
-        contentScale = ContentScale.FillWidth
-    )
-}
 
 @Preview(showBackground = true)
 @Composable

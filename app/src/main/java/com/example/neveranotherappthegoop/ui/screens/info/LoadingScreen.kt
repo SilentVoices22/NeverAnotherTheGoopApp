@@ -1,6 +1,5 @@
-package com.example.neveranotherappthegoop
+package com.example.neveranotherappthegoop.ui.screens.info
 
-import android.R.attr.top
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -27,6 +26,7 @@ import com.example.neveranotherappthegoop.data.NALogoName
 import coil.ImageLoader
 import coil.compose.AsyncImage
 import coil.decode.GifDecoder
+import com.example.neveranotherappthegoop.R
 import kotlinx.coroutines.delay
 
 

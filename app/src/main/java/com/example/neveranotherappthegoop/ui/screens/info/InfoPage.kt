@@ -1,7 +1,6 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+package com.example.neveranotherappthegoop.ui.screens.info
 
 
-import android.R.attr.top
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

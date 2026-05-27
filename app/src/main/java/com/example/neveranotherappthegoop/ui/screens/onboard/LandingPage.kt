@@ -1,6 +1,5 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+package com.example.neveranotherappthegoop.ui.screens.onboard
 
-import android.R.attr.onClick
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,6 +27,43 @@ import com.example.neveranotherappthegoop.data.NaButton
 import com.example.neveranotherappthegoop.data.PoseAnklePic
 import com.example.neveranotherappthegoop.data.ThreeStepList
 import com.example.neveranotherappthegoop.ui.theme.CharcoalGrey
+
+
+@Composable
+fun LandingPageBody(onExpectationsPageBodyButtonClick: () -> Unit) {
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .background(Color.White)
+        .padding(top = 24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Topbar()
+        LandingPageText()
+        LandingPagePicture()
+        Column(verticalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxWidth()) {
+            ThreeStepList(modifier = Modifier
+                .height(80.dp)
+                .padding(top = 5.dp))
+        }
+        Text(
+            text = "The NEVER ANOTHER wire free bra is tailored to perfectly fit you. Using your measurements, our algorithm automatically customizes the bra to fit your body. ",
+            fontSize = 13.sp,
+            fontWeight = FontWeight.Normal,
+            style = MaterialTheme.typography.bodyMedium,
+            color = CharcoalGrey,
+            modifier = Modifier.padding(start = 24.dp, end = 24.dp, bottom = 40.dp, top = 40.dp),
+            textAlign = TextAlign.Center,
+        )
+        NaButton(
+            textButton = "Create my bra",
+            onClick = onExpectationsPageBodyButtonClick
+        )
+    }
+}
+
+
+
 
 @Composable
 fun Topbar() {
@@ -98,36 +134,5 @@ fun LandingPagePicture() {
     }
 }
 
-@Composable
-fun LandingPageBody(onExpectationsPageBodyButtonClick: () -> Unit) {
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.White)
-        .padding(top = 24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Topbar()
-        LandingPageText()
-        LandingPagePicture()
-        Column(verticalArrangement = Arrangement.Center,
-            modifier = Modifier.fillMaxWidth()) {
-            ThreeStepList(modifier = Modifier
-                .height(80.dp)
-                .padding(top = 5.dp))
-        }
-        Text(
-            text = "The NEVER ANOTHER wire free bra is tailored to perfectly fit you. Using your measurements, our algorithm automatically customizes the bra to fit your body. ",
-            fontSize = 13.sp,
-            fontWeight = FontWeight.Normal,
-            style = MaterialTheme.typography.bodyMedium,
-            color = CharcoalGrey,
-            modifier = Modifier.padding(start = 24.dp, end = 24.dp, bottom = 40.dp, top = 40.dp),
-            textAlign = TextAlign.Center,
-            )
-        NaButton(
-            textButton = "Create my bra",
-            onClick = onExpectationsPageBodyButtonClick
-        )
-    }
-}
+
 

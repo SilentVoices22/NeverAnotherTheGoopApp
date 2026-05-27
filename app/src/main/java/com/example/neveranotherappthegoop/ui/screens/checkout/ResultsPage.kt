@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+package com.example.neveranotherappthegoop.ui.screens.checkout
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -28,6 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.R
+import com.example.neveranotherappthegoop.data.BottomDetailsresult
 import com.example.neveranotherappthegoop.data.IcMenu
 import com.example.neveranotherappthegoop.data.IcShoppingCart
 import com.example.neveranotherappthegoop.data.NALogoName
@@ -77,7 +78,7 @@ fun ResultsPageBody(
         Spacer(modifier = Modifier.height(20.dp))
 
         // "Made for you - Made-to-order - Free size guarantee"
-        BottomDetails()
+        BottomDetailsresult()
 
     }
 }
@@ -175,10 +176,22 @@ fun MeasurementCard() {
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween // lige fordeling mellem rækkens elementer
                 ) {
-                    MeasurementItem("Upper", "X cm")
-                    MeasurementItem("Lower", "X cm")
-                    MeasurementItem("Span", "X cm")
-                    MeasurementItem("Height", "X cm")
+                    MeasurementItem(
+                        "Upper",
+                        "X cm"
+                    )
+                    MeasurementItem(
+                        "Lower",
+                        "X cm"
+                    )
+                    MeasurementItem(
+                        "Span",
+                        "X cm"
+                    )
+                    MeasurementItem(
+                        "Height",
+                        "X cm"
+                    )
                 }
             }
         }
@@ -293,16 +306,7 @@ fun RetakeButton() {
 }
 
 
-@Composable
-fun BottomDetails() {
-    // "Made for you - Made-to-order - Free size guarantee"
-    Image(
-        painter = painterResource(id = R.drawable.guaranteebottomtext),
-        contentDescription = null,
-        modifier = Modifier.fillMaxWidth(),
-        contentScale = ContentScale.FillWidth
-    )
-}
+
 
 
 @Preview(showBackground = true)

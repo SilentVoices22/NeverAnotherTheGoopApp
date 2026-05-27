@@ -1,8 +1,10 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+package com.example.neveranotherappthegoop.ui.screens.onboard
+
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,7 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.ButtonDefaults.buttonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.ui.graphics.Color
@@ -38,42 +40,46 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
 @Composable
-fun StepFourPage(
+
+fun StepTwoPage(
     onBackClick: () -> Unit,
     onContinueClick: () -> Unit,
-    onVideoGuideClick: () -> Unit
+    onVideoGuideClick: () -> Unit,
+    onTextFieldClick: () -> Unit
 ) {
     Box(
         modifier = Modifier.background(White)
     ) {
-        TopBar4(onBackClick = onBackClick)
-        HeaderText4()
-        PictureGuide4()
-        VideoGuide4(onClick = onVideoGuideClick)
-        ContinueButton4(onClick = onContinueClick)
-        ImageText4()
-        TextField4()
+        TopBar2(onBackClick = onBackClick)
+        HeaderText2()
+        PictureGuide2()
+        VideoGuide2(
+            onVideoGuideClick
+        )
+        ContinueButton2(onClick = onContinueClick)
+        ImageText2()
+        TextField2(onClick = onTextFieldClick)
     }
 }
 
+
 /*-----------------------------------------------Top-Bar--------------------------------------------- */
 
+
 @Composable
-fun TopBar4(
+fun TopBar2(
     onBackClick: () -> Unit
 ) {
     Box(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.topbar4),
+            painter = painterResource(id = R.drawable.topbar2),
             contentDescription = "Step Two",
-            modifier = Modifier
-                .align(Alignment.TopCenter)
-                .width(220.dp)
+            modifier = Modifier.align(Alignment.TopCenter).width(220.dp)
         )
     }
-
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -84,7 +90,8 @@ fun TopBar4(
                 .padding(24.dp)
         ) {
             Icon(
-                imageVector = Icons.Default.ArrowBack, contentDescription = "Back"
+                imageVector = Icons.Default.ArrowBack,
+                contentDescription = "Back"
             )
         }
     }
@@ -93,43 +100,52 @@ fun TopBar4(
 
 /*-------------------------------------------HeaderText---------------------------------------------- */
 
+
+
+
 @Composable
-fun HeaderText4() {
+fun HeaderText2() {
     Column(
-        modifier = Modifier.padding(vertical = 90.dp, horizontal = 50.dp),
-        verticalArrangement = Arrangement.spacedBy(20.dp, alignment = Alignment.CenterVertically),
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = Modifier
+            .padding(vertical = 90.dp, horizontal = 50.dp)
     ) {
         Text(
-            text = "Breast height",
+            text = "Lower circumference",
             fontSize = 25.sp,
             fontWeight = Bold,
-            fontFamily = Monospace)
+            fontFamily = Monospace
+        )
+        Spacer(modifier = Modifier.height(20.dp))
         Text(
-            text = "Measure from the under burst point, across" + "   the fullest point of your chest, and to the cup height point, in a straight vertical line."
+            text = "Place the tape measure around the body, " +
+                    "right under the bust, where the underwire " +
+                    "of a bra would sit. If you’re wearing a " +
+                    "wired bra, place the tape underneath the wire."
         )
     }
 }
 
+
 @Composable
-fun PictureGuide4() {
+fun PictureGuide2() {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.guide4),
+            painter = painterResource(id = R.drawable.guide2),
             contentDescription = null,
             modifier = Modifier
                 .align(alignment = Alignment.Center)
-                .padding(bottom = 140.dp)
+                .padding(bottom = 105.dp)
                 .width(377.dp)
                 .height(288.dp)
         )
     }
 }
 
+
 @Composable
-fun VideoGuide4(
+fun VideoGuide2(
     onClick: () -> Unit
 ) {
     Column(
@@ -159,7 +175,7 @@ fun VideoGuide4(
 }
 
 @Composable
-fun ContinueButton4(
+fun ContinueButton2(
     onClick: () -> Unit
 ) {
     Column(
@@ -168,7 +184,8 @@ fun ContinueButton4(
             .padding(bottom = 20.dp),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
-    ) { // View video guide button
+    ) {
+        // View video guide button
         OutlinedButton(
             onClick = onClick,
             modifier = Modifier
@@ -176,9 +193,10 @@ fun ContinueButton4(
                 .height(50.dp),
             border = BorderStroke(1.dp, Color(0xFFFF5F00)),
             shape = RoundedCornerShape(10.dp),
-            colors = buttonColors(
+            colors = ButtonDefaults.buttonColors(
                 containerColor = Orangevibrant
-            )) {
+            )
+        ) {
             Text(
                 "Continue", fontSize = 20.sp, fontWeight = FontWeight.Normal, color = White
             )
@@ -188,32 +206,30 @@ fun ContinueButton4(
 
 
 @Composable
-fun ImageText4() {
+fun ImageText2() {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(bottom = 170.dp),
-
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+        ) {
         Text(
-            text = "If you are wearing a wired bra, measure from just\n" + "below your actual breast, and not below the wire."
+            text = "Looks good!",
+            modifier = Modifier.padding(bottom = 5.dp)
         )
-        Spacer(modifier = Modifier.height(5.dp))
         Text(
-            text = "Hold the tape measure tightly over your breast,\n" + "creating a little lift."
+            text = "Make sure the tape is level all around."
         )
     }
 }
 
-
 @Composable
-fun TextField4() {
+fun TextField2(
+    onClick: () -> Unit
+) {
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 260.dp),
+        modifier = Modifier.fillMaxSize().padding(bottom = 260.dp),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -225,6 +241,9 @@ fun TextField4() {
             modifier = Modifier
                 .width(180.dp)
                 .height(50.dp)
+                .clickable {
+                    onClick()
+                }
                 .background(
                     color = BoneWhite,
                     shape = RoundedCornerShape(12.dp)
@@ -232,22 +251,25 @@ fun TextField4() {
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = "0.00 cm", fontSize = 20.sp
+                text = "0.00 cm",
+                fontSize = 20.sp
             )
         }
     }
 }
 
-
 @Preview(showBackground = true)
 @Composable
-fun StepFourPreview() {
-    StepFourPage (
+fun StepTwoPreview(){
+    StepTwoPage(
         onBackClick = {},
         onContinueClick = {},
-        onVideoGuideClick = {}
+        onVideoGuideClick = {},
+        onTextFieldClick = {}
     )
 }
+
+
 
 
 

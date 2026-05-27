@@ -1,14 +1,12 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+package com.example.neveranotherappthegoop.ui.screens.onboard
 
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -41,22 +39,21 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 @Composable
 
-fun StepTwoPage(
+fun StepThreePage(
     onBackClick: () -> Unit,
     onContinueClick: () -> Unit,
-    onVideoGuideClick: () -> Unit,
-    onTextFieldClick: () -> Unit
+    onVideoGuideClick: () -> Unit
 ) {
     Box(
         modifier = Modifier.background(White)
     ) {
-        TopBar2(onBackClick = onBackClick)
-        HeaderText2()
-        PictureGuide2()
-        VideoGuide2(onVideoGuideClick)
-        ContinueButton2(onClick = onContinueClick)
-        ImageText2()
-        TextField2(onClick = onTextFieldClick)
+        TopBar3(onBackClick = onBackClick)
+        HeaderText3()
+        PictureGuide3()
+        VideoGuide3(onClick = onVideoGuideClick)
+        ContinueButton3(onClick = onContinueClick)
+        ImageText3()
+        TextField3()
     }
 }
 
@@ -65,7 +62,7 @@ fun StepTwoPage(
 
 
 @Composable
-fun TopBar2(
+fun TopBar3(
     onBackClick: () -> Unit
 ) {
     Box(
@@ -73,9 +70,11 @@ fun TopBar2(
             .fillMaxWidth()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.topbar2),
+            painter = painterResource(id = R.drawable.topbar3),
             contentDescription = "Step Two",
-            modifier = Modifier.align(Alignment.TopCenter).width(220.dp)
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .width(220.dp)
         )
     }
     Box(
@@ -102,39 +101,39 @@ fun TopBar2(
 
 
 @Composable
-fun HeaderText2() {
+fun HeaderText3() {
     Column(
         modifier = Modifier
-            .padding(vertical = 90.dp, horizontal = 50.dp)
+            .padding(vertical = 90.dp, horizontal = 50.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Lower circumference",
+            text = "Breast span",
             fontSize = 25.sp,
             fontWeight = Bold,
-            fontFamily = Monospace
+            fontFamily = Monospace,
+            modifier = Modifier.padding(bottom = 20.dp)
         )
-        Spacer(modifier = Modifier.height(20.dp))
         Text(
-            text = "Place the tape measure around the body, " +
-                    "right under the bust, where the underwire " +
-                    "of a bra would sit. If you’re wearing a " +
-                    "wired bra, place the tape underneath the wire."
+            text = "Place the tape measure in a straight " +
+                    "horizontal line across the curve of your bust."
         )
     }
 }
 
 
 @Composable
-fun PictureGuide2() {
+fun PictureGuide3() {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.guide2),
+            painter = painterResource(id = R.drawable.guide3),
             contentDescription = null,
             modifier = Modifier
                 .align(alignment = Alignment.Center)
-                .padding(bottom = 105.dp)
+                .padding(bottom = 140.dp)
                 .width(377.dp)
                 .height(288.dp)
         )
@@ -143,7 +142,7 @@ fun PictureGuide2() {
 
 
 @Composable
-fun VideoGuide2(
+fun VideoGuide3(
     onClick: () -> Unit
 ) {
     Column(
@@ -173,7 +172,7 @@ fun VideoGuide2(
 }
 
 @Composable
-fun ContinueButton2(
+fun ContinueButton3(
     onClick: () -> Unit
 ) {
     Column(
@@ -196,7 +195,9 @@ fun ContinueButton2(
             )
         ) {
             Text(
-                "Continue", fontSize = 20.sp, fontWeight = FontWeight.Normal, color = White
+                "Continue", fontSize = 20.sp,
+                fontWeight = FontWeight.Normal,
+                color = White
             )
         }
     }
@@ -204,44 +205,39 @@ fun ContinueButton2(
 
 
 @Composable
-fun ImageText2() {
+fun ImageText3() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(bottom = 170.dp),
+            .padding(bottom = 180.dp),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
-        ) {
+    ) {
         Text(
-            text = "Looks good!",
-            modifier = Modifier.padding(bottom = 5.dp)
-        )
-        Text(
-            text = "Make sure the tape is level all around."
+            text = "Don't tighten the measurement tape, but \n" +
+                    "keep it snug over your bust."
         )
     }
 }
 
+
 @Composable
-fun TextField2(
-    onClick: () -> Unit
-) {
+fun TextField3() {
     Column(
-        modifier = Modifier.fillMaxSize().padding(bottom = 260.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(bottom = 260.dp),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = "Enter your measurements",
-            modifier = Modifier.padding(bottom = 10.dp)
+            modifier = Modifier.padding( bottom = 10.dp)
         )
         Box(
             modifier = Modifier
                 .width(180.dp)
                 .height(50.dp)
-                .clickable {
-                    onClick()
-                }
                 .background(
                     color = BoneWhite,
                     shape = RoundedCornerShape(12.dp)
@@ -256,18 +252,16 @@ fun TextField2(
     }
 }
 
+
 @Preview(showBackground = true)
 @Composable
-fun StepTwoPreview(){
-StepTwoPage(
-    onBackClick = {},
-    onContinueClick = {},
-    onVideoGuideClick = {},
-    onTextFieldClick = {}
-)
+fun MainScreenPreviewer() {
+    StepThreePage(
+        onBackClick = {},
+        onContinueClick = {},
+        onVideoGuideClick = {}
+    )
 }
-
-
 
 
 

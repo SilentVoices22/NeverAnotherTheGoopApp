@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+package com.example.neveranotherappthegoop.ui.screens.checkout
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image

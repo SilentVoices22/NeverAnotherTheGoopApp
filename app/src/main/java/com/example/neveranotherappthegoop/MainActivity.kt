@@ -4,25 +4,23 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.neveranotherappthegoop.ui.theme.screens.LandingPageBody
-import com.example.neveranotherappthegoop.ui.theme.screens.ExpectationsPageBody
-import com.example.neveranotherappthegoop.ui.theme.screens.StepFourPage
-import com.example.neveranotherappthegoop.ui.theme.screens.StepOnePage
-import com.example.neveranotherappthegoop.ui.theme.screens.StepThreePage
-import com.example.neveranotherappthegoop.ui.theme.screens.StepTwoPage
+import com.example.neveranotherappthegoop.ui.screens.onboard.LandingPageBody
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.compose.material3.Text
-import com.example.neveranotherappthegoop.ui.theme.screens.InfoPageBody
-import com.example.neveranotherappthegoop.ui.theme.screens.ErrorRecovery
-import com.example.neveranotherappthegoop.ui.theme.screens.FalloutPageBody
-import com.example.neveranotherappthegoop.ui.theme.screens.OrderConfirmationScreen
-import com.example.neveranotherappthegoop.ui.theme.screens.ResultsPageBody
-import com.example.neveranotherappthegoop.ui.theme.screens.VideoFourPage
-import com.example.neveranotherappthegoop.ui.theme.screens.VideoThreePage
-import com.example.neveranotherappthegoop.ui.theme.screens.VideoTwoPage
-import com.example.neveranotherappthegoop.ui.theme.screens.YouAreDoingGreatPage
+import com.example.neveranotherappthegoop.ui.screens.checkout.CheckoutPage
+import com.example.neveranotherappthegoop.ui.screens.checkout.OrderConfirmationScreen
+import com.example.neveranotherappthegoop.ui.screens.checkout.ResultsPageBody
+import com.example.neveranotherappthegoop.ui.screens.error.ErrorRecovery
+import com.example.neveranotherappthegoop.ui.screens.error.FalloutPageBody
+import com.example.neveranotherappthegoop.ui.screens.info.ExpectationsPageBody
+import com.example.neveranotherappthegoop.ui.screens.info.InfoPageBody
+import com.example.neveranotherappthegoop.ui.screens.info.LoadingScreen
+import com.example.neveranotherappthegoop.ui.screens.onboard.StepFourPage
+import com.example.neveranotherappthegoop.ui.screens.onboard.StepOnePage
+import com.example.neveranotherappthegoop.ui.screens.onboard.StepThreePage
+import com.example.neveranotherappthegoop.ui.screens.onboard.StepTwoPage
+import com.example.neveranotherappthegoop.ui.screens.onboard.YouAreDoingGreatPage
 
 
 class MainActivity : ComponentActivity() {
@@ -49,8 +47,8 @@ class MainActivity : ComponentActivity() {
                 composable("ExpectationsPageBody") {
                     ExpectationsPageBody(
                         onBackClick = {
-                        navController.popBackStack()
-                    },
+                            navController.popBackStack()
+                        },
                         onBeginClick = {
                             navController.navigate("StepOnePage")
                         }
@@ -81,7 +79,7 @@ class MainActivity : ComponentActivity() {
                     )
                 }
                 composable("VideoOnePage") {
-                    VideoOnePage(
+                    _root_ide_package_.com.example.neveranotherappthegoop.ui.screens.videos.VideoOnePage(
                         onBackClick = {
                             navController.popBackStack()
                         },
@@ -112,7 +110,7 @@ class MainActivity : ComponentActivity() {
                     )
                 }
                 composable("VideoTwoPage") {
-                    VideoTwoPage(
+                    _root_ide_package_.com.example.neveranotherappthegoop.ui.screens.videos.VideoTwoPage(
                         onBackClick = {
                             navController.popBackStack()
                         },
@@ -132,7 +130,7 @@ class MainActivity : ComponentActivity() {
                     )
                 }
                 composable("VideoThreePage") {
-                    VideoThreePage(
+                    _root_ide_package_.com.example.neveranotherappthegoop.ui.screens.videos.VideoThreePage(
                         onBackClick = {
                             navController.popBackStack()
                         },
@@ -153,7 +151,7 @@ class MainActivity : ComponentActivity() {
                     )
                 }
                 composable("VideoFourPage") {
-                    VideoFourPage(
+                    _root_ide_package_.com.example.neveranotherappthegoop.ui.screens.videos.VideoFourPage(
                         onBackClick = {
                             navController.popBackStack()
                         },
@@ -208,7 +206,7 @@ class MainActivity : ComponentActivity() {
                             navController.popBackStack()
                         },
                         onPageButtonClick = {
-                                navController.navigate("StepThreePage")
+                            navController.navigate("StepThreePage")
                         }
                     )
                 }

@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+package com.example.neveranotherappthegoop.ui.screens.error
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -166,7 +166,9 @@ fun FalloutPageBody(
 ) {
     // Hoved layout til hele siden
     Column(modifier = Modifier.fillMaxSize()) {
-        TopbarErrorRecovery(onBackClick = onBackClick)
+        TopbarErrorRecovery(
+            onBackClick = onBackClick
+        )
         FalloutText() // Overskrift og tekst
         FalloutMailBox() // Email felt + knap
         MeantineText() // Nederste informationssektion
