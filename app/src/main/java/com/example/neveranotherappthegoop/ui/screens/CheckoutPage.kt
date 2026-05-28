@@ -170,17 +170,13 @@ fun BraText() {
             "Seamless. Made for your shape.",
             lineHeight = 35.sp
         )
-        Row(horizontalArrangement = Arrangement.spacedBy(99.dp)) {
-            Text(
+
+        Text(
                 "Size: Your personal fit",
                 lineHeight = 35.sp
-            )
-            Text(
-                " 799 kr.",
-                lineHeight = 35.sp
-            )
-        }
-        Spacer(Modifier.height(65.dp))
+        )
+
+        Spacer(Modifier.height(50.dp))
         Text(
             "1.Choose your color",
             lineHeight = 35.sp
