@@ -47,8 +47,16 @@ class MeasurementsViewModel : ViewModel() {
 
     // ---------- Validation Checks ----------
     // Steps 1 & 2: upper/lower circumference — max 130 cm → ErrorRecovery
-    fun isCircumferenceTooLarge(value: String): Boolean =
-        (value.toDoubleOrNull() ?: 0.0) > 130.0
+    fun isUpperCircumferenceTooLarge(value: String): Boolean {
+        val number = value.toDoubleOrNull() ?: 0.0
+        return number < 77.0 || number > 113.0
+    }
+
+    fun isLowerCircumferenceTooLarge(value: String): Boolean {
+        val number = value.toDoubleOrNull() ?: 0.0
+        return number < 65.0 || number > 100.0
+    }
+
 
     // Steps 3 & 4: breast span/height — max 35 cm → FalloutPage
     fun isSpanHeightTooLarge(value: String): Boolean =

@@ -54,7 +54,7 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
             StepOnePage(
                 onBackClick = { navController.popBackStack() },
                 onContinueClick = {
-                    if (viewModel.isCircumferenceTooLarge(viewModel.uiState.measurement1)) {
+                    if (viewModel.isUpperCircumferenceTooLarge(viewModel.uiState.measurement1)) {
                         navController.navigate("ErrorRecoveryPage")
                     } else {
                         navController.navigate("StepTwoPage")
@@ -82,7 +82,7 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
             StepTwoPage(
                 onBackClick = { navController.popBackStack() },
                 onContinueClick = {
-                    if (viewModel.isCircumferenceTooLarge(viewModel.uiState.measurement2)) {
+                    if (viewModel.isLowerCircumferenceTooLarge(viewModel.uiState.measurement2)) {
                         navController.navigate("ErrorRecoveryPage")
                     } else {
                         navController.navigate("YouAreDoingGreatPage")
