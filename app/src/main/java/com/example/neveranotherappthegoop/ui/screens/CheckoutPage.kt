@@ -315,7 +315,14 @@ fun JoinLinkText(
 
 @Composable
 fun TotalPrice(totalPrice: Int) {
-    Text("Total                                                      ${totalPrice} kr.")
+    Row(
+        modifier = Modifier
+            .width(335.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ){ Text("Total")
+        Text("  ${totalPrice} kr.")
+}
 }
 
 @Composable
