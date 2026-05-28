@@ -25,6 +25,8 @@ import com.example.neveranotherappthegoop.ui.screens.VideoTwoPage
 import com.example.neveranotherappthegoop.ui.screens.YouAreDoingGreatPage
 import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
 
+/*---------------------------------------------------------Programmeret af Hjalte, men peer-coded af hele gruppen-------------------------------------------------------------- */
+
 @Composable
     fun AppNavigation () {
 
@@ -190,7 +192,4 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
             )
         }
     }
-
-
-
 }

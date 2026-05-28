@@ -40,6 +40,7 @@ import com.example.neveranotherappthegoop.R
 import com.example.neveranotherappthegoop.ui.theme.BoneWhite
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
+/*---------------------------------------------------------Fælles-kodning-------------------------------------------------------------- */
 
 @Composable
 

@@ -1,9 +1,7 @@
 package com.example.neveranotherappthegoop.data.model
 
-/**
- * Data model representing the core measurement and purchase state.
- * Keeping this as a data class makes it pure, easily testable, and separate from UI frameworks.
- */
+/*---------------------------------------------------------Fælles-kodning, med hjælp fra ai 26/05/28-------------------------------------------------------------- */
+
 data class MeasurementModel(
     val measurement1: String = "",
     val measurement2: String = "",

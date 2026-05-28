@@ -22,8 +22,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
+/*---------------------------------------------------------Fælles-kodning-------------------------------------------------------------- */
 
-// Kevin
+
 @Composable
 fun NaButton(
     textButton: String,
@@ -49,7 +50,7 @@ fun NaButton(
     }
 }
 
-// Hjalte
+
 @Composable
 fun BackArrow(
     onClick: () -> Unit,
@@ -70,7 +71,7 @@ fun BackArrow(
     }
 }
 
-// Kevin
+
 @Composable
 fun TopbarErrorRecovery(onBackClick: () -> Unit) {
     Row(

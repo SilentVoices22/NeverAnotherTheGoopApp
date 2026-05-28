@@ -14,7 +14,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.neveranotherappthegoop.R
 
-// Icons Kevin 26/05/18
+/*---------------------------------------------------------Fælles-kodning-------------------------------------------------------------- */
+
 
 @Composable
 fun IcTapeMeasure() {

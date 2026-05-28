@@ -32,10 +32,7 @@ import com.example.neveranotherappthegoop.data.components.IcMenu
 import com.example.neveranotherappthegoop.data.components.IcShoppingCart
 import com.example.neveranotherappthegoop.data.components.NALogoName
 
-
-// ====================
-// SOFIA
-// ====================
+/*---------------------------------------------------------Sofia-------------------------------------------------------------- */
 
 @Composable
 fun ResultsPageBody(
@@ -94,8 +91,6 @@ fun ResultsPageBody(
 
 @Composable
 fun ResultsTopBar() {
-
-    // top bar by kevin
     Row(
         modifier = Modifier
             .fillMaxWidth(),

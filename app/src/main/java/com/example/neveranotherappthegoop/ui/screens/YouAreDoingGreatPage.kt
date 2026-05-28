@@ -18,6 +18,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.neveranotherappthegoop.data.components.BackArrow
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
+/*---------------------------------------------------------Hjalte-Emil-------------------------------------------------------------- */
+
+
 @Preview(showBackground = true)
 @Composable
 fun YouaredoinggreatPreview(

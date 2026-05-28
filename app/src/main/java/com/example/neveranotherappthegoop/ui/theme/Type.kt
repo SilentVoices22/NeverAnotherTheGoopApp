@@ -10,8 +10,10 @@ import androidx.compose.ui.unit.sp
 // Replace with your actual project package name to reference the auto-generated certs
 import com.example.neveranotherappthegoop.R
 
+/*---------------------------------------------------------Fælles-kodning, med hjælp fra ai 26/05/28-------------------------------------------------------------- */
 
-// used Ai to write line of code, to find out how to use fonts in the newest android studio. - Kevin 26/05/20
+
+// used Ai to write line of code, to find out how to use fonts in the newest android studio.
 val provider = GoogleFont.Provider(
     providerAuthority = "com.google.android.gms.fonts",
     providerPackage = "com.google.android.gms",

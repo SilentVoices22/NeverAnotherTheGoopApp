@@ -35,7 +35,8 @@ import com.example.neveranotherappthegoop.ui.theme.BoneWhite
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
-/*------------------------------------Screen---------------------------------- */
+/*---------------------------------------------------------Hjalte-Emil-------------------------------------------------------------- */
+
 
 @Preview(showBackground = true)
 @Composable

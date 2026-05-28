@@ -21,6 +21,7 @@ import androidx.compose.runtime.remember
 import com.example.neveranotherappthegoop.R
 import com.example.neveranotherappthegoop.data.components.TopbarErrorRecovery
 
+/*---------------------------------------------------------Fælles-kodning-------------------------------------------------------------- */
 
 @Composable
 fun VideoTwoPage (

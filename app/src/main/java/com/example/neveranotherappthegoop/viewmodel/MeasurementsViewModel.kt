@@ -6,6 +6,9 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.neveranotherappthegoop.data.model.MeasurementModel
 
+/*---------------------------------------------------------Fælles-kodning, med hjælp fra ai 26/05/28-------------------------------------------------------------- */
+
+
 class MeasurementsViewModel : ViewModel() {
 
     // Central unified single source of state powered by our pure Model layer

@@ -38,8 +38,9 @@ import com.example.neveranotherappthegoop.R
 import com.example.neveranotherappthegoop.data.components.TopbarErrorRecovery
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
+/*---------------------------------------------------------Oliver-------------------------------------------------------------- */
 
-@Composable //Oliver
+@Composable
 fun FalloutText() {
     // Column placerer elementer lodret
     Column(modifier = Modifier.padding(vertical = 10.dp, horizontal = 50.dp)) {
@@ -58,7 +59,7 @@ fun FalloutText() {
     }
 }
 
-@Composable //Oliver
+@Composable
 fun FalloutMailBox() {
     // State variable som gemmer email teksten
     var email by remember { mutableStateOf("") }
@@ -101,7 +102,7 @@ fun FalloutMailBox() {
     }
 }
 
-@Composable //Oliver
+@Composable
 fun MeantineText() {
     Column(modifier = Modifier.padding(horizontal = 50.dp)) {
         Text("In the meantine...")
@@ -146,7 +147,7 @@ fun MeantineText() {
     }
 }
 
-@Composable //Oliver
+@Composable
 fun FalloutPageBody(
     onBackClick: () -> Unit
 ) {

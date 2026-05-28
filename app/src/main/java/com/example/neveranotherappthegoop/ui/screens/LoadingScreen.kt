@@ -29,6 +29,7 @@ import coil.decode.GifDecoder
 import com.example.neveranotherappthegoop.R
 import kotlinx.coroutines.delay
 
+/*---------------------------------------------------------Mohsen-------------------------------------------------------------- */
 
 @Composable
 fun LoadingScreen(

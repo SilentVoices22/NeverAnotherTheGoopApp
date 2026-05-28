@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.neveranotherappthegoop.navigation.AppNavigation
 
+/*---------------------------------------------------------Fælles-kodning-------------------------------------------------------------- */
 
 
 class MainActivity : ComponentActivity() {

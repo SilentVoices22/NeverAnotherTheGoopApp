@@ -41,6 +41,9 @@ import com.example.neveranotherappthegoop.ui.theme.BoneWhite
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
+/*---------------------------------------------------------Fælles-kodning-------------------------------------------------------------- */
+
+
 @Composable
 fun StepOnePage(
     onBackClick: () -> Unit,

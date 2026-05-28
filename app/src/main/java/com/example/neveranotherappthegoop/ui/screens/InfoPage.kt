@@ -22,9 +22,8 @@ import com.example.neveranotherappthegoop.data.components.BackArrow
 import com.example.neveranotherappthegoop.data.components.NALogoName
 
 
-// ====================
-// SOFIA
-// ====================
+/*---------------------------------------------------------Sofia-------------------------------------------------------------- */
+
 
 @Composable
 fun InfoPageBody(
@@ -40,7 +39,7 @@ fun InfoPageBody(
             .background(Color.White)
             .verticalScroll(scrollState)
     ) {
-        TopbarInfoPage(onBackClick = onBackClick) // top bar by kevin
+        TopbarInfoPage(onBackClick = onBackClick)
         ProductionInfo()
         ShippingInfo()
         SizeGuarantee()
