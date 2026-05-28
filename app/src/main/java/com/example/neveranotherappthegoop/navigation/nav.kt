@@ -83,7 +83,7 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
                 onBackClick = { navController.popBackStack() },
                 onContinueClick = {
                     if (viewModel.isLowerCircumferenceTooLarge(viewModel.uiState.measurement2)) {
-                        navController.navigate("ErrorRecoveryPage")
+                        navController.navigate("FalloutPage")
                     } else {
                         navController.navigate("YouAreDoingGreatPage")
                     }

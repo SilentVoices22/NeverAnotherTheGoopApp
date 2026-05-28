@@ -36,12 +36,10 @@ import com.example.neveranotherappthegoop.R
 import com.example.neveranotherappthegoop.data.components.BackArrow
 import com.example.neveranotherappthegoop.data.components.IcShoppingCart
 import com.example.neveranotherappthegoop.data.components.NALogoName
+import com.example.neveranotherappthegoop.ui.theme.BoneWhite
+import com.example.neveranotherappthegoop.ui.theme.CharcoalGrey
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
-
-val OrangeColor = Color(0xFFFF5F00)
-val CreamColor = Color(0xFFF9F6EE)
-val DarkText = Color(0xFF393838)
 
 @Composable
 fun CheckoutPage(
@@ -215,7 +213,7 @@ fun ColorDots(
     isSelected: Boolean,
     onClick: () -> Unit
 ) {
-    val borderColor = if (isSelected) OrangeColor else CreamColor
+    val borderColor = if (isSelected) Orangevibrant else BoneWhite
 
     Box(
         modifier = Modifier
@@ -258,7 +256,7 @@ fun Quantity(
         "2. Quantity",
         fontWeight = FontWeight.SemiBold,
         fontSize = 14.sp,
-        color = DarkText
+        color = CharcoalGrey
     )
 
     Spacer(Modifier.height(8.dp))
@@ -280,7 +278,7 @@ fun Quantity(
             quantity.toString(),
             fontSize = 16.sp,
             fontWeight = FontWeight.Medium,
-            color = DarkText
+            color = CharcoalGrey
         )
 
         OutlinedButton(
@@ -332,7 +330,7 @@ fun PlaceOrderB(
             .padding(horizontal = 45.dp)
             .height(50.dp),
         shape = RoundedCornerShape(10.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = OrangeColor)
+        colors = ButtonDefaults.buttonColors(containerColor = Orangevibrant)
     ) {
         Text("Place order", color = Color.White, fontSize = 20.sp)
     }
