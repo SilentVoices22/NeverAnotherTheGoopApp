@@ -1,22 +1,23 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+﻿package com.example.neveranotherappthegoop.ui.screens
 
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,6 +33,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily.Companion.Monospace
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.R
@@ -41,22 +43,23 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 @Composable
 
-fun StepTwoPage(
+fun StepThreePage(
     onBackClick: () -> Unit,
     onContinueClick: () -> Unit,
     onVideoGuideClick: () -> Unit,
-    onTextFieldClick: () -> Unit
+    measurement: String,
+    onMeasurementChange: (String) -> Unit
 ) {
     Box(
         modifier = Modifier.background(White)
     ) {
-        TopBar2(onBackClick = onBackClick)
-        HeaderText2()
-        PictureGuide2()
-        VideoGuide2(onVideoGuideClick)
-        ContinueButton2(onClick = onContinueClick)
-        ImageText2()
-        TextField2(onClick = onTextFieldClick)
+        TopBar3(onBackClick = onBackClick)
+        HeaderText3()
+        PictureGuide3()
+        VideoGuide3(onClick = onVideoGuideClick)
+        ContinueButton3(onClick = onContinueClick)
+        ImageText3()
+        MeasurementTextField3(value = measurement, onValueChange = onMeasurementChange)
     }
 }
 
@@ -65,7 +68,7 @@ fun StepTwoPage(
 
 
 @Composable
-fun TopBar2(
+fun TopBar3(
     onBackClick: () -> Unit
 ) {
     Box(
@@ -73,9 +76,11 @@ fun TopBar2(
             .fillMaxWidth()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.topbar2),
+            painter = painterResource(id = R.drawable.topbar3),
             contentDescription = "Step Two",
-            modifier = Modifier.align(Alignment.TopCenter).width(220.dp)
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .width(220.dp)
         )
     }
     Box(
@@ -102,39 +107,39 @@ fun TopBar2(
 
 
 @Composable
-fun HeaderText2() {
+fun HeaderText3() {
     Column(
         modifier = Modifier
-            .padding(vertical = 90.dp, horizontal = 50.dp)
+            .padding(vertical = 90.dp, horizontal = 50.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Lower circumference",
+            text = "Breast span",
             fontSize = 25.sp,
             fontWeight = Bold,
-            fontFamily = Monospace
+            fontFamily = Monospace,
+            modifier = Modifier.padding(bottom = 20.dp)
         )
-        Spacer(modifier = Modifier.height(20.dp))
         Text(
-            text = "Place the tape measure around the body, " +
-                    "right under the bust, where the underwire " +
-                    "of a bra would sit. If you’re wearing a " +
-                    "wired bra, place the tape underneath the wire."
+            text = "Place the tape measure in a straight " +
+                    "horizontal line across the curve of your bust."
         )
     }
 }
 
 
 @Composable
-fun PictureGuide2() {
+fun PictureGuide3() {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.guide2),
+            painter = painterResource(id = R.drawable.guide3),
             contentDescription = null,
             modifier = Modifier
                 .align(alignment = Alignment.Center)
-                .padding(bottom = 105.dp)
+                .padding(bottom = 140.dp)
                 .width(377.dp)
                 .height(288.dp)
         )
@@ -143,7 +148,7 @@ fun PictureGuide2() {
 
 
 @Composable
-fun VideoGuide2(
+fun VideoGuide3(
     onClick: () -> Unit
 ) {
     Column(
@@ -173,7 +178,7 @@ fun VideoGuide2(
 }
 
 @Composable
-fun ContinueButton2(
+fun ContinueButton3(
     onClick: () -> Unit
 ) {
     Column(
@@ -196,7 +201,9 @@ fun ContinueButton2(
             )
         ) {
             Text(
-                "Continue", fontSize = 20.sp, fontWeight = FontWeight.Normal, color = White
+                "Continue", fontSize = 20.sp,
+                fontWeight = FontWeight.Normal,
+                color = White
             )
         }
     }
@@ -204,30 +211,31 @@ fun ContinueButton2(
 
 
 @Composable
-fun ImageText2() {
+fun ImageText3() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(bottom = 170.dp),
+            .padding(bottom = 180.dp),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
-        ) {
+    ) {
         Text(
-            text = "Looks good!",
-            modifier = Modifier.padding(bottom = 5.dp)
-        )
-        Text(
-            text = "Make sure the tape is level all around."
+            text = "Don't tighten the measurement tape, but \n" +
+                    "keep it snug over your bust."
         )
     }
 }
 
+
 @Composable
-fun TextField2(
-    onClick: () -> Unit
+fun MeasurementTextField3(
+    value: String,
+    onValueChange: (String) -> Unit
 ) {
     Column(
-        modifier = Modifier.fillMaxSize().padding(bottom = 260.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(bottom = 240.dp),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -235,39 +243,36 @@ fun TextField2(
             text = "Enter your measurements",
             modifier = Modifier.padding(bottom = 10.dp)
         )
-        Box(
-            modifier = Modifier
-                .width(180.dp)
-                .height(50.dp)
-                .clickable {
-                    onClick()
-                }
-                .background(
-                    color = BoneWhite,
-                    shape = RoundedCornerShape(12.dp)
-                ),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = "0.00 cm",
-                fontSize = 20.sp
-            )
-        }
+        OutlinedTextField(
+            value = value,
+            onValueChange = onValueChange,
+            modifier = Modifier.width(180.dp),
+            placeholder = { Text("0.00 cm") },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+            shape = RoundedCornerShape(12.dp),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = Orangevibrant,
+                unfocusedBorderColor = Color.Transparent,
+                unfocusedContainerColor = BoneWhite,
+                focusedContainerColor = BoneWhite
+            ),
+            singleLine = true
+        )
     }
 }
 
+
 @Preview(showBackground = true)
 @Composable
-fun StepTwoPreview(){
-StepTwoPage(
-    onBackClick = {},
-    onContinueClick = {},
-    onVideoGuideClick = {},
-    onTextFieldClick = {}
-)
+fun MainScreenPreviewer() {
+    StepThreePage(
+        onBackClick = {},
+        onContinueClick = {},
+        onVideoGuideClick = {},
+        measurement = "",
+        onMeasurementChange = {}
+    )
 }
-
-
 
 
 

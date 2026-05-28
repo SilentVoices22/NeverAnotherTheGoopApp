@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+﻿package com.example.neveranotherappthegoop.ui.screens
 
 
 import android.R.attr.top
@@ -19,8 +19,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.neveranotherappthegoop.data.BackArrow
-import com.example.neveranotherappthegoop.data.NALogoName
+import com.example.neveranotherappthegoop.ui.components.BackArrow
+import com.example.neveranotherappthegoop.ui.components.NALogoName
 
 
 // ====================

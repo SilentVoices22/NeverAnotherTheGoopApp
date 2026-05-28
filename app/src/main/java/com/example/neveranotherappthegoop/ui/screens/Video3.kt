@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+﻿package com.example.neveranotherappthegoop.ui.screens
 
 
 import androidx.compose.foundation.layout.Arrangement
@@ -19,7 +19,7 @@ import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 import androidx.compose.runtime.remember
 import com.example.neveranotherappthegoop.R
-import com.example.neveranotherappthegoop.ui.theme.screens.TopbarErrorRecovery
+import com.example.neveranotherappthegoop.ui.components.TopbarErrorRecovery
 
 
 @Composable

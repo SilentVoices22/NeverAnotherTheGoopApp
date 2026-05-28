@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+﻿package com.example.neveranotherappthegoop.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,12 +18,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.neveranotherappthegoop.data.BackArrow
-import com.example.neveranotherappthegoop.data.IcHeart
-import com.example.neveranotherappthegoop.data.IcTapeMeasure
-import com.example.neveranotherappthegoop.data.NALogoName
-import com.example.neveranotherappthegoop.data.NaButton
-import com.example.neveranotherappthegoop.data.TopbarErrorRecovery
+import com.example.neveranotherappthegoop.ui.components.BackArrow
+import com.example.neveranotherappthegoop.ui.components.IcHeart
+import com.example.neveranotherappthegoop.ui.components.IcTapeMeasure
+import com.example.neveranotherappthegoop.ui.components.NALogoName
+import com.example.neveranotherappthegoop.ui.components.NaButton
+import com.example.neveranotherappthegoop.ui.components.TopbarErrorRecovery
 import com.example.neveranotherappthegoop.ui.theme.CharcoalGrey
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 

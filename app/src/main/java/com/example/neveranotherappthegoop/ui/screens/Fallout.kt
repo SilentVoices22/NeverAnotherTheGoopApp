@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+﻿package com.example.neveranotherappthegoop.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -18,40 +18,26 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.neveranotherappthegoop.data.NALogoName
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontFamily.Companion.Monospace
-import androidx.compose.ui.text.font.FontWeight.Companion.Bold
-import androidx.compose.material3.Icon
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontFamily.Companion.Monospace
+import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.withStyle
 import com.example.neveranotherappthegoop.R
-import com.example.neveranotherappthegoop.data.BackArrow
+import com.example.neveranotherappthegoop.ui.components.TopbarErrorRecovery
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
-
-@Composable //Kevin
-fun TopbarErrorRecovery(
-    onBackClick: () -> Unit,
-    ) {
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(40.dp, Alignment.CenterHorizontally),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        BackArrow(onClick = onBackClick)
-        NALogoName()
-    }
-}
 
 @Composable //Oliver
 fun FalloutText() {

@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+﻿package com.example.neveranotherappthegoop.ui.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -41,13 +41,19 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 @Composable
 fun OOCPreview() {
     OrderConfirmationScreen(
-        onLogoButtonClick = {}
+        onLogoButtonClick = {},
+        quantity = 1,
+        totalPrice = 799,
+        selectedColor = "White"
     )
 }
 
 @Composable
 fun OrderConfirmationScreen(
-    onLogoButtonClick: () -> Unit
+    onLogoButtonClick: () -> Unit,
+    quantity: Int,
+    totalPrice: Int,
+    selectedColor: String
 ) {
     Box(
         modifier = Modifier.fillMaxSize()
@@ -55,7 +61,7 @@ fun OrderConfirmationScreen(
         LogoButton(onClick = onLogoButtonClick)
         BurgerMenu()
         IconAndText()
-        OrderInfo()
+        OrderInfo(quantity = quantity, totalPrice = totalPrice, selectedColor = selectedColor)
         DeliveryInfo()
         StatusBar()
         InfoBox()
@@ -163,7 +169,11 @@ fun IconAndText() {
 
 
 @Composable
-fun OrderInfo() {
+fun OrderInfo(
+    quantity: Int,
+    totalPrice: Int,
+    selectedColor: String
+) {
     /* Boxen er en "usynlig" container som fylder hele
     skærmen og gør det muligt at centrerer alt indhold */
     Box(
@@ -220,7 +230,7 @@ fun OrderInfo() {
                             .padding(bottom = 2.dp),
                     ) {
                         Text("Your custom-fit bra \n")
-                        Text("Color: White \n")
+                        Text("Color: $selectedColor \n")
                         /* Placerer quantity og pris vandret */
                         Row(
                             modifier = Modifier
@@ -228,8 +238,8 @@ fun OrderInfo() {
                                 .padding(end = 14.dp),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            Text("Quantity: 1")
-                            Text("799 kr.")
+                            Text("Quantity: $quantity")
+                            Text("$totalPrice kr.")
                         }
                     }
                 }

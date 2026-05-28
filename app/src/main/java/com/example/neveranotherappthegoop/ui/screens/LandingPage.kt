@@ -1,6 +1,5 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+﻿package com.example.neveranotherappthegoop.ui.screens
 
-import android.R.attr.onClick
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,13 +19,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.neveranotherappthegoop.data.IcMenu
-import com.example.neveranotherappthegoop.data.IcShoppingCart
-import com.example.neveranotherappthegoop.data.NALogoName
-import com.example.neveranotherappthegoop.data.NaAbout1
-import com.example.neveranotherappthegoop.data.NaButton
-import com.example.neveranotherappthegoop.data.PoseAnklePic
-import com.example.neveranotherappthegoop.data.ThreeStepList
+import com.example.neveranotherappthegoop.ui.components.IcMenu
+import com.example.neveranotherappthegoop.ui.components.IcShoppingCart
+import com.example.neveranotherappthegoop.ui.components.NALogoName
+import com.example.neveranotherappthegoop.ui.components.NaAbout1
+import com.example.neveranotherappthegoop.ui.components.NaButton
+import com.example.neveranotherappthegoop.ui.components.PoseAnklePic
+import com.example.neveranotherappthegoop.ui.components.ThreeStepList
 import com.example.neveranotherappthegoop.ui.theme.CharcoalGrey
 
 @Composable
@@ -47,12 +46,8 @@ fun Topbar() {
 @Preview(showBackground = true)
 @Composable
 fun LandingPageBodyPreview() {
-    LandingPageBody(
-        onExpectationsPageBodyButtonClick = {}
-    )
-
+    LandingPageBody(onExpectationsPageBodyButtonClick = {})
 }
-
 
 @Composable
 fun LandingPageText() {
@@ -85,49 +80,35 @@ fun LandingPageText() {
 @Composable
 fun LandingPagePicture() {
     Row(modifier = Modifier.fillMaxWidth()) {
-        NaAbout1(
-            modifier = Modifier
-                .weight(1f)
-                .height(250.dp)
-        )
-        PoseAnklePic(
-            modifier = Modifier
-                .weight(1f)
-                .height(250.dp)
-        )
+        NaAbout1(modifier = Modifier.weight(1f).height(250.dp))
+        PoseAnklePic(modifier = Modifier.weight(1f).height(250.dp))
     }
 }
 
 @Composable
 fun LandingPageBody(onExpectationsPageBodyButtonClick: () -> Unit) {
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.White)
-        .padding(top = 24.dp),
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+            .padding(top = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Topbar()
         LandingPageText()
         LandingPagePicture()
-        Column(verticalArrangement = Arrangement.Center,
-            modifier = Modifier.fillMaxWidth()) {
-            ThreeStepList(modifier = Modifier
-                .height(80.dp)
-                .padding(top = 5.dp))
+        Column(verticalArrangement = Arrangement.Center, modifier = Modifier.fillMaxWidth()) {
+            ThreeStepList(modifier = Modifier.height(80.dp).padding(top = 5.dp))
         }
         Text(
-            text = "The NEVER ANOTHER wire free bra is tailored to perfectly fit you. Using your measurements, our algorithm automatically customizes the bra to fit your body. ",
+            text = "The NEVER ANOTHER wire free bra is tailored to perfectly fit you. Using your measurements, our algorithm automatically customizes the bra to fit your body. ",
             fontSize = 13.sp,
             fontWeight = FontWeight.Normal,
             style = MaterialTheme.typography.bodyMedium,
             color = CharcoalGrey,
             modifier = Modifier.padding(start = 24.dp, end = 24.dp, bottom = 40.dp, top = 40.dp),
             textAlign = TextAlign.Center,
-            )
-        NaButton(
-            textButton = "Create my bra",
-            onClick = onExpectationsPageBodyButtonClick
         )
+        NaButton(textButton = "Create my bra", onClick = onExpectationsPageBodyButtonClick)
     }
 }
-

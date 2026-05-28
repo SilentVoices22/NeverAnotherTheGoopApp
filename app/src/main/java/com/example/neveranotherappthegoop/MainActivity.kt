@@ -4,25 +4,29 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.neveranotherappthegoop.ui.theme.screens.LandingPageBody
-import com.example.neveranotherappthegoop.ui.theme.screens.ExpectationsPageBody
-import com.example.neveranotherappthegoop.ui.theme.screens.StepFourPage
-import com.example.neveranotherappthegoop.ui.theme.screens.StepOnePage
-import com.example.neveranotherappthegoop.ui.theme.screens.StepThreePage
-import com.example.neveranotherappthegoop.ui.theme.screens.StepTwoPage
-import androidx.navigation.compose.rememberNavController
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.compose.material3.Text
-import com.example.neveranotherappthegoop.ui.theme.screens.InfoPageBody
-import com.example.neveranotherappthegoop.ui.theme.screens.ErrorRecovery
-import com.example.neveranotherappthegoop.ui.theme.screens.FalloutPageBody
-import com.example.neveranotherappthegoop.ui.theme.screens.OrderConfirmationScreen
-import com.example.neveranotherappthegoop.ui.theme.screens.ResultsPageBody
-import com.example.neveranotherappthegoop.ui.theme.screens.VideoFourPage
-import com.example.neveranotherappthegoop.ui.theme.screens.VideoThreePage
-import com.example.neveranotherappthegoop.ui.theme.screens.VideoTwoPage
-import com.example.neveranotherappthegoop.ui.theme.screens.YouAreDoingGreatPage
+import androidx.navigation.compose.rememberNavController
+import com.example.neveranotherappthegoop.ui.screens.CheckoutPage
+import com.example.neveranotherappthegoop.ui.screens.ErrorRecovery
+import com.example.neveranotherappthegoop.ui.screens.ExpectationsPageBody
+import com.example.neveranotherappthegoop.ui.screens.FalloutPageBody
+import com.example.neveranotherappthegoop.ui.screens.InfoPageBody
+import com.example.neveranotherappthegoop.ui.screens.LandingPageBody
+import com.example.neveranotherappthegoop.ui.screens.LoadingScreen
+import com.example.neveranotherappthegoop.ui.screens.OrderConfirmationScreen
+import com.example.neveranotherappthegoop.ui.screens.ResultsPageBody
+import com.example.neveranotherappthegoop.ui.screens.StepFourPage
+import com.example.neveranotherappthegoop.ui.screens.StepOnePage
+import com.example.neveranotherappthegoop.ui.screens.StepThreePage
+import com.example.neveranotherappthegoop.ui.screens.StepTwoPage
+import com.example.neveranotherappthegoop.ui.screens.VideoFourPage
+import com.example.neveranotherappthegoop.ui.screens.VideoOnePage
+import com.example.neveranotherappthegoop.ui.screens.VideoThreePage
+import com.example.neveranotherappthegoop.ui.screens.VideoTwoPage
+import com.example.neveranotherappthegoop.ui.screens.YouAreDoingGreatPage
+import com.example.neveranotherappthegoop.ui.viewmodel.MeasurementsViewModel
 
 
 class MainActivity : ComponentActivity() {
@@ -33,6 +37,7 @@ class MainActivity : ComponentActivity() {
         setContent {
 
             val navController = rememberNavController()
+            val viewModel: MeasurementsViewModel = viewModel()
 
             NavHost(
                 navController = navController,
@@ -48,168 +53,160 @@ class MainActivity : ComponentActivity() {
 
                 composable("ExpectationsPageBody") {
                     ExpectationsPageBody(
-                        onBackClick = {
-                        navController.popBackStack()
-                    },
-                        onBeginClick = {
-                            navController.navigate("StepOnePage")
-                        }
+                        onBackClick = { navController.popBackStack() },
+                        onBeginClick = { navController.navigate("StepOnePage") }
                     )
                 }
+
                 composable("StepOnePage") {
                     StepOnePage(
-                        onBackClick = {
-                            navController.popBackStack()
-                        },
+                        onBackClick = { navController.popBackStack() },
                         onContinueClick = {
-                            navController.navigate("StepTwoPage")
+                            if (viewModel.isCircumferenceTooLarge(viewModel.measurement1)) {
+                                navController.navigate("ErrorRecoveryPage")
+                            } else {
+                                navController.navigate("StepTwoPage")
+                            }
                         },
-                        onVideoGuideClick = {
-                            navController.navigate("VideoOnePage")
-                        },
-                        onTextFieldClick = {
-                            navController.navigate("FalloutPage")
-                        }
+                        onVideoGuideClick = { navController.navigate("VideoOnePage") },
+                        measurement = viewModel.measurement1,
+                        onMeasurementChange = { viewModel.updateMeasurement1(it) }
                     )
                 }
-                composable("FalloutPage") {
-                    FalloutPageBody(
 
-                        onBackClick = {
-                            navController.popBackStack()
-                        }
+                composable("ErrorRecoveryPage") {
+                    ErrorRecovery(
+                        onBackClick = { navController.popBackStack() }
                     )
                 }
+
                 composable("VideoOnePage") {
                     VideoOnePage(
-                        onBackClick = {
-                            navController.popBackStack()
-                        },
+                        onBackClick = { navController.popBackStack() }
                     )
                 }
 
                 composable("StepTwoPage") {
                     StepTwoPage(
-                        onBackClick = {
-                            navController.popBackStack()
-                        },
+                        onBackClick = { navController.popBackStack() },
                         onContinueClick = {
-                            navController.navigate("YouAreDoingGreatPage")
+                            if (viewModel.isCircumferenceTooLarge(viewModel.measurement2)) {
+                                navController.navigate("ErrorRecoveryPage")
+                            } else {
+                                navController.navigate("YouAreDoingGreatPage")
+                            }
                         },
-                        onVideoGuideClick = {
-                            navController.navigate("VideoTwoPage")
-                        },
-                        onTextFieldClick = {
-                            navController.navigate("ErrorRecoveryPage")
-                        }
+                        onVideoGuideClick = { navController.navigate("VideoTwoPage") },
+                        measurement = viewModel.measurement2,
+                        onMeasurementChange = { viewModel.updateMeasurement2(it) }
                     )
                 }
-                composable("ErrorRecoveryPage") {
-                    ErrorRecovery(
-                        onBackClick = {
-                            navController.popBackStack()
-                        }
-                    )
-                }
+
                 composable("VideoTwoPage") {
                     VideoTwoPage(
-                        onBackClick = {
-                            navController.popBackStack()
-                        },
+                        onBackClick = { navController.popBackStack() }
                     )
                 }
-                composable("StepThreePage") {
-                    StepThreePage(
-                        onBackClick = {
-                            navController.popBackStack()
-                        },
-                        onContinueClick = {
-                            navController.navigate("StepFourPage")
-                        },
-                        onVideoGuideClick = {
-                            navController.navigate("VideoThreePage")
-                        }
-                    )
-                }
-                composable("VideoThreePage") {
-                    VideoThreePage(
-                        onBackClick = {
-                            navController.popBackStack()
-                        },
-                    )
-                }
-                composable("StepFourPage") {
-                    StepFourPage(
 
-                        onBackClick = {
-                            navController.popBackStack()
-                        },
-                        onContinueClick = {
-                            navController.navigate("LoadingScreen")
-                        },
-                        onVideoGuideClick = {
-                            navController.navigate("VideoFourPage")
-                        }
-                    )
-                }
-                composable("VideoFourPage") {
-                    VideoFourPage(
-                        onBackClick = {
-                            navController.popBackStack()
-                        },
-                    )
-                }
-                composable("LoadingScreen") {
-
-                    LoadingScreen(
-                        onFinishedLoading = {
-                            navController.navigate("ResultsPageBody")
-                        }
-                    )
-                }
-                composable("ResultsPageBody") {
-                    ResultsPageBody(
-
-                        onViewButtonClick = {
-                            navController.navigate("CheckoutPage")
-                        }
-                    )
-                }
-                composable("CheckoutPage") {
-                    CheckoutPage(
-                        onBackClick = {
-                            navController.popBackStack()
-                        },
-                        onPlaceOrderBClick = {
-                            navController.navigate("OrderConfirmationScreen")
-                        },
-                        onJoinLinkTextClick = {
-                            navController.navigate("InfoPageBody")
-                        }
-                    )
-                }
-                composable("OrderConfirmationScreen") {
-                    OrderConfirmationScreen(
-                        onLogoButtonClick = {
-                            navController.navigate("LandingPageBody")
-                        }
-                    )
-                }
-                composable("InfoPageBody") {
-                    InfoPageBody(
-                        onBackClick = {
-                            navController.popBackStack()
-                        },
-                    )
-                }
                 composable("YouAreDoingGreatPage") {
                     YouAreDoingGreatPage(
-                        onBackClick = {
-                            navController.popBackStack()
+                        onBackClick = { navController.popBackStack() },
+                        onPageButtonClick = { navController.navigate("StepThreePage") }
+                    )
+                }
+
+                composable("StepThreePage") {
+                    StepThreePage(
+                        onBackClick = { navController.popBackStack() },
+                        onContinueClick = {
+                            if (viewModel.isSpanHeightTooLarge(viewModel.measurement3)) {
+                                navController.navigate("FalloutPage")
+                            } else {
+                                navController.navigate("StepFourPage")
+                            }
                         },
-                        onPageButtonClick = {
-                                navController.navigate("StepThreePage")
-                        }
+                        onVideoGuideClick = { navController.navigate("VideoThreePage") },
+                        measurement = viewModel.measurement3,
+                        onMeasurementChange = { viewModel.updateMeasurement3(it) }
+                    )
+                }
+
+                composable("VideoThreePage") {
+                    VideoThreePage(
+                        onBackClick = { navController.popBackStack() }
+                    )
+                }
+
+                composable("StepFourPage") {
+                    StepFourPage(
+                        onBackClick = { navController.popBackStack() },
+                        onContinueClick = {
+                            if (viewModel.isSpanHeightTooLarge(viewModel.measurement4)) {
+                                navController.navigate("FalloutPage")
+                            } else {
+                                navController.navigate("LoadingScreen")
+                            }
+                        },
+                        onVideoGuideClick = { navController.navigate("VideoFourPage") },
+                        measurement = viewModel.measurement4,
+                        onMeasurementChange = { viewModel.updateMeasurement4(it) }
+                    )
+                }
+
+                composable("VideoFourPage") {
+                    VideoFourPage(
+                        onBackClick = { navController.popBackStack() }
+                    )
+                }
+
+                composable("FalloutPage") {
+                    FalloutPageBody(
+                        onBackClick = { navController.popBackStack() }
+                    )
+                }
+
+                composable("LoadingScreen") {
+                    LoadingScreen(
+                        onFinishedLoading = { navController.navigate("ResultsPageBody") }
+                    )
+                }
+
+                composable("ResultsPageBody") {
+                    ResultsPageBody(
+                        onViewButtonClick = { navController.navigate("CheckoutPage") },
+                        measurement1 = viewModel.measurement1,
+                        measurement2 = viewModel.measurement2,
+                        measurement3 = viewModel.measurement3,
+                        measurement4 = viewModel.measurement4
+                    )
+                }
+
+                composable("CheckoutPage") {
+                    CheckoutPage(
+                        onBackClick = { navController.popBackStack() },
+                        onPlaceOrderBClick = { navController.navigate("OrderConfirmationScreen") },
+                        onJoinLinkTextClick = { navController.navigate("InfoPageBody") },
+                        quantity = viewModel.quantity,
+                        selectedColor = viewModel.selectedColor,
+                        onIncrease = { viewModel.increaseQuantity() },
+                        onDecrease = { viewModel.decreaseQuantity() },
+                        onColorSelect = { viewModel.selectColor(it) },
+                        totalPrice = viewModel.totalPrice
+                    )
+                }
+
+                composable("OrderConfirmationScreen") {
+                    OrderConfirmationScreen(
+                        onLogoButtonClick = { navController.navigate("LandingPageBody") },
+                        quantity = viewModel.quantity,
+                        totalPrice = viewModel.totalPrice,
+                        selectedColor = viewModel.selectedColor
+                    )
+                }
+
+                composable("InfoPageBody") {
+                    InfoPageBody(
+                        onBackClick = { navController.popBackStack() }
                     )
                 }
             }

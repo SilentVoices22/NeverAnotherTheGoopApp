@@ -1,5 +1,4 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
-
+﻿package com.example.neveranotherappthegoop.ui.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -7,14 +6,18 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,6 +33,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily.Companion.Monospace
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.R
@@ -38,40 +42,40 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
 @Composable
-
-fun StepThreePage(
+fun StepOnePage(
     onBackClick: () -> Unit,
     onContinueClick: () -> Unit,
-    onVideoGuideClick: () -> Unit
+    onVideoGuideClick: () -> Unit,
+    measurement: String,
+    onMeasurementChange: (String) -> Unit
 ) {
     Box(
         modifier = Modifier.background(White)
     ) {
-        TopBar3(onBackClick = onBackClick)
-        HeaderText3()
-        PictureGuide3()
-        VideoGuide3(onClick = onVideoGuideClick)
-        ContinueButton3(onClick = onContinueClick)
-        ImageText3()
-        TextField3()
+        StepOneTopBar(onBackClick = onBackClick)
+        HeaderText()
+        PictureGuide()
+        VideoGuide(onClick = onVideoGuideClick)
+        ContinueButton(onClick = onContinueClick)
+        ImageText()
+        MeasurementTextField(value = measurement, onValueChange = onMeasurementChange)
     }
+
 }
 
 
 /*-----------------------------------------------Top-Bar--------------------------------------------- */
 
-
 @Composable
-fun TopBar3(
+fun StepOneTopBar(
     onBackClick: () -> Unit
 ) {
     Box(
-        modifier = Modifier
-            .fillMaxWidth()
+        modifier = Modifier.fillMaxWidth()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.topbar3),
-            contentDescription = "Step Two",
+            painter = painterResource(id = R.drawable.topbar1),
+            contentDescription = "Step One",
             modifier = Modifier
                 .align(Alignment.TopCenter)
                 .width(220.dp)
@@ -87,8 +91,7 @@ fun TopBar3(
                 .padding(24.dp)
         ) {
             Icon(
-                imageVector = Icons.Default.ArrowBack,
-                contentDescription = "Back"
+                imageVector = Icons.Default.ArrowBack, contentDescription = "Back"
             )
         }
     }
@@ -98,51 +101,42 @@ fun TopBar3(
 /*-------------------------------------------HeaderText---------------------------------------------- */
 
 
-
-
 @Composable
-fun HeaderText3() {
+fun HeaderText() {
     Column(
-        modifier = Modifier
-            .padding(vertical = 90.dp, horizontal = 50.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = Modifier.padding(vertical = 90.dp, horizontal = 50.dp)
     ) {
         Text(
-            text = "Breast span",
+            text = "Upper circumference",
             fontSize = 25.sp,
             fontWeight = Bold,
-            fontFamily = Monospace,
-            modifier = Modifier.padding(bottom = 20.dp)
+            fontFamily = Monospace
         )
+        Spacer(modifier = Modifier.height(20.dp))
         Text(
-            text = "Place the tape measure in a straight " +
-                    "horizontal line across the curve of your bust."
+            text = "Place your tape measure around your upper body, " + "and over the fullest part of your chest."
         )
     }
 }
 
-
 @Composable
-fun PictureGuide3() {
+fun PictureGuide() {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.guide3),
-            contentDescription = null,
+            painter = painterResource(id = R.drawable.guide), contentDescription = null,
             modifier = Modifier
                 .align(alignment = Alignment.Center)
-                .padding(bottom = 140.dp)
+                .padding(bottom = 105.dp)
                 .width(377.dp)
                 .height(288.dp)
         )
     }
 }
 
-
 @Composable
-fun VideoGuide3(
+fun VideoGuide(
     onClick: () -> Unit
 ) {
     Column(
@@ -171,8 +165,9 @@ fun VideoGuide3(
     }
 }
 
+
 @Composable
-fun ContinueButton3(
+fun ContinueButton(
     onClick: () -> Unit
 ) {
     Column(
@@ -195,71 +190,74 @@ fun ContinueButton3(
             )
         ) {
             Text(
-                "Continue", fontSize = 20.sp,
-                fontWeight = FontWeight.Normal,
-                color = White
+                "Continue", fontSize = 20.sp, fontWeight = FontWeight.Normal, color = White
             )
         }
     }
 }
 
-
 @Composable
-fun ImageText3() {
+fun ImageText() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(bottom = 180.dp),
+            .padding(bottom = 170.dp, start = 30.dp),
         verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+        ) {
         Text(
-            text = "Don't tighten the measurement tape, but \n" +
-                    "keep it snug over your bust."
+            text = "Stand up straight, " + "relax your body, and breathe out.",
+            modifier = Modifier.padding(10.dp)
+        )
+        Text(
+            text = "The measurement tape should run parallel to the floor, all the way around the body."
         )
     }
 }
 
-
 @Composable
-fun TextField3() {
+fun MeasurementTextField(
+    value: String,
+    onValueChange: (String) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(bottom = 260.dp),
+            .padding(bottom = 240.dp),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = "Enter your measurements",
-            modifier = Modifier.padding( bottom = 10.dp)
+            modifier = Modifier.padding(10.dp)
         )
-        Box(
-            modifier = Modifier
-                .width(180.dp)
-                .height(50.dp)
-                .background(
-                    color = BoneWhite,
-                    shape = RoundedCornerShape(12.dp)
-                ),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = "0.00 cm",
-                fontSize = 20.sp
-            )
-        }
+        OutlinedTextField(
+            value = value,
+            onValueChange = onValueChange,
+            modifier = Modifier.width(180.dp),
+            placeholder = { Text("0.00 cm") },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+            shape = RoundedCornerShape(12.dp),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = Orangevibrant,
+                unfocusedBorderColor = Color.Transparent,
+                unfocusedContainerColor = BoneWhite,
+                focusedContainerColor = BoneWhite
+            ),
+            singleLine = true
+        )
     }
 }
 
 
 @Preview(showBackground = true)
 @Composable
-fun MainScreenPreviewer() {
-    StepThreePage(
+fun StepONePagePreviewer() {
+    StepOnePage(
         onBackClick = {},
         onContinueClick = {},
-        onVideoGuideClick = {}
+        onVideoGuideClick = {},
+        measurement = "",
+        onMeasurementChange = {}
     )
 }
 

@@ -1,5 +1,4 @@
-package com.example.neveranotherappthegoop
-
+﻿package com.example.neveranotherappthegoop.ui.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -23,11 +22,6 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -38,9 +32,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.neveranotherappthegoop.data.BackArrow
-import com.example.neveranotherappthegoop.data.IcShoppingCart
-import com.example.neveranotherappthegoop.data.NALogoName
+import com.example.neveranotherappthegoop.R
+import com.example.neveranotherappthegoop.ui.components.BackArrow
+import com.example.neveranotherappthegoop.ui.components.IcShoppingCart
+import com.example.neveranotherappthegoop.ui.components.NALogoName
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
@@ -52,12 +47,14 @@ val DarkText = Color(0xFF393838)
 fun CheckoutPage(
     onBackClick: () -> Unit,
     onPlaceOrderBClick: () -> Unit,
-    onJoinLinkTextClick: () -> Unit
+    onJoinLinkTextClick: () -> Unit,
+    quantity: Int,
+    selectedColor: String,
+    onIncrease: () -> Unit,
+    onDecrease: () -> Unit,
+    onColorSelect: (String) -> Unit,
+    totalPrice: Int
 ) {
-    var quantity by remember { mutableIntStateOf(1) }
-    var selectedColor by remember { mutableStateOf("White") }
-
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -65,23 +62,22 @@ fun CheckoutPage(
             .background(Color.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         TopRow(onBackClick = onBackClick)
 
         BraBox(
             selectedColor = selectedColor,
-            onColorSelect = { selectedColor = it },
-            onDecrease = { if (quantity > 1) quantity-- },
-            onIncrease = { quantity++ },
+            onColorSelect = onColorSelect,
+            onDecrease = onDecrease,
+            onIncrease = onIncrease,
             quantity = quantity
         )
         Spacer(Modifier.height(32.dp))
         JoinLinkText(onClick = onJoinLinkTextClick)
-        TotalPrice()
+        TotalPrice(totalPrice = totalPrice)
         Spacer(Modifier.height(16.dp))
         PlaceOrderB(onClick = onPlaceOrderBClick)
         Spacer(modifier = Modifier.height(20.dp))
-        BottomDetails()
+        BottomDetailss()
     }
 }
 
@@ -93,9 +89,9 @@ fun TopRow(
         modifier = Modifier
             .fillMaxWidth()
             .height(70.dp)
-
     ) {
-        BackArrow(onClick = onBackClick,
+        BackArrow(
+            onClick = onBackClick,
             modifier = Modifier
                 .align(Alignment.CenterStart)
                 .padding(start = 10.dp)
@@ -105,8 +101,8 @@ fun TopRow(
         )
         IcShoppingCart(
             modifier = Modifier
-            .align(Alignment.CenterEnd)
-            .padding(end = 20.dp)
+                .align(Alignment.CenterEnd)
+                .padding(end = 20.dp)
         )
     }
 }
@@ -132,13 +128,10 @@ fun BraBox(
             .height(500.dp)
             .width(335.dp),
     ) {
-
-
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(Color.White)
-
         )
         Row(
             modifier = Modifier
@@ -187,8 +180,6 @@ fun BraText() {
                 lineHeight = 35.sp
             )
         }
-
-
         Spacer(Modifier.height(65.dp))
         Text(
             "1.Choose your color",
@@ -208,25 +199,16 @@ fun BraBoxPics() {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
-
-
         Image(
-
             painter = painterResource(id = R.drawable.naprodw6),
             contentDescription = "Bra product white",
-            modifier = Modifier
-                .size(150.dp)
-
-
+            modifier = Modifier.size(150.dp)
         )
         Image(
             painter = painterResource(id = R.drawable.approdb1),
             contentDescription = "Bra product black",
-            modifier = Modifier
-                .size(150.dp)
+            modifier = Modifier.size(150.dp)
         )
-
-
     }
 }
 
@@ -255,16 +237,17 @@ fun ColorChoose(
     selectedColor: String,
     onColorSelect: (String) -> Unit,
 ) {
-    // Farveprikker
     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
         ColorDots(
             color = Color.White,
             isSelected = selectedColor == "White",
-            onClick = { onColorSelect("White") })
+            onClick = { onColorSelect("White") }
+        )
         ColorDots(
             color = Color.Black,
             isSelected = selectedColor == "Black",
-            onClick = { onColorSelect("Black") })
+            onClick = { onColorSelect("Black") }
+        )
     }
 }
 
@@ -275,7 +258,6 @@ fun Quantity(
     onDecrease: () -> Unit,
     onIncrease: () -> Unit
 ) {
-
     Text(
         "2. Quantity",
         fontWeight = FontWeight.SemiBold,
@@ -284,7 +266,6 @@ fun Quantity(
     )
 
     Spacer(Modifier.height(8.dp))
-
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -326,15 +307,15 @@ fun JoinLinkText(
         color = Orangevibrant,
         fontSize = 16.sp,
         fontWeight = FontWeight.Bold,
-        modifier = Modifier.padding(bottom = 20.dp).clickable {
-            onClick()
-        }
+        modifier = Modifier
+            .padding(bottom = 20.dp)
+            .clickable { onClick() }
     )
 }
 
 @Composable
-fun TotalPrice() {
-    Text("Total                                                      799 kr.")
+fun TotalPrice(totalPrice: Int) {
+    Text("Total                                                      ${totalPrice} kr.")
 }
 
 @Composable
@@ -355,9 +336,7 @@ fun PlaceOrderB(
 }
 
 @Composable
-fun BottomDetails() {
-
-    // "Made for you - Made-to-order - Free size guarantee"
+fun BottomDetailss() {
     Image(
         painter = painterResource(id = R.drawable.guaranteebottomtext2),
         contentDescription = null,
@@ -374,6 +353,12 @@ fun CheckoutPagePreview() {
     CheckoutPage(
         onBackClick = {},
         onPlaceOrderBClick = {},
-        onJoinLinkTextClick = {}
+        onJoinLinkTextClick = {},
+        quantity = 1,
+        selectedColor = "White",
+        onIncrease = {},
+        onDecrease = {},
+        onColorSelect = {},
+        totalPrice = 799
     )
 }

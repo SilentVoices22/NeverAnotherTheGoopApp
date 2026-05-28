@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+﻿package com.example.neveranotherappthegoop.ui.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -13,8 +13,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,6 +33,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily.Companion.Monospace
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.R
@@ -41,7 +45,9 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 fun StepFourPage(
     onBackClick: () -> Unit,
     onContinueClick: () -> Unit,
-    onVideoGuideClick: () -> Unit
+    onVideoGuideClick: () -> Unit,
+    measurement: String,
+    onMeasurementChange: (String) -> Unit
 ) {
     Box(
         modifier = Modifier.background(White)
@@ -52,7 +58,7 @@ fun StepFourPage(
         VideoGuide4(onClick = onVideoGuideClick)
         ContinueButton4(onClick = onContinueClick)
         ImageText4()
-        TextField4()
+        MeasurementTextField4(value = measurement, onValueChange = onMeasurementChange)
     }
 }
 
@@ -209,11 +215,14 @@ fun ImageText4() {
 
 
 @Composable
-fun TextField4() {
+fun MeasurementTextField4(
+    value: String,
+    onValueChange: (String) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(bottom = 260.dp),
+            .padding(bottom = 240.dp),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -221,20 +230,21 @@ fun TextField4() {
             text = "Enter your measurements",
             modifier = Modifier.padding(bottom = 10.dp)
         )
-        Box(
-            modifier = Modifier
-                .width(180.dp)
-                .height(50.dp)
-                .background(
-                    color = BoneWhite,
-                    shape = RoundedCornerShape(12.dp)
-                ),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = "0.00 cm", fontSize = 20.sp
-            )
-        }
+        OutlinedTextField(
+            value = value,
+            onValueChange = onValueChange,
+            modifier = Modifier.width(180.dp),
+            placeholder = { Text("0.00 cm") },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+            shape = RoundedCornerShape(12.dp),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = Orangevibrant,
+                unfocusedBorderColor = Color.Transparent,
+                unfocusedContainerColor = BoneWhite,
+                focusedContainerColor = BoneWhite
+            ),
+            singleLine = true
+        )
     }
 }
 
@@ -242,10 +252,12 @@ fun TextField4() {
 @Preview(showBackground = true)
 @Composable
 fun StepFourPreview() {
-    StepFourPage (
+    StepFourPage(
         onBackClick = {},
         onContinueClick = {},
-        onVideoGuideClick = {}
+        onVideoGuideClick = {},
+        measurement = "",
+        onMeasurementChange = {}
     )
 }
 

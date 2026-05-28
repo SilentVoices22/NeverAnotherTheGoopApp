@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop.ui.theme.screens
+﻿package com.example.neveranotherappthegoop.ui.screens
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -28,9 +28,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.R
-import com.example.neveranotherappthegoop.data.IcMenu
-import com.example.neveranotherappthegoop.data.IcShoppingCart
-import com.example.neveranotherappthegoop.data.NALogoName
+import com.example.neveranotherappthegoop.ui.components.IcMenu
+import com.example.neveranotherappthegoop.ui.components.IcShoppingCart
+import com.example.neveranotherappthegoop.ui.components.NALogoName
 
 
 // ====================
@@ -39,7 +39,11 @@ import com.example.neveranotherappthegoop.data.NALogoName
 
 @Composable
 fun ResultsPageBody(
-    onViewButtonClick: () -> Unit
+    onViewButtonClick: () -> Unit,
+    measurement1: String,
+    measurement2: String,
+    measurement3: String,
+    measurement4: String
 ) {
 
     // page layout
@@ -59,7 +63,12 @@ fun ResultsPageBody(
         ResultsHeader()
 
         // bra image + measurements
-        MeasurementCard()
+        MeasurementCard(
+            measurement1 = measurement1,
+            measurement2 = measurement2,
+            measurement3 = measurement3,
+            measurement4 = measurement4
+        )
 
         // "Why this fit is made for you" points
         ListOfBenefits()
@@ -125,7 +134,12 @@ fun ResultsHeader() {
 
 
 @Composable
-fun MeasurementCard() {
+fun MeasurementCard(
+    measurement1: String,
+    measurement2: String,
+    measurement3: String,
+    measurement4: String
+) {
 
     Column {
 
@@ -175,10 +189,10 @@ fun MeasurementCard() {
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween // lige fordeling mellem rækkens elementer
                 ) {
-                    MeasurementItem("Upper", "X cm")
-                    MeasurementItem("Lower", "X cm")
-                    MeasurementItem("Span", "X cm")
-                    MeasurementItem("Height", "X cm")
+                    MeasurementItem("Upper", measurement1.ifEmpty { "-" } + " cm")
+                    MeasurementItem("Lower", measurement2.ifEmpty { "-" } + " cm")
+                    MeasurementItem("Span",  measurement3.ifEmpty { "-" } + " cm")
+                    MeasurementItem("Height",measurement4.ifEmpty { "-" } + " cm")
                 }
             }
         }
@@ -309,6 +323,10 @@ fun BottomDetails() {
 @Composable
 fun ResultsPagePreview() {
     ResultsPageBody(
-        onViewButtonClick = {}
+        onViewButtonClick = {},
+        measurement1 = "85",
+        measurement2 = "72",
+        measurement3 = "14",
+        measurement4 = "18"
     )
 }

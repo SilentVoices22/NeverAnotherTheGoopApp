@@ -1,9 +1,8 @@
-package com.example.neveranotherappthegoop.data
+package com.example.neveranotherappthegoop.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -19,7 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
@@ -31,7 +29,7 @@ fun NaButton(
     textButton: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
-){
+) {
     Button(
         onClick = onClick,
         modifier = Modifier
@@ -41,17 +39,14 @@ fun NaButton(
         shape = RoundedCornerShape(6.dp),
         colors = buttonColors(
             containerColor = Orangevibrant,
-            contentColor = Color.White)
-    ){
-        Text( text = textButton,
-            fontSize = 20.sp)
+            contentColor = Color.White
+        )
+    ) {
+        Text(
+            text = textButton,
+            fontSize = 20.sp
+        )
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun NaButtonPreview(){
-
 }
 
 // Hjalte
@@ -60,9 +55,7 @@ fun BackArrow(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Box(
-        modifier = Modifier
-    ) {
+    Box(modifier = modifier) {
         IconButton(
             onClick = onClick,
             modifier = Modifier
@@ -77,7 +70,7 @@ fun BackArrow(
     }
 }
 
-
+// Kevin
 @Composable
 fun TopbarErrorRecovery(onBackClick: () -> Unit) {
     Row(
