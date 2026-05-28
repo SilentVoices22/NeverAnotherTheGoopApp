@@ -1,7 +1,6 @@
 package com.example.neveranotherappthegoop.viewmodel
 
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
@@ -56,9 +55,4 @@ class MeasurementsViewModel : ViewModel() {
         val number = value.toDoubleOrNull() ?: 0.0
         return number < 65.0 || number > 100.0
     }
-
-
-    // Steps 3 & 4: breast span/height — max 35 cm → FalloutPage
-    fun isSpanHeightTooLarge(value: String): Boolean =
-        (value.toDoubleOrNull() ?: 0.0) > 35.0
 }

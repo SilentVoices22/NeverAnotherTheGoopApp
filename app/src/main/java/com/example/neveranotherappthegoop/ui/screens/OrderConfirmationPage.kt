@@ -130,9 +130,9 @@ fun IconAndText() {
             colorFilter = ColorFilter.tint(Orangevibrant, blendMode = BlendMode.SrcIn),
             modifier = Modifier
                 .align(Alignment.TopCenter)
-                .padding(top = 110.dp)
+                .padding(top = 95.dp)
                 .width(250.dp)
-                .height(50.dp)
+                .height(32.dp)
         )
     }
     Box(
@@ -145,7 +145,7 @@ fun IconAndText() {
             fontSize = 30.sp,
             modifier = Modifier
                 .align(Alignment.TopCenter)
-                .padding(top = 165.dp)
+                .padding(top = 135.dp)
                 .width(250.dp)
         )
     }
@@ -158,7 +158,7 @@ fun IconAndText() {
             fontSize = 14.sp,
             modifier = Modifier
                 .align(Alignment.TopCenter)
-                .padding(top = 240.dp)
+                .padding(top = 210.dp)
                 .width(250.dp)
         )
     }
@@ -183,7 +183,7 @@ fun OrderInfo(
         Her er den også designet med farve, højerner osv*/
         Card(
             modifier = Modifier
-                .padding(bottom = 120.dp)
+                .padding(bottom = 134.dp)
                 .align(Alignment.Center)
                 .width(330.dp),
             shape = RoundedCornerShape(12.dp),
