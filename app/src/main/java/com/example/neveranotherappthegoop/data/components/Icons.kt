@@ -1,4 +1,4 @@
-package com.example.neveranotherappthegoop.ui.components
+package com.example.neveranotherappthegoop.data.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.height

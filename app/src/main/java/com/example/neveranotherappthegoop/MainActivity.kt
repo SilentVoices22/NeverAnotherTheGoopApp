@@ -26,7 +26,7 @@ import com.example.neveranotherappthegoop.ui.screens.VideoOnePage
 import com.example.neveranotherappthegoop.ui.screens.VideoThreePage
 import com.example.neveranotherappthegoop.ui.screens.VideoTwoPage
 import com.example.neveranotherappthegoop.ui.screens.YouAreDoingGreatPage
-import com.example.neveranotherappthegoop.ui.viewmodel.MeasurementsViewModel
+import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
 
 
 class MainActivity : ComponentActivity() {
@@ -62,14 +62,14 @@ class MainActivity : ComponentActivity() {
                     StepOnePage(
                         onBackClick = { navController.popBackStack() },
                         onContinueClick = {
-                            if (viewModel.isCircumferenceTooLarge(viewModel.measurement1)) {
+                            if (viewModel.isCircumferenceTooLarge(viewModel.uiState.measurement1)) {
                                 navController.navigate("ErrorRecoveryPage")
                             } else {
                                 navController.navigate("StepTwoPage")
                             }
                         },
                         onVideoGuideClick = { navController.navigate("VideoOnePage") },
-                        measurement = viewModel.measurement1,
+                        measurement = viewModel.uiState.measurement1,
                         onMeasurementChange = { viewModel.updateMeasurement1(it) }
                     )
                 }
@@ -90,14 +90,14 @@ class MainActivity : ComponentActivity() {
                     StepTwoPage(
                         onBackClick = { navController.popBackStack() },
                         onContinueClick = {
-                            if (viewModel.isCircumferenceTooLarge(viewModel.measurement2)) {
+                            if (viewModel.isCircumferenceTooLarge(viewModel.uiState.measurement2)) {
                                 navController.navigate("ErrorRecoveryPage")
                             } else {
                                 navController.navigate("YouAreDoingGreatPage")
                             }
                         },
                         onVideoGuideClick = { navController.navigate("VideoTwoPage") },
-                        measurement = viewModel.measurement2,
+                        measurement = viewModel.uiState.measurement2,
                         onMeasurementChange = { viewModel.updateMeasurement2(it) }
                     )
                 }
@@ -119,14 +119,14 @@ class MainActivity : ComponentActivity() {
                     StepThreePage(
                         onBackClick = { navController.popBackStack() },
                         onContinueClick = {
-                            if (viewModel.isSpanHeightTooLarge(viewModel.measurement3)) {
+                            if (viewModel.isSpanHeightTooLarge(viewModel.uiState.measurement3)) {
                                 navController.navigate("FalloutPage")
                             } else {
                                 navController.navigate("StepFourPage")
                             }
                         },
                         onVideoGuideClick = { navController.navigate("VideoThreePage") },
-                        measurement = viewModel.measurement3,
+                        measurement = viewModel.uiState.measurement3,
                         onMeasurementChange = { viewModel.updateMeasurement3(it) }
                     )
                 }
@@ -141,14 +141,14 @@ class MainActivity : ComponentActivity() {
                     StepFourPage(
                         onBackClick = { navController.popBackStack() },
                         onContinueClick = {
-                            if (viewModel.isSpanHeightTooLarge(viewModel.measurement4)) {
+                            if (viewModel.isSpanHeightTooLarge(viewModel.uiState.measurement4)) {
                                 navController.navigate("FalloutPage")
                             } else {
                                 navController.navigate("LoadingScreen")
                             }
                         },
                         onVideoGuideClick = { navController.navigate("VideoFourPage") },
-                        measurement = viewModel.measurement4,
+                        measurement = viewModel.uiState.measurement4,
                         onMeasurementChange = { viewModel.updateMeasurement4(it) }
                     )
                 }
@@ -174,10 +174,10 @@ class MainActivity : ComponentActivity() {
                 composable("ResultsPageBody") {
                     ResultsPageBody(
                         onViewButtonClick = { navController.navigate("CheckoutPage") },
-                        measurement1 = viewModel.measurement1,
-                        measurement2 = viewModel.measurement2,
-                        measurement3 = viewModel.measurement3,
-                        measurement4 = viewModel.measurement4
+                        measurement1 = viewModel.uiState.measurement1,
+                        measurement2 = viewModel.uiState.measurement2,
+                        measurement3 = viewModel.uiState.measurement3,
+                        measurement4 = viewModel.uiState.measurement4
                     )
                 }
 
@@ -186,21 +186,21 @@ class MainActivity : ComponentActivity() {
                         onBackClick = { navController.popBackStack() },
                         onPlaceOrderBClick = { navController.navigate("OrderConfirmationScreen") },
                         onJoinLinkTextClick = { navController.navigate("InfoPageBody") },
-                        quantity = viewModel.quantity,
-                        selectedColor = viewModel.selectedColor,
+                        quantity = viewModel.uiState.quantity,
+                        selectedColor = viewModel.uiState.selectedColor,
                         onIncrease = { viewModel.increaseQuantity() },
                         onDecrease = { viewModel.decreaseQuantity() },
                         onColorSelect = { viewModel.selectColor(it) },
-                        totalPrice = viewModel.totalPrice
+                        totalPrice = viewModel.uiState.totalPrice
                     )
                 }
 
                 composable("OrderConfirmationScreen") {
                     OrderConfirmationScreen(
                         onLogoButtonClick = { navController.navigate("LandingPageBody") },
-                        quantity = viewModel.quantity,
-                        totalPrice = viewModel.totalPrice,
-                        selectedColor = viewModel.selectedColor
+                        quantity = viewModel.uiState.quantity,
+                        totalPrice = viewModel.uiState.totalPrice,
+                        selectedColor = viewModel.uiState.selectedColor
                     )
                 }
 

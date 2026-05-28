@@ -1,6 +1,5 @@
 ﻿package com.example.neveranotherappthegoop.ui.screens
 
-import android.R.attr.top
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,7 +22,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.neveranotherappthegoop.ui.components.NALogoName
+import com.example.neveranotherappthegoop.data.components.NALogoName
 import coil.ImageLoader
 import coil.compose.AsyncImage
 import coil.decode.GifDecoder

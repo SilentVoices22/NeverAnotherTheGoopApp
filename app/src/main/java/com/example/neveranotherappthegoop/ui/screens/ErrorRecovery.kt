@@ -18,12 +18,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.neveranotherappthegoop.ui.components.BackArrow
-import com.example.neveranotherappthegoop.ui.components.IcHeart
-import com.example.neveranotherappthegoop.ui.components.IcTapeMeasure
-import com.example.neveranotherappthegoop.ui.components.NALogoName
-import com.example.neveranotherappthegoop.ui.components.NaButton
-import com.example.neveranotherappthegoop.ui.components.TopbarErrorRecovery
+import com.example.neveranotherappthegoop.data.components.IcHeart
+import com.example.neveranotherappthegoop.data.components.IcTapeMeasure
+import com.example.neveranotherappthegoop.data.components.NaButton
+import com.example.neveranotherappthegoop.data.components.TopbarErrorRecovery
 import com.example.neveranotherappthegoop.ui.theme.CharcoalGrey
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 

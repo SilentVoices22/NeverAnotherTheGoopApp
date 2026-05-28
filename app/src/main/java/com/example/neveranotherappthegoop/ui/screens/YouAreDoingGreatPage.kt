@@ -14,12 +14,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.neveranotherappthegoop.ui.components.BackArrow
+import com.example.neveranotherappthegoop.data.components.BackArrow
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 @Preview(showBackground = true)

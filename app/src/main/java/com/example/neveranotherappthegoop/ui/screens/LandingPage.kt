@@ -19,13 +19,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.neveranotherappthegoop.ui.components.IcMenu
-import com.example.neveranotherappthegoop.ui.components.IcShoppingCart
-import com.example.neveranotherappthegoop.ui.components.NALogoName
-import com.example.neveranotherappthegoop.ui.components.NaAbout1
-import com.example.neveranotherappthegoop.ui.components.NaButton
-import com.example.neveranotherappthegoop.ui.components.PoseAnklePic
-import com.example.neveranotherappthegoop.ui.components.ThreeStepList
+import com.example.neveranotherappthegoop.data.components.IcMenu
+import com.example.neveranotherappthegoop.data.components.IcShoppingCart
+import com.example.neveranotherappthegoop.data.components.NALogoName
+import com.example.neveranotherappthegoop.data.components.NaAbout1
+import com.example.neveranotherappthegoop.data.components.NaButton
+import com.example.neveranotherappthegoop.data.components.PoseAnklePic
+import com.example.neveranotherappthegoop.data.components.ThreeStepList
 import com.example.neveranotherappthegoop.ui.theme.CharcoalGrey
 
 @Composable

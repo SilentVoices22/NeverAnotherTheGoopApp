@@ -33,9 +33,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.R
-import com.example.neveranotherappthegoop.ui.components.BackArrow
-import com.example.neveranotherappthegoop.ui.components.IcShoppingCart
-import com.example.neveranotherappthegoop.ui.components.NALogoName
+import com.example.neveranotherappthegoop.data.components.BackArrow
+import com.example.neveranotherappthegoop.data.components.IcShoppingCart
+import com.example.neveranotherappthegoop.data.components.NALogoName
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 

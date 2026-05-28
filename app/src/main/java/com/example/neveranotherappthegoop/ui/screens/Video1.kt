@@ -18,7 +18,7 @@ import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 import androidx.compose.runtime.remember
 import com.example.neveranotherappthegoop.R
-import com.example.neveranotherappthegoop.ui.components.TopbarErrorRecovery
+import com.example.neveranotherappthegoop.data.components.TopbarErrorRecovery
 
 
 @Composable
