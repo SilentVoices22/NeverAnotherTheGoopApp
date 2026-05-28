@@ -48,4 +48,46 @@ To get a local copy up and running, follow these simple steps.
 4. **Run the Application**
    * Select an active emulator or a connected physical Android device.
    * Click the Run button (green play icon) or use the shortcut ``Shift + F10.``
+  
+---
+
+## Folder Structure 
+
+```text
+com.example.neveranotherappthegoop
+└── data
+    ├── components
+    │   ├── Components.kt
+    │   └── Icons.kt
+    ├── model
+    │   └── MeasurementModel.kt
+    ├── navigation
+    │   └── nav.kt
+    ├── ui
+    │   ├── screens
+    │   │   ├── CheckoutPage.kt
+    │   │   ├── ErrorRecovery.kt
+    │   │   ├── Expectations.kt
+    │   │   ├── Fallout.kt
+    │   │   ├── InfoPage.kt
+    │   │   ├── LandingPage.kt
+    │   │   ├── LoadingScreen.kt
+    │   │   ├── OrderConfirmationPage.kt
+    │   │   ├── ResultsPage.kt
+    │   │   ├── StepFour.kt
+    │   │   ├── StepOnePage.kt
+    │   │   ├── StepThree.kt
+    │   │   ├── StepTwo.kt
+    │   │   ├── Video1.kt
+    │   │   ├── Video2.kt
+    │   │   ├── Video3.kt
+    │   │   ├── Video4.kt
+    │   │   └── YouAreDoingGreatPage.kt
+    │   └── theme
+    │       ├── Color.kt
+    │       ├── Theme.kt
+    │       └── Type.kt
+    └── viewmodel
+        └── MeasurementsViewModel.kt
+```
 
