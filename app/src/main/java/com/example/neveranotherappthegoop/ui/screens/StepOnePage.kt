@@ -125,7 +125,7 @@ fun PictureGuide() {
         modifier = Modifier.fillMaxSize()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.guide), contentDescription = null,
+            painter = painterResource(id = R.drawable.guide1), contentDescription = null,
             modifier = Modifier
                 .align(alignment = Alignment.Center)
                 .padding(bottom = 105.dp)
