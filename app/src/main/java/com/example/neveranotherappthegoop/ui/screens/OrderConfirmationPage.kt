@@ -183,7 +183,7 @@ fun OrderInfo(
         Her er den også designet med farve, højerner osv*/
         Card(
             modifier = Modifier
-                .padding(bottom = 134.dp)
+                .padding(bottom = 145.dp)
                 .align(Alignment.Center)
                 .width(330.dp),
             shape = RoundedCornerShape(12.dp),

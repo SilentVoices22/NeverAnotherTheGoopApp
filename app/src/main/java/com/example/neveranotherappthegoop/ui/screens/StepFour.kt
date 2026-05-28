@@ -222,7 +222,7 @@ fun MeasurementTextField4(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(bottom = 240.dp),
+            .padding(bottom = 260.dp),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

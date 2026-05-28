@@ -69,7 +69,7 @@ fun PageText () {
                 "measurements.",
         fontSize = 15.sp,
         modifier = Modifier
-            .padding(bottom = 65.dp, top = 15.dp)
+            .padding(bottom = 65.dp, top = 50.dp)
     )
     }
 }

@@ -92,13 +92,13 @@ fun LandingPageBody(onExpectationsPageBodyButtonClick: () -> Unit) {
             .fillMaxSize()
             .background(Color.White)
             .padding(top = 24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Topbar()
         LandingPageText()
         LandingPagePicture()
         Column(verticalArrangement = Arrangement.Center, modifier = Modifier.fillMaxWidth()) {
-            ThreeStepList(modifier = Modifier.height(80.dp).padding(top = 5.dp))
+            ThreeStepList(modifier = Modifier.height(90.dp).padding(top = 5.dp))
         }
         Text(
             text = "The NEVER ANOTHER wire free bra is tailored to perfectly fit you. Using your measurements, our algorithm automatically customizes the bra to fit your body. ",
