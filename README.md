@@ -12,7 +12,7 @@ As part of our second-semester final exam, NeverAnother invited us to build an A
 * **MVP Architecture:** Focuses on core functionality to validate the business concept.
 * **Modern Android Stack:** Built entirely in Kotlin utilizing modern Android Jetpack components.
 
----
+
 
 ## Minimum Requirements
 
@@ -20,7 +20,7 @@ As part of our second-semester final exam, NeverAnother invited us to build an A
 * **CPU:** Intel 8th Gen Core i5 / AMD Ryzen 1xxx (Post-2017 Architecture)
 * **RAM:** 16 GB
 
----
+
 
 ## Getting Started
 
