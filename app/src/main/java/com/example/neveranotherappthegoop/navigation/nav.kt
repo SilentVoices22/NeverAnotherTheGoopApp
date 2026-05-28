@@ -110,13 +110,7 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
         composable("StepThreePage") {
             StepThreePage(
                 onBackClick = { navController.popBackStack() },
-                onContinueClick = {
-                    if (viewModel.isSpanHeightTooLarge(viewModel.uiState.measurement3)) {
-                        navController.navigate("FalloutPage")
-                    } else {
-                        navController.navigate("StepFourPage")
-                    }
-                },
+                onContinueClick = {navController.navigate("StepFourPage")},
                 onVideoGuideClick = { navController.navigate("VideoThreePage") },
                 measurement = viewModel.uiState.measurement3,
                 onMeasurementChange = { viewModel.updateMeasurement3(it) }
@@ -132,13 +126,7 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
         composable("StepFourPage") {
             StepFourPage(
                 onBackClick = { navController.popBackStack() },
-                onContinueClick = {
-                    if (viewModel.isSpanHeightTooLarge(viewModel.uiState.measurement4)) {
-                        navController.navigate("FalloutPage")
-                    } else {
-                        navController.navigate("LoadingScreen")
-                    }
-                },
+                onContinueClick = {navController.navigate("LoadingScreen")},
                 onVideoGuideClick = { navController.navigate("VideoFourPage") },
                 measurement = viewModel.uiState.measurement4,
                 onMeasurementChange = { viewModel.updateMeasurement4(it) }
