@@ -15,3 +15,6 @@ val CharcoalGrey = Color(0xFF393838)
 val Orangevibrant = Color(0xFFFF5F00)
 
 val BoneWhite = Color(0xFFF9F6EE)
+
+// Trivial change to force recompilation
+val ForceRecompile = 0

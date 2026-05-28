@@ -1,7 +1,6 @@
 package com.example.neveranotherappthegoop.ui.screens.onboard
 
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -13,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
@@ -21,27 +21,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
-import androidx.compose.ui.graphics.Color
+import androidx.compose.material3.TextField
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily.Companion.Monospace
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.R
+import com.example.neveranotherappthegoop.data.ContinueButton
+import com.example.neveranotherappthegoop.data.VideoGuide
 import com.example.neveranotherappthegoop.ui.theme.BoneWhite
-import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
 @Composable
 
 fun StepThreePage(
     onBackClick: () -> Unit,
-    onContinueClick: () -> Unit,
+    onStepFourButtonClick: () -> Unit,
     onVideoGuideClick: () -> Unit
 ) {
     Box(
@@ -50,8 +48,8 @@ fun StepThreePage(
         TopBar3(onBackClick = onBackClick)
         HeaderText3()
         PictureGuide3()
-        VideoGuide3(onClick = onVideoGuideClick)
-        ContinueButton3(onClick = onContinueClick)
+        VideoGuide(onClick = onVideoGuideClick)
+        ContinueButton(onClick = onStepFourButtonClick)
         ImageText3()
         TextField3()
     }
@@ -141,68 +139,6 @@ fun PictureGuide3() {
 }
 
 
-@Composable
-fun VideoGuide3(
-    onClick: () -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 90.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        // View video guide button
-        OutlinedButton(
-            onClick = onClick,
-            modifier = Modifier
-                .width(330.dp)
-                .height(50.dp),
-            border = BorderStroke(1.dp, Color(0xFFFF5F00)),
-            shape = RoundedCornerShape(10.dp)
-        ) {
-            Text(
-                "View video guide",
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Normal,
-                color = Color(0xFFFF5F00)
-            )
-        }
-    }
-}
-
-@Composable
-fun ContinueButton3(
-    onClick: () -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 20.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        // View video guide button
-        OutlinedButton(
-            onClick = onClick,
-            modifier = Modifier
-                .width(330.dp)
-                .height(50.dp),
-            border = BorderStroke(1.dp, Color(0xFFFF5F00)),
-            shape = RoundedCornerShape(10.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Orangevibrant
-            )
-        ) {
-            Text(
-                "Continue", fontSize = 20.sp,
-                fontWeight = FontWeight.Normal,
-                color = White
-            )
-        }
-    }
-}
-
 
 @Composable
 fun ImageText3() {
@@ -244,9 +180,9 @@ fun TextField3() {
                 ),
             contentAlignment = Alignment.Center
         ) {
-            Text(
-                text = "0.00 cm",
-                fontSize = 20.sp
+            TextField(
+                state = rememberTextFieldState(initialText = ""),
+                label = { Text("cm")}
             )
         }
     }
@@ -258,7 +194,7 @@ fun TextField3() {
 fun MainScreenPreviewer() {
     StepThreePage(
         onBackClick = {},
-        onContinueClick = {},
+        onStepFourButtonClick = {},
         onVideoGuideClick = {}
     )
 }

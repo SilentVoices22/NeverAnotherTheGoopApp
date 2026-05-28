@@ -33,6 +33,8 @@ import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.R
+import com.example.neveranotherappthegoop.data.ContinueButton
+import com.example.neveranotherappthegoop.data.VideoGuide
 import com.example.neveranotherappthegoop.ui.theme.BoneWhite
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
@@ -40,7 +42,7 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 @Composable
 fun StepFourPage(
     onBackClick: () -> Unit,
-    onContinueClick: () -> Unit,
+    OnContinueButtonClick: () -> Unit,
     onVideoGuideClick: () -> Unit
 ) {
     Box(
@@ -49,8 +51,8 @@ fun StepFourPage(
         TopBar4(onBackClick = onBackClick)
         HeaderText4()
         PictureGuide4()
-        VideoGuide4(onClick = onVideoGuideClick)
-        ContinueButton4(onClick = onContinueClick)
+        VideoGuide(onClick = onVideoGuideClick)
+        ContinueButton(onClick = OnContinueButtonClick)
         ImageText4()
         TextField4()
     }
@@ -128,64 +130,6 @@ fun PictureGuide4() {
     }
 }
 
-@Composable
-fun VideoGuide4(
-    onClick: () -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 90.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        // View video guide button
-        OutlinedButton(
-            onClick = onClick,
-            modifier = Modifier
-                .width(330.dp)
-                .height(50.dp),
-            border = BorderStroke(1.dp, Color(0xFFFF5F00)),
-            shape = RoundedCornerShape(10.dp)
-        ) {
-            Text(
-                "View video guide",
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Normal,
-                color = Color(0xFFFF5F00)
-            )
-        }
-    }
-}
-
-@Composable
-fun ContinueButton4(
-    onClick: () -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 20.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) { // View video guide button
-        OutlinedButton(
-            onClick = onClick,
-            modifier = Modifier
-                .width(330.dp)
-                .height(50.dp),
-            border = BorderStroke(1.dp, Color(0xFFFF5F00)),
-            shape = RoundedCornerShape(10.dp),
-            colors = buttonColors(
-                containerColor = Orangevibrant
-            )) {
-            Text(
-                "Continue", fontSize = 20.sp, fontWeight = FontWeight.Normal, color = White
-            )
-        }
-    }
-}
-
 
 @Composable
 fun ImageText4() {
@@ -244,7 +188,7 @@ fun TextField4() {
 fun StepFourPreview() {
     StepFourPage(
         onBackClick = {},
-        onContinueClick = {},
+        OnContinueButtonClick = {},
         onVideoGuideClick = {}
     )
 }

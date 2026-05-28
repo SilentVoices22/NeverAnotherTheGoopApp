@@ -35,6 +35,8 @@ import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.R
+import com.example.neveranotherappthegoop.data.ContinueButton
+import com.example.neveranotherappthegoop.data.VideoGuide
 import com.example.neveranotherappthegoop.ui.theme.BoneWhite
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
@@ -43,9 +45,8 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 fun StepTwoPage(
     onBackClick: () -> Unit,
-    onContinueClick: () -> Unit,
+    onStepThreeButtonClick: () -> Unit,
     onVideoGuideClick: () -> Unit,
-    onTextFieldClick: () -> Unit
 ) {
     Box(
         modifier = Modifier.background(White)
@@ -53,12 +54,12 @@ fun StepTwoPage(
         TopBar2(onBackClick = onBackClick)
         HeaderText2()
         PictureGuide2()
-        VideoGuide2(
+        VideoGuide(
             onVideoGuideClick
         )
-        ContinueButton2(onClick = onContinueClick)
+        ContinueButton(onClick = onStepThreeButtonClick)
         ImageText2()
-        TextField2(onClick = onTextFieldClick)
+        TextField2()
     }
 }
 
@@ -144,65 +145,7 @@ fun PictureGuide2() {
 }
 
 
-@Composable
-fun VideoGuide2(
-    onClick: () -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 90.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        // View video guide button
-        OutlinedButton(
-            onClick = onClick,
-            modifier = Modifier
-                .width(330.dp)
-                .height(50.dp),
-            border = BorderStroke(1.dp, Color(0xFFFF5F00)),
-            shape = RoundedCornerShape(10.dp)
-        ) {
-            Text(
-                "View video guide",
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Normal,
-                color = Color(0xFFFF5F00)
-            )
-        }
-    }
-}
 
-@Composable
-fun ContinueButton2(
-    onClick: () -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 20.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        // View video guide button
-        OutlinedButton(
-            onClick = onClick,
-            modifier = Modifier
-                .width(330.dp)
-                .height(50.dp),
-            border = BorderStroke(1.dp, Color(0xFFFF5F00)),
-            shape = RoundedCornerShape(10.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Orangevibrant
-            )
-        ) {
-            Text(
-                "Continue", fontSize = 20.sp, fontWeight = FontWeight.Normal, color = White
-            )
-        }
-    }
-}
 
 
 @Composable
@@ -225,9 +168,7 @@ fun ImageText2() {
 }
 
 @Composable
-fun TextField2(
-    onClick: () -> Unit
-) {
+fun TextField2() {
     Column(
         modifier = Modifier.fillMaxSize().padding(bottom = 260.dp),
         verticalArrangement = Arrangement.Bottom,
@@ -241,9 +182,6 @@ fun TextField2(
             modifier = Modifier
                 .width(180.dp)
                 .height(50.dp)
-                .clickable {
-                    onClick()
-                }
                 .background(
                     color = BoneWhite,
                     shape = RoundedCornerShape(12.dp)
@@ -263,10 +201,8 @@ fun TextField2(
 fun StepTwoPreview(){
     StepTwoPage(
         onBackClick = {},
-        onContinueClick = {},
-        onVideoGuideClick = {},
-        onTextFieldClick = {}
-    )
+        onStepThreeButtonClick = {},
+        onVideoGuideClick = {})
 }
 
 

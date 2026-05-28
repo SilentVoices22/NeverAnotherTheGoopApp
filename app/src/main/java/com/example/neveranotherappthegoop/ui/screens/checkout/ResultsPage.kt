@@ -1,4 +1,5 @@
 package com.example.neveranotherappthegoop.ui.screens.checkout
+
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -40,7 +41,8 @@ import com.example.neveranotherappthegoop.data.NALogoName
 
 @Composable
 fun ResultsPageBody(
-    onViewButtonClick: () -> Unit
+    onCheckoutButtonClick: () -> Unit,
+    onRetakeButtonClick: () -> Unit
 ) {
 
     // page layout
@@ -66,13 +68,13 @@ fun ResultsPageBody(
         ListOfBenefits()
 
         // orange knap
-        ViewButton(onClick = onViewButtonClick)
+        ViewButton(onClick = onCheckoutButtonClick)
 
         // space mellem knapperne
         Spacer(modifier = Modifier.height(16.dp))
 
         // hvid knap
-        RetakeButton()
+        RetakeButton(onRetakeButtonClick)
 
         // space mellem knap og bottom details
         Spacer(modifier = Modifier.height(20.dp))
@@ -86,7 +88,6 @@ fun ResultsPageBody(
 
 @Composable
 fun ResultsTopBar() {
-
     // top bar by kevin
     Row(
         modifier = Modifier
@@ -102,7 +103,6 @@ fun ResultsTopBar() {
 
 @Composable
 fun ResultsHeader() {
-
     // "Here are your results" (screenshot pga håndtegnet streg)
     Image(
         painter = painterResource(id = R.drawable.resultsheader),
@@ -127,7 +127,6 @@ fun ResultsHeader() {
 
 @Composable
 fun MeasurementCard() {
-
     Column {
 
         // bra image
@@ -232,9 +231,9 @@ fun MeasurementItem(
 
 @Composable
 fun ListOfBenefits() {
-
     Column(
-        modifier = Modifier.padding(30.dp))
+        modifier = Modifier.padding(30.dp)
+    )
     {
         Text(
             text = "Why this fit is made for you",
@@ -245,21 +244,27 @@ fun ListOfBenefits() {
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Text("✓   Designed for your natural shape",
+        Text(
+            "✓   Designed for your natural shape",
             fontSize = 14.sp,
-            color = Color(0xFF393838),)
+            color = Color(0xFF393838),
+        )
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Text("✓   Provides support without wires",
+        Text(
+            "✓   Provides support without wires",
             fontSize = 14.sp,
-            color = Color(0xFF393838),)
+            color = Color(0xFF393838),
+        )
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Text("✓   Seamless for maximum comfort",
+        Text(
+            "✓   Seamless for maximum comfort",
             fontSize = 14.sp,
-            color = Color(0xFF393838),)
+            color = Color(0xFF393838),
+        )
 
         Spacer(modifier = Modifier.height(10.dp))
     }
@@ -270,24 +275,26 @@ fun ListOfBenefits() {
 fun ViewButton(
     onClick: () -> Unit
 ) {
-        // View product button
-        Button(
-            onClick = onClick,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(50.dp),
-            colors = ButtonDefaults.buttonColors(Color(0xFFFF5F00)),
-            shape = RoundedCornerShape(10.dp)
-        ) {
-            Text("View product",
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Normal)
-        }
+    // View product button
+    Button(
+        onClick = onClick,
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(50.dp),
+        colors = ButtonDefaults.buttonColors(Color(0xFFFF5F00)),
+        shape = RoundedCornerShape(10.dp)
+    ) {
+        Text(
+            "View product",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Normal
+        )
+    }
 }
 
 
 @Composable
-fun RetakeButton() {
+fun RetakeButton(onClick: () -> Unit) {
 
     // Retake measurements button
     OutlinedButton(
@@ -298,21 +305,21 @@ fun RetakeButton() {
         border = BorderStroke(1.dp, Color(0xFFFF5F00)),
         shape = RoundedCornerShape(10.dp)
     ) {
-        Text("Retake measurements",
+        Text(
+            "Retake measurements",
             fontSize = 20.sp,
             fontWeight = FontWeight.Normal,
-            color = Color(0xFFFF5F00))
+            color = Color(0xFFFF5F00)
+        )
     }
 }
-
-
-
 
 
 @Preview(showBackground = true)
 @Composable
 fun ResultsPagePreview() {
     ResultsPageBody(
-        onViewButtonClick = {}
+        onCheckoutButtonClick = {},
+        onRetakeButtonClick = {}
     )
 }

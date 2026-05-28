@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
@@ -24,6 +25,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.White
@@ -34,17 +36,21 @@ import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.R
+import com.example.neveranotherappthegoop.data.ContinueButton
+import com.example.neveranotherappthegoop.data.VideoGuide
 import com.example.neveranotherappthegoop.ui.theme.BoneWhite
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
+
+// BoneWhite and Orangevibrant are causing NoClassDefFoundError in preview, inlining them.
+// import com.example.neveranotherappthegoop.ui.theme.BoneWhite
+// import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 
 @Composable
 fun StepOnePage(
     onBackClick: () -> Unit,
-    onContinueClick: () -> Unit,
-    onVideoGuideClick: () -> Unit,
-    onTextFieldClick: () -> Unit
-) {
+    onStepTwoButtonClick: () -> Unit,
+    onVideoGuideClick: () -> Unit, ) {
     Box(
         modifier = Modifier.background(White)
     ) {
@@ -52,9 +58,9 @@ fun StepOnePage(
         HeaderText()
         PictureGuide()
         VideoGuide(onClick = onVideoGuideClick)
-        ContinueButton(onClick = onContinueClick)
+        ContinueButton(onClick = onStepTwoButtonClick)
         ImageText()
-        TextField(onClick = onTextFieldClick)
+        TextField()
     }
 
 }
@@ -131,66 +137,10 @@ fun PictureGuide() {
     }
 }
 
-@Composable
-fun VideoGuide(
-    onClick: () -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 90.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        // View video guide button
-        OutlinedButton(
-            onClick = onClick,
-            modifier = Modifier
-                .width(330.dp)
-                .height(50.dp),
-            border = BorderStroke(1.dp, Color(0xFFFF5F00)),
-            shape = RoundedCornerShape(10.dp)
-        ) {
-            Text(
-                "View video guide",
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Normal,
-                color = Color(0xFFFF5F00)
-            )
-        }
-    }
-}
 
 
-@Composable
-fun ContinueButton(
-    onClick: () -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 20.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        // View video guide button
-        OutlinedButton(
-            onClick = onClick,
-            modifier = Modifier
-                .width(330.dp)
-                .height(50.dp),
-            border = BorderStroke(1.dp, Color(0xFFFF5F00)),
-            shape = RoundedCornerShape(10.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Orangevibrant
-            )
-        ) {
-            Text(
-                "Continue", fontSize = 20.sp, fontWeight = FontWeight.Normal, color = White
-            )
-        }
-    }
-}
+
+
 
 @Composable
 fun ImageText() {
@@ -211,9 +161,7 @@ fun ImageText() {
 }
 
 @Composable
-fun TextField(
-    onClick: () -> Unit
-) {
+fun TextField() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -229,17 +177,15 @@ fun TextField(
             modifier = Modifier
                 .width(180.dp)
                 .height(50.dp)
-                .clickable {
-                    onClick()
-                }
                 .background(
                     color = BoneWhite,
                     shape = RoundedCornerShape(12.dp)
                 ),
             contentAlignment = Alignment.Center
         ) {
-            Text(
-                text = "0.00 cm", fontSize = 20.sp
+            OutlinedTextField(
+                state = rememberTextFieldState(),
+                label = { Text("cm", fontSize = 20.sp) }
             )
         }
     }
@@ -251,10 +197,8 @@ fun TextField(
 fun StepONePagePreviewer() {
     StepOnePage(
         onBackClick = {},
-        onContinueClick = {},
-        onVideoGuideClick = {},
-        onTextFieldClick = {}
-    )
+        onStepTwoButtonClick = {},
+        onVideoGuideClick = {},)
 }
 
 

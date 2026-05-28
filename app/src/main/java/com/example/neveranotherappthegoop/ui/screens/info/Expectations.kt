@@ -26,18 +26,49 @@ import androidx.compose.ui.text.font.FontFamily.Companion.Monospace
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.material3.Icon
 import com.example.neveranotherappthegoop.R
+import com.example.neveranotherappthegoop.data.NaButton
 import com.example.neveranotherappthegoop.data.TopbarErrorRecovery
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
+@Composable //Oliver
+fun ExpectationsPageBody(
+    onBackClick: () -> Unit,
+    onStepOneOnClick: () -> Unit
+) {
 
+    // Hoved layout til hele siden
+    Column(modifier = Modifier.fillMaxSize(),)
+         {
+        TopbarErrorRecovery(onBackClick = onBackClick)
+        ExpectationsText()
+        NeedText()
+        ExplainText()
+        PressureBox()
+        //BeginButton(onClick = onBeginClick)//
 
+             Column(
+                 modifier = Modifier.padding(vertical = 10.dp, horizontal = 50.dp)
+             ) {
+                 NaButton("let's begin", onClick = onStepOneOnClick,)
+             }
+    }
+}
+
+@Preview(showBackground = true) // Preview i Android Studio
+@Composable
+fun ExpectationsPreview() {
+    ExpectationsPageBody(
+        onBackClick = {},
+        onStepOneOnClick = {})
+}
 
 @Composable //Oliver
 fun ExpectationsText() {
     // Column placerer elementer lodret
     Column(modifier = Modifier.padding(vertical = 10.dp, horizontal = 50.dp)) {
         Text(
-            text = "Let´s get\nready", // \n laver linjeskift
+            text = "Let´s get\n" +
+                    "ready", // \n laver linjeskift
             fontSize = 32.sp,
             fontWeight = Bold,
             fontFamily = Monospace
@@ -105,7 +136,7 @@ fun ExplainText() {
 }
 
 @Composable //Oliver
-fun pressureBox() {
+fun PressureBox() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -155,27 +186,3 @@ fun BeginButton( onClick: () -> Unit) {
     }
 }
 
-@Composable //Oliver
-fun ExpectationsPageBody(
-    onBackClick: () -> Unit,
-    onBeginClick: () -> Unit
-) {
-
-    // Hoved layout til hele siden
-    Column(modifier = Modifier.fillMaxSize()) {
-        TopbarErrorRecovery(onBackClick = onBackClick)
-        ExpectationsText()
-        NeedText()
-        ExplainText()
-        pressureBox()
-        BeginButton(onClick = onBeginClick)
-    }
-}
-
-@Preview(showBackground = true) // Preview i Android Studio
-@Composable
-fun ExpectationsPreview() {
-    ExpectationsPageBody(
-        onBackClick = {},
-        onBeginClick = {})
-}

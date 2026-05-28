@@ -47,7 +47,7 @@ fun LandingPageBody(onExpectationsPageBodyButtonClick: () -> Unit) {
                 .padding(top = 5.dp))
         }
         Text(
-            text = "The NEVER ANOTHER wire free bra is tailored to perfectly fit you. Using your measurements, our algorithm automatically customizes the bra to fit your body. ",
+            text = "The NEVER ANOTHER wire free bra is tailored to perfectly fit you. Using your measurements, our algorithm automatically customizes the bra to fit your body. ",
             fontSize = 13.sp,
             fontWeight = FontWeight.Normal,
             style = MaterialTheme.typography.bodyMedium,
@@ -83,8 +83,7 @@ fun Topbar() {
 @Preview(showBackground = true)
 @Composable
 fun LandingPageBodyPreview() {
-    LandingPageBody(
-        onExpectationsPageBodyButtonClick = {}
+    LandingPageBody(onExpectationsPageBodyButtonClick = {}
     )
 
 }
