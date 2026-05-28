@@ -41,6 +41,10 @@ import com.example.neveranotherappthegoop.data.NALogoName
 
 @Composable
 fun ResultsPageBody(
+    upperBandResult: String,
+    lowerBandResult: String,
+    breastSpandResult: String,
+    breastHeightResult: String,
     onCheckoutButtonClick: () -> Unit,
     onRetakeButtonClick: () -> Unit
 ) {
@@ -62,7 +66,12 @@ fun ResultsPageBody(
         ResultsHeader()
 
         // bra image + measurements
-        MeasurementCard()
+        MeasurementCard(
+            upper = upperBandResult,
+            lower = lowerBandResult,
+            breastSpand = breastSpandResult,
+            breastHeight =breastHeightResult,
+        )
 
         // "Why this fit is made for you" points
         ListOfBenefits()
@@ -126,7 +135,10 @@ fun ResultsHeader() {
 
 
 @Composable
-fun MeasurementCard() {
+fun MeasurementCard(upper: String,
+                    lower: String,
+                    breastSpand: String,
+                    breastHeight: String) {
     Column {
 
         // bra image
@@ -177,19 +189,19 @@ fun MeasurementCard() {
                 ) {
                     MeasurementItem(
                         "Upper",
-                        "X cm"
+                        "$upper cm"
                     )
                     MeasurementItem(
                         "Lower",
-                        "X cm"
+                        "$lower cm"
                     )
                     MeasurementItem(
                         "Span",
-                        "X cm"
+                        "$breastSpand cm"
                     )
                     MeasurementItem(
                         "Height",
-                        "X cm"
+                        "$breastHeight cm"
                     )
                 }
             }
@@ -319,6 +331,10 @@ fun RetakeButton(onClick: () -> Unit) {
 @Composable
 fun ResultsPagePreview() {
     ResultsPageBody(
+        upperBandResult = "85",
+        lowerBandResult = "20",
+        breastSpandResult = "40",
+        breastHeightResult = "49",
         onCheckoutButtonClick = {},
         onRetakeButtonClick = {}
     )

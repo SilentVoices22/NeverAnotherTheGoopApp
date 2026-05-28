@@ -23,7 +23,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ButtonDefaults.buttonColors
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
@@ -42,9 +47,12 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 @Composable
 fun StepFourPage(
     onBackClick: () -> Unit,
-    OnContinueButtonClick: () -> Unit,
+    OnContinueButtonClick: (String) -> Unit,
     onVideoGuideClick: () -> Unit
 ) {
+
+    var typedValue by remember { mutableStateOf("") }
+
     Box(
         modifier = Modifier.background(White)
     ) {
@@ -52,9 +60,11 @@ fun StepFourPage(
         HeaderText4()
         PictureGuide4()
         VideoGuide(onClick = onVideoGuideClick)
-        ContinueButton(onClick = OnContinueButtonClick)
+        ContinueButton(onClick = {OnContinueButtonClick(typedValue)})
         ImageText4()
-        TextField4()
+        TextField4(value = typedValue,
+            onValueChange = { typedValue = it }
+        )
     }
 }
 
@@ -153,7 +163,10 @@ fun ImageText4() {
 
 
 @Composable
-fun TextField4() {
+fun TextField4(
+    value: String,
+    onValueChange: (String) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -175,8 +188,10 @@ fun TextField4() {
                 ),
             contentAlignment = Alignment.Center
         ) {
-            Text(
-                text = "0.00 cm", fontSize = 20.sp
+            OutlinedTextField(
+                value = value,
+                onValueChange = onValueChange,
+                label = { Text("cm", fontSize = 20.sp) }
             )
         }
     }

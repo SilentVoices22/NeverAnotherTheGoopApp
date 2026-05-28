@@ -25,7 +25,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
@@ -45,9 +50,11 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 fun StepTwoPage(
     onBackClick: () -> Unit,
-    onStepThreeButtonClick: () -> Unit,
+    onStepThreeButtonClick: (String) -> Unit,
     onVideoGuideClick: () -> Unit,
 ) {
+    var typedValue by remember { mutableStateOf("") }
+
     Box(
         modifier = Modifier.background(White)
     ) {
@@ -57,9 +64,10 @@ fun StepTwoPage(
         VideoGuide(
             onVideoGuideClick
         )
-        ContinueButton(onClick = onStepThreeButtonClick)
+        ContinueButton(onClick = {onStepThreeButtonClick(typedValue)})
         ImageText2()
-        TextField2()
+        TextField2(value = typedValue,
+            onValueChange = { typedValue = it })
     }
 }
 
@@ -168,7 +176,10 @@ fun ImageText2() {
 }
 
 @Composable
-fun TextField2() {
+fun TextField2(
+    value: String,
+    onValueChange: (String) -> Unit
+) {
     Column(
         modifier = Modifier.fillMaxSize().padding(bottom = 260.dp),
         verticalArrangement = Arrangement.Bottom,
@@ -188,9 +199,10 @@ fun TextField2() {
                 ),
             contentAlignment = Alignment.Center
         ) {
-            Text(
-                text = "0.00 cm",
-                fontSize = 20.sp
+            OutlinedTextField(
+                value = value,
+                onValueChange = onValueChange,
+                label = { Text("cm", fontSize = 20.sp) }
             )
         }
     }

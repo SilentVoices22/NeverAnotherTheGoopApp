@@ -27,6 +27,10 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
@@ -49,8 +53,11 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 @Composable
 fun StepOnePage(
     onBackClick: () -> Unit,
-    onStepTwoButtonClick: () -> Unit,
+    onStepTwoButtonClick: (String) -> Unit,
     onVideoGuideClick: () -> Unit, ) {
+
+    var typedValue by remember { mutableStateOf("") }
+
     Box(
         modifier = Modifier.background(White)
     ) {
@@ -58,9 +65,10 @@ fun StepOnePage(
         HeaderText()
         PictureGuide()
         VideoGuide(onClick = onVideoGuideClick)
-        ContinueButton(onClick = onStepTwoButtonClick)
+        ContinueButton(onClick = {onStepTwoButtonClick(typedValue)})
         ImageText()
-        TextField()
+        TextField(value = typedValue,
+            onValueChange = { typedValue = it })
     }
 
 }
@@ -161,7 +169,10 @@ fun ImageText() {
 }
 
 @Composable
-fun TextField() {
+fun TextField(
+    value: String,
+    onValueChange: (String) -> Unit)
+{
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -183,8 +194,10 @@ fun TextField() {
                 ),
             contentAlignment = Alignment.Center
         ) {
+
             OutlinedTextField(
-                state = rememberTextFieldState(),
+                value = value,
+                onValueChange = onValueChange,
                 label = { Text("cm", fontSize = 20.sp) }
             )
         }

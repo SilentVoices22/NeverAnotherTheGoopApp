@@ -21,8 +21,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily.Companion.Monospace
@@ -39,9 +44,11 @@ import com.example.neveranotherappthegoop.ui.theme.BoneWhite
 
 fun StepThreePage(
     onBackClick: () -> Unit,
-    onStepFourButtonClick: () -> Unit,
+    onStepFourButtonClick: (String) -> Unit,
     onVideoGuideClick: () -> Unit
 ) {
+    var typedValue by remember { mutableStateOf("") }
+
     Box(
         modifier = Modifier.background(White)
     ) {
@@ -49,9 +56,12 @@ fun StepThreePage(
         HeaderText3()
         PictureGuide3()
         VideoGuide(onClick = onVideoGuideClick)
-        ContinueButton(onClick = onStepFourButtonClick)
+        ContinueButton(onClick = {onStepFourButtonClick(typedValue)})
         ImageText3()
-        TextField3()
+        TextField3(
+            value = typedValue,
+            onValueChange = { typedValue = it }
+        )
     }
 }
 
@@ -158,7 +168,10 @@ fun ImageText3() {
 
 
 @Composable
-fun TextField3() {
+fun TextField3(
+    value: String,
+    onValueChange: (String) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -180,9 +193,10 @@ fun TextField3() {
                 ),
             contentAlignment = Alignment.Center
         ) {
-            TextField(
-                state = rememberTextFieldState(initialText = ""),
-                label = { Text("cm")}
+            OutlinedTextField(
+                value = value,
+                onValueChange = onValueChange,
+                label = { Text("cm", fontSize = 20.sp) }
             )
         }
     }

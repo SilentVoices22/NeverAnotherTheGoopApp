@@ -6,6 +6,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
@@ -22,6 +23,7 @@ import com.example.neveranotherappthegoop.ui.screens.videos.VideoFourPage
 import com.example.neveranotherappthegoop.ui.screens.videos.VideoOnePage
 import com.example.neveranotherappthegoop.ui.screens.videos.VideoThreePage
 import com.example.neveranotherappthegoop.ui.screens.videos.VideoTwoPage
+import com.example.neveranotherappthegoop.ui.screens.viewmodel.MeasurementViewmodel
 
 
 // Navigation 3 API,
@@ -30,6 +32,7 @@ fun AppNavigation() {
     // Navigation 3 backstack initialization
     val backStack = rememberNavBackStack(LandingPageKey)
 
+    val measurementViewmodel: MeasurementViewmodel = viewModel()
     NavDisplay(
         backStack = backStack,
         onBack = {
@@ -63,8 +66,10 @@ fun AppNavigation() {
                     onBackClick = {
                         backStack.removeAt(backStack.lastIndex)
                     },
-                    onStepTwoButtonClick = {
-                        // Assuming StepTwo is next
+                    onStepTwoButtonClick = { inputString ->
+
+                        measurementViewmodel.saveUpperBand(inputString)
+
                         backStack.add(StepTwoPageKey)
                     },
                     onVideoGuideClick = {
@@ -78,7 +83,8 @@ fun AppNavigation() {
                     onBackClick = {
                         backStack.removeAt(backStack.lastIndex)
                     },
-                    onStepThreeButtonClick = {
+                    onStepThreeButtonClick = {  inputString ->
+                        measurementViewmodel.saveLowerBand(inputString)
                         backStack.add(DoingGreatKey)
                     },
                     onVideoGuideClick = {
@@ -106,7 +112,9 @@ fun AppNavigation() {
                     onBackClick = {
                         backStack.removeAt(backStack.lastIndex)
                     },
-                    onStepFourButtonClick = {
+                    onStepFourButtonClick = { inputString ->
+                        measurementViewmodel.saveBreastSpand(inputString)
+
                         backStack.add(StepFourPageKey)
                     },
                     onVideoGuideClick = {
@@ -120,7 +128,9 @@ fun AppNavigation() {
                     onBackClick = {
                         backStack.removeAt(backStack.lastIndex)
                     },
-                    OnContinueButtonClick = {
+                    OnContinueButtonClick = { inputString ->
+                        measurementViewmodel.SaveBreastHeight(inputString)
+
                         backStack.add(LoadingScreenKey)
                     },
                     onVideoGuideClick = {
@@ -140,6 +150,12 @@ fun AppNavigation() {
 
             is ResultKey -> NavEntry(key) {
                 ResultsPageBody(
+
+                    upperBandResult = measurementViewmodel.upperBand,
+                    lowerBandResult = measurementViewmodel.lowerBand,
+                    breastSpandResult = measurementViewmodel.breastSpan,
+                    breastHeightResult = measurementViewmodel.breastHeight,
+
                     onCheckoutButtonClick = {
                         backStack.add(OrderConfirmedKey)
                     },
