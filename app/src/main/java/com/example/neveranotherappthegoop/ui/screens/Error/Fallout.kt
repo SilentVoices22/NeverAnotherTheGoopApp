@@ -1,4 +1,4 @@
-﻿package com.example.neveranotherappthegoop.ui.screens
+﻿package com.example.neveranotherappthegoop.ui.screens.Error
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

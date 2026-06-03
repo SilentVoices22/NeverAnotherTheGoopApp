@@ -1,4 +1,4 @@
-﻿package com.example.neveranotherappthegoop.ui.screens
+﻿package com.example.neveranotherappthegoop.ui.screens.Onboarding
 
 
 import androidx.compose.foundation.BorderStroke

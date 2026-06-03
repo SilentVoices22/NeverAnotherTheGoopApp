@@ -1,4 +1,5 @@
-﻿package com.example.neveranotherappthegoop.ui.screens
+﻿package com.example.neveranotherappthegoop.ui.screens.videos
+
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,25 +24,17 @@ import com.example.neveranotherappthegoop.data.components.TopbarErrorRecovery
 /*---------------------------------------------------------Fælles-kodning-------------------------------------------------------------- */
 
 @Composable
-fun VideoOnePage(
-    onBackClick: () -> Unit
+fun VideoFourPage (
+    onBackClick: () -> Unit,
 ) {
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(15.dp)
+    Column(modifier = Modifier.fillMaxSize().padding(15.dp),
     ) {
-
         TopbarErrorRecovery(
             onBackClick = onBackClick
         )
-
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            Video1()
+        Column(horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center) {
+            Video4()
         }
     }
 }
@@ -49,14 +42,14 @@ fun VideoOnePage(
 
 
 @Composable
-fun Video1(){ // Made using AI Gemini - Kevin 26/05/22
+fun Video4(){ // Made using AI Gemini - Kevin 26/05/22
     val context = LocalContext.current
 
     // 1. Initialize ExoPlayer safely so it doesn't reset on every recomposition
     val exoPlayer = remember {
         ExoPlayer.Builder(context).build().apply {
             val mediaItem = MediaItem.fromUri(
-                "android.resource://${context.packageName}/${R.raw.video1}"
+                "android.resource://${context.packageName}/${R.raw.tutorial4}"
             )
             setMediaItem(mediaItem)
             prepare()
@@ -83,7 +76,4 @@ fun Video1(){ // Made using AI Gemini - Kevin 26/05/22
             .height(250.dp)
     )
 }
-
-
-
 

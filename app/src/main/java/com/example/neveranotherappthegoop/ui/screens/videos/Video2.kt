@@ -1,4 +1,4 @@
-﻿package com.example.neveranotherappthegoop.ui.screens
+﻿package com.example.neveranotherappthegoop.ui.screens.videos
 
 
 import androidx.compose.foundation.layout.Arrangement
@@ -24,7 +24,7 @@ import com.example.neveranotherappthegoop.data.components.TopbarErrorRecovery
 /*---------------------------------------------------------Fælles-kodning-------------------------------------------------------------- */
 
 @Composable
-fun VideoThreePage (
+fun VideoTwoPage (
     onBackClick: () -> Unit,
 ) {
     Column(modifier = Modifier.fillMaxSize().padding(15.dp),
@@ -34,7 +34,7 @@ fun VideoThreePage (
         )
         Column(horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center) {
-            Video3()
+            Video2()
         }
     }
 }
@@ -42,14 +42,14 @@ fun VideoThreePage (
 
 
 @Composable
-fun Video3(){ // Made using AI Gemini - Kevin 26/05/22
+fun Video2(){ // Made using AI Gemini - Kevin 26/05/22
     val context = LocalContext.current
 
     // 1. Initialize ExoPlayer safely so it doesn't reset on every recomposition
     val exoPlayer = remember {
         ExoPlayer.Builder(context).build().apply {
             val mediaItem = MediaItem.fromUri(
-                "android.resource://${context.packageName}/${R.raw.tutorial3}"
+                "android.resource://${context.packageName}/${R.raw.tutorial2}"
             )
             setMediaItem(mediaItem)
             prepare()
@@ -76,5 +76,7 @@ fun Video3(){ // Made using AI Gemini - Kevin 26/05/22
             .height(250.dp)
     )
 }
+
+
 
 

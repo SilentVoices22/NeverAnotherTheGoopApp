@@ -1,5 +1,4 @@
-﻿package com.example.neveranotherappthegoop.ui.screens
-
+﻿package com.example.neveranotherappthegoop.ui.screens.Onboarding
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -41,10 +40,12 @@ import com.example.neveranotherappthegoop.R
 import com.example.neveranotherappthegoop.ui.theme.BoneWhite
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
-/*---------------------------------------------------------Fælles-kodning-------------------------------------------------------------- */
-@Composable
 
-fun StepTwoPage(
+/*---------------------------------------------------------Fælles-kodning-------------------------------------------------------------- */
+
+
+@Composable
+fun StepOnePage(
     onBackClick: () -> Unit,
     onContinueClick: () -> Unit,
     onVideoGuideClick: () -> Unit,
@@ -54,32 +55,33 @@ fun StepTwoPage(
     Box(
         modifier = Modifier.background(White)
     ) {
-        TopBar2(onBackClick = onBackClick)
-        HeaderText2()
-        PictureGuide2()
-        VideoGuide2(onVideoGuideClick)
-        ContinueButton2(onClick = onContinueClick)
-        ImageText2()
-        MeasurementTextField2(value = measurement, onValueChange = onMeasurementChange)
+        StepOneTopBar(onBackClick = onBackClick)
+        HeaderText()
+        PictureGuide()
+        VideoGuide(onClick = onVideoGuideClick)
+        ContinueButton(onClick = onContinueClick)
+        ImageText()
+        MeasurementTextField(value = measurement, onValueChange = onMeasurementChange)
     }
+
 }
 
 
 /*-----------------------------------------------Top-Bar--------------------------------------------- */
 
-
 @Composable
-fun TopBar2(
+fun StepOneTopBar(
     onBackClick: () -> Unit
 ) {
     Box(
-        modifier = Modifier
-            .fillMaxWidth()
+        modifier = Modifier.fillMaxWidth()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.topbar2),
-            contentDescription = "Step Two",
-            modifier = Modifier.align(Alignment.TopCenter).width(220.dp)
+            painter = painterResource(id = R.drawable.topbar1),
+            contentDescription = "Step One",
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .width(220.dp)
         )
     }
     Box(
@@ -92,8 +94,7 @@ fun TopBar2(
                 .padding(24.dp)
         ) {
             Icon(
-                imageVector = Icons.Default.ArrowBack,
-                contentDescription = "Back"
+                imageVector = Icons.Default.ArrowBack, contentDescription = "Back"
             )
         }
     }
@@ -103,39 +104,31 @@ fun TopBar2(
 /*-------------------------------------------HeaderText---------------------------------------------- */
 
 
-
-
 @Composable
-fun HeaderText2() {
+fun HeaderText() {
     Column(
-        modifier = Modifier
-            .padding(vertical = 90.dp, horizontal = 50.dp)
+        modifier = Modifier.padding(vertical = 90.dp, horizontal = 50.dp)
     ) {
         Text(
-            text = "Lower circumference",
+            text = "Upper circumference",
             fontSize = 25.sp,
             fontWeight = Bold,
             fontFamily = Monospace
         )
         Spacer(modifier = Modifier.height(20.dp))
         Text(
-            text = "Place the tape measure around the body, " +
-                    "right under the bust, where the underwire " +
-                    "of a bra would sit. If you’re wearing a " +
-                    "wired bra, place the tape underneath the wire."
+            text = "Place your tape measure around your upper body, " + "and over the fullest part of your chest."
         )
     }
 }
 
-
 @Composable
-fun PictureGuide2() {
+fun PictureGuide() {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.guide2),
-            contentDescription = null,
+            painter = painterResource(id = R.drawable.guide1), contentDescription = null,
             modifier = Modifier
                 .align(alignment = Alignment.Center)
                 .padding(bottom = 105.dp)
@@ -145,9 +138,8 @@ fun PictureGuide2() {
     }
 }
 
-
 @Composable
-fun VideoGuide2(
+fun VideoGuide(
     onClick: () -> Unit
 ) {
     Column(
@@ -176,8 +168,9 @@ fun VideoGuide2(
     }
 }
 
+
 @Composable
-fun ContinueButton2(
+fun ContinueButton(
     onClick: () -> Unit
 ) {
     Column(
@@ -206,39 +199,39 @@ fun ContinueButton2(
     }
 }
 
-
 @Composable
-fun ImageText2() {
+fun ImageText() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(bottom = 170.dp),
+            .padding(bottom = 170.dp, start = 30.dp),
         verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
         ) {
         Text(
-            text = "Looks good!",
-            modifier = Modifier.padding(bottom = 5.dp)
+            text = "Stand up straight, " + "relax your body, and breathe out.",
+            modifier = Modifier.padding(10.dp)
         )
         Text(
-            text = "Make sure the tape is level all around."
+            text = "The measurement tape should run parallel to the floor, all the way around the body."
         )
     }
 }
 
 @Composable
-fun MeasurementTextField2(
+fun MeasurementTextField(
     value: String,
     onValueChange: (String) -> Unit
 ) {
     Column(
-        modifier = Modifier.fillMaxSize().padding(bottom = 240.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(bottom = 240.dp),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = "Enter your measurements",
-            modifier = Modifier.padding(bottom = 10.dp)
+            modifier = Modifier.padding(10.dp)
         )
         OutlinedTextField(
             value = value,
@@ -258,19 +251,18 @@ fun MeasurementTextField2(
     }
 }
 
+
 @Preview(showBackground = true)
 @Composable
-fun StepTwoPreview(){
-StepTwoPage(
-    onBackClick = {},
-    onContinueClick = {},
-    onVideoGuideClick = {},
-    measurement = "",
-    onMeasurementChange = {}
-)
+fun StepONePagePreviewer() {
+    StepOnePage(
+        onBackClick = {},
+        onContinueClick = {},
+        onVideoGuideClick = {},
+        measurement = "",
+        onMeasurementChange = {}
+    )
 }
-
-
 
 
 

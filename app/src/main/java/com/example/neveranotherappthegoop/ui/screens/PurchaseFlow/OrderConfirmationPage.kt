@@ -1,4 +1,4 @@
-﻿package com.example.neveranotherappthegoop.ui.screens
+﻿package com.example.neveranotherappthegoop.ui.screens.PurchaseFlow
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
