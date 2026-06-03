@@ -49,7 +49,7 @@ fun Video4(){ // Made using AI Gemini - Kevin 26/05/22
     val exoPlayer = remember {
         ExoPlayer.Builder(context).build().apply {
             val mediaItem = MediaItem.fromUri(
-                "android.resource://${context.packageName}/${R.raw.tutorial4}"
+                "android.resource://${context.packageName}/${R.raw.tutorial4someform}"
             )
             setMediaItem(mediaItem)
             prepare()
@@ -73,7 +73,7 @@ fun Video4(){ // Made using AI Gemini - Kevin 26/05/22
         },
         modifier = Modifier
             .fillMaxWidth()
-            .height(250.dp)
+            .height(900.dp)
     )
 }
 
