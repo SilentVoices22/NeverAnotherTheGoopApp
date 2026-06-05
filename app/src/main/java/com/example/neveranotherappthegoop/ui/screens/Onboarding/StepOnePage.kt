@@ -37,8 +37,12 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.R
+import com.example.neveranotherappthegoop.data.components.ContinueButton
+import com.example.neveranotherappthegoop.data.components.MeasurementInputField
+import com.example.neveranotherappthegoop.data.components.VideoGuideButton
 import com.example.neveranotherappthegoop.ui.theme.BoneWhite
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
+
 
 
 /*---------------------------------------------------------Fælles-kodning-------------------------------------------------------------- */
@@ -58,10 +62,10 @@ fun StepOnePage(
         StepOneTopBar(onBackClick = onBackClick)
         HeaderText()
         PictureGuide()
-        VideoGuide(onClick = onVideoGuideClick)
+        VideoGuideButton(onClick = onVideoGuideClick)
         ContinueButton(onClick = onContinueClick)
         ImageText()
-        MeasurementTextField(value = measurement, onValueChange = onMeasurementChange)
+        MeasurementInputField(value = measurement, onValueChange = onMeasurementChange)
     }
 
 }
@@ -138,66 +142,9 @@ fun PictureGuide() {
     }
 }
 
-@Composable
-fun VideoGuide(
-    onClick: () -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 90.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        // View video guide button
-        OutlinedButton(
-            onClick = onClick,
-            modifier = Modifier
-                .width(330.dp)
-                .height(50.dp),
-            border = BorderStroke(1.dp, Color(0xFFFF5F00)),
-            shape = RoundedCornerShape(10.dp)
-        ) {
-            Text(
-                "View video guide",
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Normal,
-                color = Color(0xFFFF5F00)
-            )
-        }
-    }
-}
 
 
-@Composable
-fun ContinueButton(
-    onClick: () -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 20.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        // View video guide button
-        OutlinedButton(
-            onClick = onClick,
-            modifier = Modifier
-                .width(330.dp)
-                .height(50.dp),
-            border = BorderStroke(1.dp, Color(0xFFFF5F00)),
-            shape = RoundedCornerShape(10.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Orangevibrant
-            )
-        ) {
-            Text(
-                "Continue", fontSize = 20.sp, fontWeight = FontWeight.Normal, color = White
-            )
-        }
-    }
-}
+
 
 @Composable
 fun ImageText() {
@@ -213,40 +160,6 @@ fun ImageText() {
         )
         Text(
             text = "The measurement tape should run parallel to the floor, all the way around the body."
-        )
-    }
-}
-
-@Composable
-fun MeasurementTextField(
-    value: String,
-    onValueChange: (String) -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 240.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = "Enter your measurements",
-            modifier = Modifier.padding(10.dp)
-        )
-        OutlinedTextField(
-            value = value,
-            onValueChange = onValueChange,
-            modifier = Modifier.width(180.dp),
-            placeholder = { Text("0.00 cm") },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-            shape = RoundedCornerShape(12.dp),
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedBorderColor = Orangevibrant,
-                unfocusedBorderColor = Color.Transparent,
-                unfocusedContainerColor = BoneWhite,
-                focusedContainerColor = BoneWhite
-            ),
-            singleLine = true
         )
     }
 }

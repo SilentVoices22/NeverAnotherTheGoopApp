@@ -38,6 +38,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.neveranotherappthegoop.R
+import com.example.neveranotherappthegoop.data.components.ContinueButton
+import com.example.neveranotherappthegoop.data.components.MeasurementInputField
+import com.example.neveranotherappthegoop.data.components.VideoGuideButton
 import com.example.neveranotherappthegoop.ui.theme.BoneWhite
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
@@ -57,10 +60,10 @@ fun StepTwoPage(
         TopBar2(onBackClick = onBackClick)
         HeaderText2()
         PictureGuide2()
-        VideoGuide2(onVideoGuideClick)
-        ContinueButton2(onClick = onContinueClick)
+        VideoGuideButton(onClick = onVideoGuideClick)
+        ContinueButton(onClick = onContinueClick)
         ImageText2()
-        MeasurementTextField2(value = measurement, onValueChange = onMeasurementChange)
+        MeasurementInputField(value = measurement, onValueChange = onMeasurementChange)
     }
 }
 
@@ -146,65 +149,8 @@ fun PictureGuide2() {
 }
 
 
-@Composable
-fun VideoGuide2(
-    onClick: () -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 90.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        // View video guide button
-        OutlinedButton(
-            onClick = onClick,
-            modifier = Modifier
-                .width(330.dp)
-                .height(50.dp),
-            border = BorderStroke(1.dp, Color(0xFFFF5F00)),
-            shape = RoundedCornerShape(10.dp)
-        ) {
-            Text(
-                "View video guide",
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Normal,
-                color = Color(0xFFFF5F00)
-            )
-        }
-    }
-}
 
-@Composable
-fun ContinueButton2(
-    onClick: () -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 20.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        // View video guide button
-        OutlinedButton(
-            onClick = onClick,
-            modifier = Modifier
-                .width(330.dp)
-                .height(50.dp),
-            border = BorderStroke(1.dp, Color(0xFFFF5F00)),
-            shape = RoundedCornerShape(10.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Orangevibrant
-            )
-        ) {
-            Text(
-                "Continue", fontSize = 20.sp, fontWeight = FontWeight.Normal, color = White
-            )
-        }
-    }
-}
+
 
 
 @Composable
@@ -212,7 +158,7 @@ fun ImageText2() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(bottom = 170.dp),
+            .padding(bottom = 185.dp),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -222,38 +168,6 @@ fun ImageText2() {
         )
         Text(
             text = "Make sure the tape is level all around."
-        )
-    }
-}
-
-@Composable
-fun MeasurementTextField2(
-    value: String,
-    onValueChange: (String) -> Unit
-) {
-    Column(
-        modifier = Modifier.fillMaxSize().padding(bottom = 240.dp),
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = "Enter your measurements",
-            modifier = Modifier.padding(bottom = 10.dp)
-        )
-        OutlinedTextField(
-            value = value,
-            onValueChange = onValueChange,
-            modifier = Modifier.width(180.dp),
-            placeholder = { Text("0.00 cm") },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-            shape = RoundedCornerShape(12.dp),
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedBorderColor = Orangevibrant,
-                unfocusedBorderColor = Color.Transparent,
-                unfocusedContainerColor = BoneWhite,
-                focusedContainerColor = BoneWhite
-            ),
-            singleLine = true
         )
     }
 }

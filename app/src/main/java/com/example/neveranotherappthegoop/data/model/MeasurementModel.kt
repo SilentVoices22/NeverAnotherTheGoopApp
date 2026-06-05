@@ -3,10 +3,10 @@ package com.example.neveranotherappthegoop.data.model
 /*---------------------------------------------------------Fælles-kodning, med hjælp fra ai 26/05/28-------------------------------------------------------------- */
 
 data class MeasurementModel(
-    val measurement1: String = "",
-    val measurement2: String = "",
-    val measurement3: String = "",
-    val measurement4: String = "",
+    val upperCircumference: String = "",
+    val lowerCircumference: String = "",
+    val breastSpan: String = "",
+    val breastHeight: String = "",
     val quantity: Int = 1,
     val selectedColor: String = "White"
 ) {

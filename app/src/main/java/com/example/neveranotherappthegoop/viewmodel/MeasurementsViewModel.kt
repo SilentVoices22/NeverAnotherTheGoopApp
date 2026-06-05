@@ -16,20 +16,20 @@ class MeasurementsViewModel : ViewModel() {
         private set
 
     // ---------- Update Measurement States ----------
-    fun updateMeasurement1(value: String) {
-        uiState = uiState.copy(measurement1 = value)
+    fun updateUpperCircumference (value: String) {
+        uiState = uiState.copy(upperCircumference = value)
     }
 
-    fun updateMeasurement2(value: String) {
-        uiState = uiState.copy(measurement2 = value)
+    fun updateLowerCircumference(value: String) {
+        uiState = uiState.copy(lowerCircumference = value)
     }
 
-    fun updateMeasurement3(value: String) {
-        uiState = uiState.copy(measurement3 = value)
+    fun updateBreastSpan(value: String) {
+        uiState = uiState.copy(breastSpan = value)
     }
 
-    fun updateMeasurement4(value: String) {
-        uiState = uiState.copy(measurement4 = value)
+    fun updateBreastHeight(value: String) {
+        uiState = uiState.copy(breastHeight = value)
     }
 
     // ---------- Checkout Settings ----------

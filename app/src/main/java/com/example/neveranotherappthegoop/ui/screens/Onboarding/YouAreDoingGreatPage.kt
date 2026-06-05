@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.neveranotherappthegoop.data.components.BackArrow
+import com.example.neveranotherappthegoop.data.components.ContinueButton
 import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 
 /*---------------------------------------------------------Hjalte-Emil-------------------------------------------------------------- */
@@ -27,21 +28,21 @@ fun YouaredoinggreatPreview(
 ){
     YouAreDoingGreatPage(
         onBackClick = {},
-        onPageButtonClick = {}
+        onContinueClick = {},
     )
 }
 
 @Composable
 fun YouAreDoingGreatPage(
     onBackClick: () -> Unit,
-    onPageButtonClick: () -> Unit
+    onContinueClick: () -> Unit
 ) {
     Box(
         modifier = Modifier
             .fillMaxSize()
     ) {
         PageText()
-        PageButton( onPageButtonClick = onPageButtonClick)
+        ContinueButton(onClick = onContinueClick)
         BackArrow( onClick = onBackClick)
     }
 }
@@ -77,32 +78,7 @@ fun PageText () {
     }
 }
 
-@Composable
-fun PageButton (
-    onPageButtonClick: () -> Unit
-) {
-   Box(
-        modifier = Modifier
-            .padding(bottom = 20.dp)
-            .fillMaxSize(),
-            contentAlignment = Alignment.BottomCenter
-   ) {
-       Button(
-           onClick = onPageButtonClick,
-           modifier = Modifier
-               .width(310.dp)
-               .height(40.dp),
-           shape = RoundedCornerShape(12.dp),
-           colors = ButtonDefaults.buttonColors(
-               containerColor = Orangevibrant
-           )
-           ) {
-           Text(
-               text = "Continue",
-           )
-       }
-   }
-}
+
 
 
 

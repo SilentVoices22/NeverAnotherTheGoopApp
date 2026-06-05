@@ -56,15 +56,15 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
             StepOnePage(
                 onBackClick = { navController.popBackStack() },
                 onContinueClick = {
-                    if (viewModel.isUpperCircumferenceTooLarge(viewModel.uiState.measurement1)) {
+                    if (viewModel.isUpperCircumferenceTooLarge(viewModel.uiState.upperCircumference)) {
                         navController.navigate("ErrorRecoveryPage")
                     } else {
                         navController.navigate("StepTwoPage")
                     }
                 },
                 onVideoGuideClick = { navController.navigate("VideoOnePage") },
-                measurement = viewModel.uiState.measurement1,
-                onMeasurementChange = { viewModel.updateMeasurement1(it) }
+                measurement = viewModel.uiState.upperCircumference,
+                onMeasurementChange = { viewModel.updateUpperCircumference(it) }
             )
         }
 
@@ -84,15 +84,15 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
             StepTwoPage(
                 onBackClick = { navController.popBackStack() },
                 onContinueClick = {
-                    if (viewModel.isLowerCircumferenceTooLarge(viewModel.uiState.measurement2)) {
+                    if (viewModel.isLowerCircumferenceTooLarge(viewModel.uiState.lowerCircumference)) {
                         navController.navigate("FalloutPage")
                     } else {
                         navController.navigate("YouAreDoingGreatPage")
                     }
                 },
                 onVideoGuideClick = { navController.navigate("VideoTwoPage") },
-                measurement = viewModel.uiState.measurement2,
-                onMeasurementChange = { viewModel.updateMeasurement2(it) }
+                measurement = viewModel.uiState.lowerCircumference,
+                onMeasurementChange = { viewModel.updateLowerCircumference(it) }
             )
         }
 
@@ -105,7 +105,7 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
         composable("YouAreDoingGreatPage") {
             YouAreDoingGreatPage(
                 onBackClick = { navController.popBackStack() },
-                onPageButtonClick = { navController.navigate("StepThreePage") }
+                onContinueClick = { navController.navigate("StepThreePage") }
             )
         }
 
@@ -114,8 +114,8 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
                 onBackClick = { navController.popBackStack() },
                 onContinueClick = {navController.navigate("StepFourPage")},
                 onVideoGuideClick = { navController.navigate("VideoThreePage") },
-                measurement = viewModel.uiState.measurement3,
-                onMeasurementChange = { viewModel.updateMeasurement3(it) }
+                measurement = viewModel.uiState.breastSpan,
+                onMeasurementChange = { viewModel.updateBreastSpan(it) }
             )
         }
 
@@ -130,8 +130,8 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
                 onBackClick = { navController.popBackStack() },
                 onContinueClick = {navController.navigate("LoadingScreen")},
                 onVideoGuideClick = { navController.navigate("VideoFourPage") },
-                measurement = viewModel.uiState.measurement4,
-                onMeasurementChange = { viewModel.updateMeasurement4(it) }
+                measurement = viewModel.uiState.breastHeight,
+                onMeasurementChange = { viewModel.updateBreastHeight(it) }
             )
         }
 
@@ -156,10 +156,10 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
         composable("ResultsPageBody") {
             ResultsPageBody(
                 onViewButtonClick = { navController.navigate("CheckoutPage") },
-                measurement1 = viewModel.uiState.measurement1,
-                measurement2 = viewModel.uiState.measurement2,
-                measurement3 = viewModel.uiState.measurement3,
-                measurement4 = viewModel.uiState.measurement4
+                measurement1 = viewModel.uiState.upperCircumference,
+                measurement2 = viewModel.uiState.lowerCircumference,
+                measurement3 = viewModel.uiState.breastSpan,
+                measurement4 = viewModel.uiState.breastHeight
             )
         }
 
