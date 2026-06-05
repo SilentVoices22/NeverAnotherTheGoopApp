@@ -58,4 +58,8 @@ class MeasurementsViewModel : ViewModel() {
         val number = value.toDoubleOrNull() ?: 0.0
         return number < 65.0 || number > 100.0
     }
+
+    fun isInvalidInput(value: String): Boolean {
+        return value.toDoubleOrNull() == null
+    }
 }

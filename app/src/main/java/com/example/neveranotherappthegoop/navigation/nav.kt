@@ -28,7 +28,7 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
 /*---------------------------------------------------------Programmeret af Hjalte, men peer-coded af hele gruppen-------------------------------------------------------------- */
 
 @Composable
-    fun AppNavigation () {
+fun AppNavigation() {
 
     val navController = rememberNavController()
     val viewModel: MeasurementsViewModel = viewModel()
@@ -112,7 +112,14 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
         composable("StepThreePage") {
             StepThreePage(
                 onBackClick = { navController.popBackStack() },
-                onContinueClick = {navController.navigate("StepFourPage")},
+                onContinueClick = {
+                    if (viewModel.isInvalidInput(viewModel.uiState.breastSpan)) {
+                        navController.navigate("FalloutPage")
+                    } else {
+                        navController.navigate("StepFourPage")
+
+                    }
+                },
                 onVideoGuideClick = { navController.navigate("VideoThreePage") },
                 measurement = viewModel.uiState.breastSpan,
                 onMeasurementChange = { viewModel.updateBreastSpan(it) }
@@ -128,7 +135,13 @@ import com.example.neveranotherappthegoop.viewmodel.MeasurementsViewModel
         composable("StepFourPage") {
             StepFourPage(
                 onBackClick = { navController.popBackStack() },
-                onContinueClick = {navController.navigate("LoadingScreen")},
+                onContinueClick = {
+                    if (viewModel.isInvalidInput(viewModel.uiState.breastHeight)) {
+                        navController.navigate("ErrorRecoveryPage")
+                    } else {
+                        navController.navigate("LoadingScreen")
+                    }
+                },
                 onVideoGuideClick = { navController.navigate("VideoFourPage") },
                 measurement = viewModel.uiState.breastHeight,
                 onMeasurementChange = { viewModel.updateBreastHeight(it) }

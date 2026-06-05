@@ -61,7 +61,10 @@ fun StepFourPage(
         PictureGuide4()
         VideoGuideButton(onClick = onVideoGuideClick)
         ContinueButton(onClick = onContinueClick)
-        MeasurementInputField(value = measurement, onValueChange = onMeasurementChange)
+        MeasurementInputField(
+            value = measurement,
+            onValueChange = onMeasurementChange
+        )
         ImageText4()
 
 
@@ -116,7 +119,8 @@ fun HeaderText4() {
             text = "Breast height",
             fontSize = 25.sp,
             fontWeight = Bold,
-            fontFamily = Monospace)
+            fontFamily = Monospace
+        )
         Text(
             text = "Measure from the under burst point, across" + "   the fullest point of your chest, and to the cup height point, in a straight vertical line."
         )
