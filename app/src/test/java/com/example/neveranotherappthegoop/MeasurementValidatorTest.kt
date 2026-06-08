@@ -5,11 +5,18 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
+
+//val result = MeasurementValidator.isUpperCircumferenceTooLarge("90")
+//Finder objektet "MeasurementValidator" og dens funktion "isUpperCircumferenceTooLarge" -
+//Herefter laver den testen ud fra de constraints der er angivet i funktionen -
+//Og bruger værdien "90" i testen.
+
+//assertEquals(false, result)
+//Angiver at det forventes at resultatet er false og tjekker om det passer
+
+//False og true kan godt være forvirrende hvis man glemmer at den tjekker efter funktionsnavnet -
+//isUpperCircumferenceTooLarge - false betyder i denne sammenhæng at målet er korrekt og anvendeligt
+//true betyder at målet er for stort og ikke anvendeligt
 
 class MeasurementValidatorTest {
 
