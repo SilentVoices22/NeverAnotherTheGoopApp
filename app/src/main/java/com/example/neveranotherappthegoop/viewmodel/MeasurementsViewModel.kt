@@ -46,20 +46,4 @@ class MeasurementsViewModel : ViewModel() {
     fun selectColor(color: String) {
         uiState = uiState.copy(selectedColor = color)
     }
-
-    // ---------- Validation Checks ----------
-    // Steps 1 & 2: upper/lower circumference — max 130 cm → ErrorRecovery
-    fun isUpperCircumferenceTooLarge(value: String): Boolean {
-        val number = value.toDoubleOrNull() ?: 0.0
-        return number < 77.0 || number > 113.0
-    }
-
-    fun isLowerCircumferenceTooLarge(value: String): Boolean {
-        val number = value.toDoubleOrNull() ?: 0.0
-        return number < 65.0 || number > 100.0
-    }
-
-    fun isInvalidInput(value: String): Boolean {
-        return value.toDoubleOrNull() == null
-    }
 }
