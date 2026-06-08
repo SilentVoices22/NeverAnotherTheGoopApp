@@ -1,4 +1,5 @@
 ﻿package com.example.neveranotherappthegoop.ui.screens.PurchaseFlow
+import android.widget.Button
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -37,6 +38,7 @@ import com.example.neveranotherappthegoop.data.components.NALogoName
 @Composable
 fun ResultsPageBody(
     onViewButtonClick: () -> Unit,
+    onRetakeButtonClick: () -> Unit,
     measurement1: String,
     measurement2: String,
     measurement3: String,
@@ -77,7 +79,7 @@ fun ResultsPageBody(
         Spacer(modifier = Modifier.height(16.dp))
 
         // hvid knap
-        RetakeButton()
+        RetakeButton(onClick = onRetakeButtonClick)
 
         // space mellem knap og bottom details
         Spacer(modifier = Modifier.height(20.dp))
@@ -283,11 +285,13 @@ fun ViewButton(
 
 
 @Composable
-fun RetakeButton() {
+fun RetakeButton(
+    onClick: () -> Unit
+) {
 
     // Retake measurements button
     OutlinedButton(
-        onClick = {},
+        onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
             .height(50.dp),
@@ -319,6 +323,7 @@ fun BottomDetails() {
 fun ResultsPagePreview() {
     ResultsPageBody(
         onViewButtonClick = {},
+        onRetakeButtonClick = {},
         measurement1 = "85",
         measurement2 = "72",
         measurement3 = "14",

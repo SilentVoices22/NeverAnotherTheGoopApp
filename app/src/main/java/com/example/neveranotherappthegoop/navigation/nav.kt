@@ -169,6 +169,7 @@ fun AppNavigation() {
         composable("ResultsPageBody") {
             ResultsPageBody(
                 onViewButtonClick = { navController.navigate("CheckoutPage") },
+                onRetakeButtonClick = { navController.navigate("StepOnePage") },
                 measurement1 = viewModel.uiState.upperCircumference,
                 measurement2 = viewModel.uiState.lowerCircumference,
                 measurement3 = viewModel.uiState.breastSpan,
