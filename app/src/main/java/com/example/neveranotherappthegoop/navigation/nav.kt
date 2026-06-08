@@ -5,6 +5,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.neveranotherappthegoop.data.model.MeasurementValidator
 import com.example.neveranotherappthegoop.ui.screens.PurchaseFlow.CheckoutPage
 import com.example.neveranotherappthegoop.ui.screens.Error.ErrorRecovery
 import com.example.neveranotherappthegoop.ui.screens.Hook.ExpectationsPageBody
@@ -56,7 +57,7 @@ fun AppNavigation() {
             StepOnePage(
                 onBackClick = { navController.popBackStack() },
                 onContinueClick = {
-                    if (viewModel.isUpperCircumferenceTooLarge(viewModel.uiState.upperCircumference)) {
+                    if (MeasurementValidator.isUpperCircumferenceTooLarge(viewModel.uiState.upperCircumference)) {
                         navController.navigate("ErrorRecoveryPage")
                     } else {
                         navController.navigate("StepTwoPage")
@@ -84,7 +85,7 @@ fun AppNavigation() {
             StepTwoPage(
                 onBackClick = { navController.popBackStack() },
                 onContinueClick = {
-                    if (viewModel.isLowerCircumferenceTooLarge(viewModel.uiState.lowerCircumference)) {
+                    if (MeasurementValidator.isLowerCircumferenceTooLarge(viewModel.uiState.lowerCircumference)) {
                         navController.navigate("FalloutPage")
                     } else {
                         navController.navigate("YouAreDoingGreatPage")
@@ -113,7 +114,7 @@ fun AppNavigation() {
             StepThreePage(
                 onBackClick = { navController.popBackStack() },
                 onContinueClick = {
-                    if (viewModel.isInvalidInput(viewModel.uiState.breastSpan)) {
+                    if (MeasurementValidator.isInvalidInput(viewModel.uiState.breastSpan)) {
                         navController.navigate("FalloutPage")
                     } else {
                         navController.navigate("StepFourPage")
@@ -136,7 +137,7 @@ fun AppNavigation() {
             StepFourPage(
                 onBackClick = { navController.popBackStack() },
                 onContinueClick = {
-                    if (viewModel.isInvalidInput(viewModel.uiState.breastHeight)) {
+                    if (MeasurementValidator.isInvalidInput(viewModel.uiState.breastHeight)) {
                         navController.navigate("ErrorRecoveryPage")
                     } else {
                         navController.navigate("LoadingScreen")
