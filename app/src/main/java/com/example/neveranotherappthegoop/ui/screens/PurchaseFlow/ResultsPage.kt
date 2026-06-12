@@ -39,10 +39,10 @@ import com.example.neveranotherappthegoop.data.components.NALogoName
 fun ResultsPageBody(
     onViewButtonClick: () -> Unit,
     onRetakeButtonClick: () -> Unit,
-    upperCircumference: String,
-    lowerCircumference: String,
-    breastSpan: String,
-    breastHeight: String
+    updateUpperCircumference: String,
+    updateLowerCircumference: String,
+    updateBreastSpan: String,
+    updateBreastHeight: String
 ) {
 
     // page layout
@@ -63,10 +63,10 @@ fun ResultsPageBody(
 
         // bra image + measurements
         MeasurementCard(
-            measurement1 = upperCircumference,
-            measurement2 = lowerCircumference,
-            measurement3 = breastSpan,
-            measurement4 = breastHeight
+            upperCircumferenceMeasurement = updateUpperCircumference,
+            lowerCircumferenceMeasurement = updateLowerCircumference,
+            breastSpanMeasurement = updateBreastSpan,
+            breastHeightMeasurement = updateBreastHeight
         )
 
         // "Why this fit is made for you" points
@@ -132,10 +132,10 @@ fun ResultsHeader() {
 
 @Composable
 fun MeasurementCard(
-    measurement1: String,
-    measurement2: String,
-    measurement3: String,
-    measurement4: String
+    upperCircumferenceMeasurement: String,
+    lowerCircumferenceMeasurement: String,
+    breastSpanMeasurement: String,
+    breastHeightMeasurement: String
 ) {
 
     Column {
@@ -186,10 +186,10 @@ fun MeasurementCard(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween // lige fordeling mellem rækkens elementer
                 ) {
-                    MeasurementItem("Upper", measurement1.ifEmpty { "-" } + " cm")
-                    MeasurementItem("Lower", measurement2.ifEmpty { "-" } + " cm")
-                    MeasurementItem("Span",  measurement3.ifEmpty { "-" } + " cm")
-                    MeasurementItem("Height",measurement4.ifEmpty { "-" } + " cm")
+                    MeasurementItem("Upper", upperCircumferenceMeasurement.ifEmpty { "-" } + " cm")
+                    MeasurementItem("Lower", lowerCircumferenceMeasurement.ifEmpty { "-" } + " cm")
+                    MeasurementItem("Span",  breastSpanMeasurement.ifEmpty { "-" } + " cm")
+                    MeasurementItem("Height",breastHeightMeasurement.ifEmpty { "-" } + " cm")
                 }
             }
         }
@@ -324,9 +324,9 @@ fun ResultsPagePreview() {
     ResultsPageBody(
         onViewButtonClick = {},
         onRetakeButtonClick = {},
-        upperCircumference = "85",
-        lowerCircumference = "72",
-        breastSpan = "14",
-        breastHeight = "18"
+        updateUpperCircumference = "85",
+        updateLowerCircumference = "72",
+        updateBreastSpan = "14",
+        updateBreastHeight = "18"
     )
 }

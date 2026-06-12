@@ -172,10 +172,10 @@ fun AppNavigation() {
             ResultsPageBody(
                 onViewButtonClick = { navController.navigate("CheckoutPage") },
                 onRetakeButtonClick = { navController.navigate("StepOnePage") },
-                upperCircumference = viewModel.uiState.upperCircumference,
-                lowerCircumference = viewModel.uiState.lowerCircumference,
-                breastSpan = viewModel.uiState.breastSpan,
-                breastHeight = viewModel.uiState.breastHeight
+                updateUpperCircumference = viewModel.uiState.upperCircumference,
+                updateLowerCircumference = viewModel.uiState.lowerCircumference,
+                updateBreastSpan = viewModel.uiState.breastSpan,
+                updateBreastHeight = viewModel.uiState.breastHeight
             )
         }
 
