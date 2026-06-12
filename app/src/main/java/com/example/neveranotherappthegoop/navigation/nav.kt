@@ -72,7 +72,7 @@ fun AppNavigation() {
         composable("ErrorRecoveryPage") {
             ErrorRecovery(
                 onBackClick = { navController.popBackStack()},
-                tryAgain = {navController.popBackStack()}
+                onTryAgainClick = {navController.popBackStack()}
             )
         }
 
