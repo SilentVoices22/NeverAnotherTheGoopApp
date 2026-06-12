@@ -39,10 +39,10 @@ import com.example.neveranotherappthegoop.data.components.NALogoName
 fun ResultsPageBody(
     onViewButtonClick: () -> Unit,
     onRetakeButtonClick: () -> Unit,
-    measurement1: String,
-    measurement2: String,
-    measurement3: String,
-    measurement4: String
+    upperCircumference: String,
+    lowerCircumference: String,
+    breastSpan: String,
+    breastHeight: String
 ) {
 
     // page layout
@@ -63,10 +63,10 @@ fun ResultsPageBody(
 
         // bra image + measurements
         MeasurementCard(
-            measurement1 = measurement1,
-            measurement2 = measurement2,
-            measurement3 = measurement3,
-            measurement4 = measurement4
+            measurement1 = upperCircumference,
+            measurement2 = lowerCircumference,
+            measurement3 = breastSpan,
+            measurement4 = breastHeight
         )
 
         // "Why this fit is made for you" points
@@ -324,9 +324,9 @@ fun ResultsPagePreview() {
     ResultsPageBody(
         onViewButtonClick = {},
         onRetakeButtonClick = {},
-        measurement1 = "85",
-        measurement2 = "72",
-        measurement3 = "14",
-        measurement4 = "18"
+        upperCircumference = "85",
+        lowerCircumference = "72",
+        breastSpan = "14",
+        breastHeight = "18"
     )
 }
