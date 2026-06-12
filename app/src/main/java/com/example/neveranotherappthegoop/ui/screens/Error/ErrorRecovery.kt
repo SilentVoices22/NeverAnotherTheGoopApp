@@ -32,13 +32,15 @@ import com.example.neveranotherappthegoop.ui.theme.Orangevibrant
 @Composable
 fun ErrorRecoveryPreview(){
     ErrorRecovery(
-        onBackClick = {}
+        onBackClick = {},
+        tryAgain = {}
     )
 }
 
 @Composable
 fun ErrorRecovery(
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+    tryAgain: () -> Unit
 ) {
     Column(modifier = Modifier.fillMaxSize().padding(start = 15.dp, end = 15.dp, top = 20.dp)){
         TopbarErrorRecovery(onBackClick = onBackClick)
@@ -55,10 +57,7 @@ fun ErrorRecovery(
             IcTapeMeasure()
             BulletpointErrorRecovery()
             NaButton(textButton = "Try Again",
-                onClick = {
-
-
-                })
+                onClick = tryAgain)
             HeartOkayQoute()
         }
     }
