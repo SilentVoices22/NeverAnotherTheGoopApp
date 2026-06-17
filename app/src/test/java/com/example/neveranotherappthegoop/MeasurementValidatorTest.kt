@@ -22,7 +22,7 @@ class MeasurementValidatorTest {
 
     //Tester om "90 cm" er inde for grænsen
     @Test
-    fun `Upper circumference within range`() {
+    fun `Upper circumference higher than max`() {
         val result =
             MeasurementValidator.invalidUpperCircumference("90")
 
