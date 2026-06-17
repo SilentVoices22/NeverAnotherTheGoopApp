@@ -1,5 +1,4 @@
 ﻿package com.example.neveranotherappthegoop.ui.screens.PurchaseFlow
-import android.widget.Button
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -39,12 +38,11 @@ import com.example.neveranotherappthegoop.data.components.NALogoName
 fun ResultsPageBody(
     onViewButtonClick: () -> Unit,
     onRetakeButtonClick: () -> Unit,
-    updateUpperCircumference: String,
-    updateLowerCircumference: String,
-    updateBreastSpan: String,
-    updateBreastHeight: String
+    changedUpperCircumference: String,
+    changedLowerCircumference: String,
+    changedBreastSpan: String,
+   changedBreastHeight: String
 ) {
-
     // page layout
     Column(
         modifier = Modifier
@@ -63,10 +61,10 @@ fun ResultsPageBody(
 
         // bra image + measurements
         MeasurementCard(
-            upperCircumferenceMeasurement = updateUpperCircumference,
-            lowerCircumferenceMeasurement = updateLowerCircumference,
-            breastSpanMeasurement = updateBreastSpan,
-            breastHeightMeasurement = updateBreastHeight
+            upperCircumferenceMeasurement = changedUpperCircumference,
+            lowerCircumferenceMeasurement = changedLowerCircumference,
+            breastSpanMeasurement = changedBreastSpan,
+            breastHeightMeasurement = changedBreastHeight
         )
 
         // "Why this fit is made for you" points
@@ -324,9 +322,9 @@ fun ResultsPagePreview() {
     ResultsPageBody(
         onViewButtonClick = {},
         onRetakeButtonClick = {},
-        updateUpperCircumference = "85",
-        updateLowerCircumference = "72",
-        updateBreastSpan = "14",
-        updateBreastHeight = "18"
+        changedUpperCircumference = "85",
+        changedLowerCircumference = "72",
+        changedBreastSpan = "14",
+        changedBreastHeight = "18"
     )
 }
