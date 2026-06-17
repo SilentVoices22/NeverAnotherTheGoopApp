@@ -24,12 +24,12 @@ package com.example.neveranotherappthegoop.data.model
 object MeasurementValidator {
 
     // ---------- Validation Checks ----------
-    fun isUpperCircumferenceTooLarge(value: String): Boolean {
+    fun invalidUpperCircumference(value: String): Boolean {
         val number = value.toDoubleOrNull()
         return number == null || number < 77.0 || number > 113.0
     }
 
-    fun isLowerCircumferenceTooLarge(value: String): Boolean {
+    fun invalidLowerCircumference(value: String): Boolean {
         val number = value.toDoubleOrNull()
         return number == null || number < 65.0 || number > 100.0
     }

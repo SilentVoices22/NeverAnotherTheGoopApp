@@ -57,7 +57,7 @@ fun AppNavigation() {
             StepOnePage(
                 onBackClick = { navController.popBackStack() },
                 onContinueClick = {
-                    if (MeasurementValidator.isUpperCircumferenceTooLarge(viewModel.uiState.upperCircumference)) {
+                    if (MeasurementValidator.invalidUpperCircumference(viewModel.uiState.upperCircumference)) {
                         navController.navigate("ErrorRecoveryPage")
                     } else {
                         navController.navigate("StepTwoPage")
@@ -86,7 +86,7 @@ fun AppNavigation() {
             StepTwoPage(
                 onBackClick = { navController.popBackStack() },
                 onContinueClick = {
-                    if (MeasurementValidator.isLowerCircumferenceTooLarge(viewModel.uiState.lowerCircumference)) {
+                    if (MeasurementValidator.invalidLowerCircumference(viewModel.uiState.lowerCircumference)) {
                         navController.navigate("FalloutPage")
                     } else {
                         navController.navigate("YouAreDoingGreatPage")

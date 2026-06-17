@@ -24,7 +24,7 @@ class MeasurementValidatorTest {
     @Test
     fun `Upper circumference within range`() {
         val result =
-            MeasurementValidator.isUpperCircumferenceTooLarge("90")
+            MeasurementValidator.invalidUpperCircumference("90")
 
         assertEquals(false, result)
     }
@@ -33,7 +33,7 @@ class MeasurementValidatorTest {
     @Test
     fun `Upper circumference below minimum`() {
         val result =
-            MeasurementValidator.isUpperCircumferenceTooLarge("76")
+            MeasurementValidator.invalidUpperCircumference("76")
 
         assertEquals(true, result)
 
@@ -43,7 +43,7 @@ class MeasurementValidatorTest {
     @Test
     fun `Upper circumference above maximum`() {
         val result =
-            MeasurementValidator.isUpperCircumferenceTooLarge("120")
+            MeasurementValidator.invalidUpperCircumference("120")
 
         assertEquals(true, result)
     }
@@ -52,7 +52,7 @@ class MeasurementValidatorTest {
     @Test
     fun `Lower circumference within range` () {
         val result =
-            MeasurementValidator.isLowerCircumferenceTooLarge("80")
+            MeasurementValidator.invalidLowerCircumference("80")
 
         assertEquals(false, result)
     }
@@ -60,7 +60,7 @@ class MeasurementValidatorTest {
     @Test
     fun `Invalid input returns true` () {
         val result =
-            MeasurementValidator.isLowerCircumferenceTooLarge("FKH")
+            MeasurementValidator.invalidLowerCircumference("FKH")
 
         assertEquals(true, result)
     }
